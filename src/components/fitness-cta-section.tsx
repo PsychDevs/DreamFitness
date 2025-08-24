@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export default function FitnessCtaSection() {
     return (
         <section className="py-16 bg-muted rounded-xl mx-2 md:mx-auto max-w-5xl mt-12">
@@ -8,9 +10,9 @@ export default function FitnessCtaSection() {
                 <p className="text-muted-foreground mb-6">
                     Take the first step towards a stronger, healthier you
                 </p>
-                <button className="rounded bg-foreground text-background px-6 py-2 font-medium hover:bg-foreground/90 transition">
+                <Button className="rounded-xl px-8 py-3 text-base font-semibold shadow-lg bg-indigo-500 hover:bg-indigo-600 text-white border-none focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all duration-200">
                     Contact Us
-                </button>
+                </Button>
             </div>
         </section>
     );

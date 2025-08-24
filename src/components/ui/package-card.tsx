@@ -1,4 +1,4 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
 
 interface PackageCardProps {
     title: string;
@@ -33,12 +33,12 @@ export function PackageCard({
                     </li>
                 ))}
             </ul>
-            <button
-                className="mt-auto w-full rounded bg-foreground text-background py-2 font-medium hover:bg-foreground/90 transition"
+            <Button
+                className="mt-auto w-full py-3 text-base font-semibold rounded-xl shadow-lg bg-indigo-500 hover:bg-indigo-600 text-white border-none focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all duration-200"
                 onClick={onClick}
             >
                 Get Started
-            </button>
+            </Button>
         </div>
     );
 }

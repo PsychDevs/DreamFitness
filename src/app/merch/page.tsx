@@ -12,13 +12,13 @@ const products = [
         description:
             "Comfortable, stylish, and perfect for workouts or casual wear.",
         price: "$39",
-        image: "/track-bottom.jpg", // Add this image to your public folder
+        image: "/track-bottom.jpeg",
     },
     {
         name: "Arm Cut Top",
         description: "Show off your gains with this breathable, athletic top.",
         price: "$29",
-        image: "/arm-cut-top.jpg", // Add this image to your public folder
+        image: "/arm-cut-top.jpg",
     },
 ];
 
