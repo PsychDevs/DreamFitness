@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Global dark theme styles */
+html {
+    color-scheme: dark;
+    color: #f3f4f6;
+}
+
+/* Remove Scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* Hero video and overlay custom styles */
 .hero-bg-video {
     position: absolute;
