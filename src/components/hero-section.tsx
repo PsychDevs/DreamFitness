@@ -6,7 +6,7 @@ export default function HeroSection() {
     return (
         <>
             <video
-                className="absolute inset-0 -z-10 h-full w-full object-cover"
+                className="absolute inset-0 z-0 h-full w-full object-cover"
                 autoPlay
                 loop
                 muted
@@ -14,8 +14,14 @@ export default function HeroSection() {
             >
                 <source src="/gymVid.mp4" type="video/mp4" />
             </video>
-            {/* Overlay mask for darkening the video */}
-            <div className="absolute inset-0 -z-10 h-full w-full bg-black/60 pointer-events-none bg-linear-to-black " />
+            {/* Mask overlay for video */}
+            <div
+                className="absolute inset-0 z-0 h-full w-full pointer-events-none"
+                style={{
+                    background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0.7) 100%, rgba(0,0,0,0.7) 100%)",
+                }}
+            />
             <main className="[--color-primary:var(--color-indigo-500)] ">
                 <section className="flex h-screen w-full items-center justify-center text-white">
                     <div className="relative text-center ">
@@ -34,7 +40,7 @@ export default function HeroSection() {
                                 className="hover:bg-gray-500 hover:text-black"
                             >
                                 <Link href="#link">
-                                    <span className="text-nowrap text-lg">
+                                    <span className="text-nowrap text-lg text-">
                                         Try a Free Class
                                     </span>
                                 </Link>

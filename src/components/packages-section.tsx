@@ -40,7 +40,7 @@ export default function PackagesSection() {
     return (
         <section className="py-20 bg-background">
             <div className="container mx-auto px-4">
-                <h2 className="mx-auto text-4xl font-extrabold md:text-4xl uppercase text-center mb-2">
+                <h2 className="text-center mx-auto my-5 text-4xl font-extrabold md:text-4xl uppercase">
                     Training Packages
                 </h2>
                 <p className="text-muted-foreground text-center mb-12">

@@ -5,9 +5,14 @@ import { Button } from "@/components/ui/button";
 
 export default function ContactPage() {
     return (
-        <>
+        <div
+            className="min-h-screen w-full"
+            style={{
+                background: "linear-gradient(135deg, #1d1d1d 0%, #000000 100%)",
+            }}
+        >
             <HeroHeader />
-            <main className="bg-background min-h-screen flex flex-col items-center py-24">
+            <main className="flex flex-col items-center py-24">
                 <section className="max-w-6xl w-full mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
                         {/* Contact Form */}
@@ -16,7 +21,7 @@ export default function ContactPage() {
                                 <h2 className="text-3xl font-extrabold mb-2 text-white flex items-center gap-2">
                                     <span>Get in Touch</span>
                                 </h2>
-                                <p className="text-muted-foreground mb-8 text-lg">
+                                <p className="text-white mb-8 text-lg">
                                     Fill out the form below and I'll get back to
                                     you soon
                                 </p>
@@ -50,7 +55,11 @@ export default function ContactPage() {
                                 </div>
                                 <Button
                                     type="submit"
-                                    className="w-full mt-2 py-6 text-lg font-semibold rounded-xl bg-indigo-500 hover:bg-indigo-600 text-white shadow-lg transition-all duration-200 border-none focus:ring-2 focus:ring-indigo-400 focus:outline-none"
+                                    className="w-full mt-2 py-6 text-lg font-semibold rounded-xl bg-red-600 hover:bg-red-700 text-white shadow-lg transition-all duration-200 border-none focus:ring-2 focus:ring-red-400 focus:outline-none"
+                                    style={{
+                                        backgroundColor: "#ff1400",
+                                        color: "#ffffff",
+                                    }}
                                 >
                                     Send Message
                                 </Button>
@@ -62,7 +71,10 @@ export default function ContactPage() {
                                 Contact Details
                             </h3>
                             <div className="flex items-start gap-4 border-b border-zinc-700 pb-6">
-                                <Phone className="size-6 mt-1 text-indigo-400" />
+                                <Phone
+                                    className="size-6 mt-1 text-red-600"
+                                    style={{ color: "#ff1400" }}
+                                />
                                 <div>
                                     <div className="font-semibold text-white">
                                         Phone
@@ -73,7 +85,10 @@ export default function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex items-start gap-4 border-b border-zinc-700 pb-6">
-                                <Mail className="size-6 mt-1 text-indigo-400" />
+                                <Mail
+                                    className="size-6 mt-1 text-red-600"
+                                    style={{ color: "#ff1400" }}
+                                />
                                 <div>
                                     <div className="font-semibold text-white">
                                         Email
@@ -84,7 +99,10 @@ export default function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
-                                <MapPin className="size-6 mt-1 text-indigo-400" />
+                                <MapPin
+                                    className="size-6 mt-1 text-red-600"
+                                    style={{ color: "#ff1400" }}
+                                />
                                 <div>
                                     <div className="font-semibold text-white">
                                         Location
@@ -101,6 +119,6 @@ export default function ContactPage() {
                 </section>
             </main>
             <FooterSection />
-        </>
+        </div>
     );
 }
