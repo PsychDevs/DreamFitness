@@ -1,0 +1,364 @@
+<html>
+    <head>
+        <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+        <link
+            as="style"
+            href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+            onload="this.rel='stylesheet'"
+            rel="stylesheet"
+        />
+        <meta charset="utf-8" />
+        <title>DreamFitness</title>
+        <link href="./Sources/logo.png" rel="icon" />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                width: 100vw;
+            }
+            /* Hide vertical scrollbar but keep scrollability */
+            html,
+            body {
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+                overflow-x: hidden; /* do not show */
+            }
+            body::-webkit-scrollbar,
+            html::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
+            }
+        </style>
+    </head>
+    <body class="bg-[#1d1d1d]">
+        <div
+            class="relative flex size-full min-h-screen flex-col dark group/design-root"
+            style="font-family: Lexend, 'Noto Sans', sans-serif"
+        >
+            <div class="layout-container flex h-full grow flex-col">
+                <header
+                    id="navbar"
+                    class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-10 py-5 bg-transparent transition-colors duration-300 backdrop-blur"
+                >
+                    <div class="flex items-center gap-4">
+                        <a href="./index.html" class="text-white text-2xl font-bold leading-tight">
+                            <img class="h-14 w-14 object-cover" src="./Sources/logo.png" alt="Logo" />
+                        </a>
+                    </div>
+
+                    <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div class="flex items-center gap-8">
+                            <a class="text-white text-base font-medium leading-normal hover:underline" href="./index.html">Home</a>
+                            <a class="text-white text-base font-medium leading-normal hover:underline" href="./services.html">Services</a>
+                            <a class="text-white text-base font-medium leading-normal hover:underline" href="./merch.html">Merch</a>
+                            <a class="text-white text-base font-medium leading-normal hover:underline" href="#contact">Contact</a>
+                        </div>
+                    </nav>
+
+                    <div class="flex items-center">
+                        <button
+                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#ff1400] text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-200 ease-in-out hover:scale-105"
+                        >
+                            <span class="truncate">Contact Us</span>
+                        </button>
+                    </div>
+                </header>
+                <div class="flex justify-center">
+                    <div class="flex flex-col">
+                        <div class="relative">
+                            <section style="position: relative; width: 100vw; height: 100vh; overflow: hidden; margin: 0; padding: 0">
+                                <video
+                                    src="./Sources/gymVid.mp4"
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    style="
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100vw;
+                                        height: 100vh;
+                                        object-fit: cover;
+                                        z-index: -2;
+                                        margin: 0;
+                                        padding: 0;
+                                        border: none;
+                                        outline: none;
+                                        pointer-events: none;
+                                    "
+                                ></video>
+                                <div
+                                    style="
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100vw;
+                                        height: 100vh;
+                                        z-index: -1;
+                                        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+                                        pointer-events: none;
+                                    "
+                                ></div>
+                                <div
+                                    class="relative flex mx-auto max-w-3xl flex-col gap-6 text-center items-center justify-center"
+                                    style="
+                                        position: relative;
+                                        z-index: 2;
+                                        height: 100vh;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                    "
+                                >
+                                    <h1 class="text-white text-6xl md:text-6xl mb-4 text-center drop-shadow-lg">
+                                        <span class="text-[#ff1400] text-6xl md:text-8xl font-extrabold uppercase">DreamFitness</span><br />
+                                        <span class="text-white/80 text-xl md:text-2xl font-semibold block mt-2 tracking-wider"
+                                            >Where Fitness Dreams Become Reality</span
+                                        >
+                                    </h1>
+                                </div>
+                            </section>
+                        </div>
+                        <div
+                            class="py-16 min-h-screen min-w-screen flex flex-col justify-center items-center bg-[#1d1d1d]"
+                            style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #1d1d1d)"
+                            id="about"
+                        >
+                            <h2 class="text-white text-4xl font-bold leading-tight tracking-tighter text-center mb-4">
+                                About DreamFitness
+                            </h2>
+                            <p class="text-white/70 text-lg font-normal leading-relaxed text-center max-w-4xl mx-auto">
+                                DreamFitness is a certified fitness instructor with over 10 years of experience in helping individuals
+                                achieve their fitness aspirations. Specializing in personalized training, DreamFitness combines cutting-edge
+                                techniques with a holistic approach to wellness, ensuring sustainable results and a healthier lifestyle.
+                            </p>
+                        </div>
+                        <div class="py-16 px-4 min-h-screen min-w-screen bg-[#1d1d1d]">
+                            <h2 class="text-white text-4xl font-bold leading-tight tracking-tighter text-center mb-12">
+                                What Our Clients Say
+                            </h2>
+                            <div class="relative max-w-3xl mx-auto">
+                                <div id="testimonial-carousel" class="overflow-hidden relative">
+                                    <div
+                                        class="flex transition-transform duration-500"
+                                        id="testimonial-track"
+                                        style="will-change: transform"
+                                    >
+                                        <!-- Slide 1 -->
+                                        <div
+                                            class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+                                        >
+                                            <div class="flex items-center gap-4 mb-2">
+                                                <img
+                                                    src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+                                                    alt="Sarah M."
+                                                    class="w-14 h-14 rounded-full object-cover"
+                                                />
+                                                <div>
+                                                    <p class="text-white text-xl font-bold leading-normal">Sarah M.</p>
+                                                    <p class="text-white/60 text-base font-medium leading-normal">2023-08-15</p>
+                                                </div>
+                                            </div>
+                                            <p class="max-w-xl mx-auto text-white/90 text-lg font-medium leading-relaxed">
+                                                "DreamFitness's personalized training has been life-changing. I've never felt stronger or
+                                                more confident!"
+                                            </p>
+                                        </div>
+                                        <!-- Slide 2 -->
+                                        <div
+                                            class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+                                        >
+                                            <div class="flex items-center gap-4 mb-2">
+                                                <img
+                                                    src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
+                                                    alt="Mark L."
+                                                    class="w-14 h-14 rounded-full object-cover"
+                                                />
+                                                <div>
+                                                    <p class="text-white text-xl font-bold leading-normal">Mark L.</p>
+                                                    <p class="text-white/60 text-base font-medium leading-normal">2023-07-22</p>
+                                                </div>
+                                            </div>
+                                            <p class="max-w-xl mx-auto text-white/90 text-lg font-medium leading-relaxed">
+                                                "I highly recommend DreamFitness. Their expertise and support helped me reach my fitness
+                                                goals faster than I ever thought possible."
+                                            </p>
+                                        </div>
+                                        <!-- Slide 3 -->
+                                        <div
+                                            class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+                                        >
+                                            <div class="flex items-center gap-4 mb-2">
+                                                <img
+                                                    src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+                                                    alt="Emily R."
+                                                    class="w-14 h-14 rounded-full object-cover"
+                                                />
+                                                <div>
+                                                    <p class="text-white text-xl font-bold leading-normal">Emily R.</p>
+                                                    <p class="text-white/60 text-base font-medium leading-normal">2023-06-10</p>
+                                                </div>
+                                            </div>
+                                            <p class="max-w-xl mx-auto text-white/90 text-lg font-medium leading-relaxed">
+                                                "DreamFitness is an exceptional instructor. Their dedication and positive attitude make
+                                                every session enjoyable and effective."
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Carousel Controls -->
+                                    <button
+                                        id="testimonial-prev"
+                                        aria-label="Previous"
+                                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            class="w-6 h-6"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        id="testimonial-next"
+                                        aria-label="Next"
+                                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            class="w-6 h-6"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                    <!-- Carousel Indicators -->
+                                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                        <button class="w-4 h-1.5 rounded bg-white/40" data-slide="0"></button>
+                                        <button class="w-4 h-1.5 rounded bg-white/40" data-slide="1"></button>
+                                        <button class="w-4 h-1.5 rounded bg-white/40" data-slide="2"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                // Simple carousel logic
+                                (function () {
+                                    const track = document.getElementById("testimonial-track");
+                                    const prev = document.getElementById("testimonial-prev");
+                                    const next = document.getElementById("testimonial-next");
+                                    const indicators = document.querySelectorAll("[data-slide]");
+                                    let current = 0;
+                                    const slides = 3;
+                                    function updateCarousel(idx) {
+                                        current = idx;
+                                        track.style.transform = `translateX(-${current * 100}%)`;
+                                        indicators.forEach((el, i) => {
+                                            el.classList.toggle("bg-white", i === current);
+                                            el.classList.toggle("bg-white/40", i !== current);
+                                        });
+                                    }
+                                    prev.addEventListener("click", () => {
+                                        updateCarousel((current - 1 + slides) % slides);
+                                    });
+                                    next.addEventListener("click", () => {
+                                        updateCarousel((current + 1) % slides);
+                                    });
+                                    indicators.forEach((el, i) => {
+                                        el.addEventListener("click", () => updateCarousel(i));
+                                    });
+                                    updateCarousel(0);
+                                })();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <footer class="flex justify-center border-t border-solid border-white/10 bg-[#1d1d1d]">
+                    <div class="flex max-w-6xl flex-1 flex-col">
+                        <footer class="flex flex-col gap-8 px-5 py-12 text-center @container">
+                            <div class="flex flex-wrap justify-center gap-6">
+                                <a href="#">
+                                    <div
+                                        class="text-white/70 hover:text-white"
+                                        data-icon="InstagramLogo"
+                                        data-size="28px"
+                                        data-weight="regular"
+                                    >
+                                        <svg
+                                            fill="currentColor"
+                                            height="28px"
+                                            viewBox="0 0 256 256"
+                                            width="28px"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div
+                                        class="text-white/70 hover:text-white"
+                                        data-icon="TwitterLogo"
+                                        data-size="28px"
+                                        data-weight="regular"
+                                    >
+                                        <svg
+                                            fill="currentColor"
+                                            height="28px"
+                                            viewBox="0 0 256 256"
+                                            width="28px"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div
+                                        class="text-white/70 hover:text-white"
+                                        data-icon="FacebookLogo"
+                                        data-size="28px"
+                                        data-weight="regular"
+                                    >
+                                        <svg
+                                            fill="currentColor"
+                                            height="28px"
+                                            viewBox="0 0 256 256"
+                                            width="28px"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="text-white/50 text-base font-normal leading-normal">
+                                &copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                DreamFitness | Created by
+                                <a href="https://psychdevs.site/" style="text-decoration: underline; text-underline-offset: 5px"
+                                    >PsychDevs</a
+                                >
+                            </p>
+                        </footer>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
