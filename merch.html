@@ -24,21 +24,21 @@
             body {
                 overflow-x: hidden;
             }
-            
+
             /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
             ::-webkit-scrollbar {
                 display: none;
             }
-            
+
             /* Hide scrollbar for IE, Edge and Firefox */
             html {
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
             }
-            
+
             body {
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none; /* Firefox */
             }
             .hamburger-lines,
             .hamburger-lines::before,
@@ -85,7 +85,7 @@
             class="relative flex size-full min-h-screen flex-col dark group/design-root"
             style="font-family: Lexend, 'Noto Sans', sans-serif"
         >
-            <div class=" flex h-full grow flex-col">
+            <div class="flex h-full grow flex-col">
                 <header
                     id="navbar"
                     class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
@@ -152,18 +152,16 @@
                         </div>
                     </div>
                 </header>
-                
+
                 <main class="pt-28 md:pt-32 w-full">
                     <!-- Hero Section -->
                     <section class="relative py-20 md:py-32 overflow-hidden">
                         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-
                             <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                                 DreamFitness
                                 <span class="block text-[#ff1400] text-3xl md:text-5xl mt-2">Merchandise Collection</span>
                             </h1>
-                            
-                            
+
                             <a
                                 href="#products"
                                 class="inline-block bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -187,10 +185,10 @@
 
                                 <div class="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">
                                     <!-- Arm Cut Shirt -->
-                                    <div class="group relative">
-                                        <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300">
-                                            
-                                            
+                                    <div class="group relative cursor-pointer" onclick="openProductModal('shirt')">
+                                        <div
+                                            class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
+                                        >
                                             <div class="overflow-hidden rounded-xl mb-6">
                                                 <img
                                                     class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
@@ -199,170 +197,79 @@
                                                     loading="lazy"
                                                 />
                                             </div>
-                                            
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h3 class="text-white text-2xl font-bold mb-2">Arm-Cut Performance Shirt</h3>
-                                                    <p class="text-white/70 leading-relaxed">
-                                                        Our signature arm-cut design provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable.
-                                                    </p>
+
+                                            <div class="text-center">
+                                                <h3 class="text-white text-2xl font-bold mb-3">Arm-Cut Performance Shirt</h3>
+
+                                                <div class="flex items-center justify-center gap-4 mb-6">
+                                                    <span class="text-white/60 text-sm line-through">$45</span>
+                                                    <span class="text-[#ff1400] font-bold text-3xl">$32</span>
+                                                    <span class="bg-green-500/20 text-green-400 text-xs font-semibold px-2 py-1 rounded"
+                                                        >SAVE $13</span
+                                                    >
                                                 </div>
-                                                
-                                                <!-- Features -->
-                                                <div class="space-y-2">
-                                                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Key Features:</h4>
-                                                    <ul class="space-y-1 text-white/60 text-sm">
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Quick-dry moisture-wicking fabric
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Reinforced seams for durability
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Optimal arm mobility design
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Premium DreamFitness branding
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                
-                                                <!-- Size Selection -->
-                                                <div>
-                                                    <h4 class="text-white font-semibold mb-3">Size:</h4>
-                                                    <div class="flex gap-2">
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">S</button>
-                                                        <button class="px-3 py-2 border border-[#ff1400] text-[#ff1400] bg-[#ff1400]/10 rounded transition-all text-sm">M</button>
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">L</button>
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">XL</button>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Price and CTA -->
-                                                <div class="border-t border-white/10 pt-6">
-                                                    <div class="flex items-center justify-between mb-4">
-                                                        <div>
-                                                            <span class="text-white/60 text-sm line-through">$45</span>
-                                                            <span class="text-[#ff1400] font-bold text-3xl ml-2">$32</span>
-                                                        </div>
-                                                        <span class="bg-green-500/20 text-green-400 text-xs font-semibold px-2 py-1 rounded">SAVE $13</span>
-                                                    </div>
-                                                    <button class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                                        Add to Cart - $32
-                                                    </button>
-                                                </div>
+
+                                                <button
+                                                    class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                                                >
+                                                    View Details
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Performance Bottom -->
-                                    <div class="group relative">
-                                        <div class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300">
-                                            
+                                    <div class="group relative cursor-pointer" onclick="openProductModal('bottom')">
+                                        <div
+                                            class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
+                                        >
                                             <div class="overflow-hidden rounded-xl mb-6">
-                                                <div class="w-full aspect-square flex items-center justify-center bg-gradient-to-br from-[#272727] to-[#1a1a1a] text-white/30 text-xs tracking-wider relative group-hover:scale-110 transition-transform duration-500">
-                                                    <div class="text-center">
-                                                        <svg class="w-16 h-16 mx-auto mb-2 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z"></path>
-                                                        </svg>
-                                                        <div>PREMIUM BOTTOM</div>
-                                                        <div class="text-xs mt-1">Coming Soon</div>
-                                                    </div>
-                                                </div>
+                                                <img
+                                                    class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
+                                                    src="./Sources/track-bottom.jpeg"
+                                                    alt="DreamFitness Track Bottom"
+                                                    loading="lazy"
+                                                />
                                             </div>
-                                            
-                                            <div class="space-y-4">
-                                                <div>
-                                                    <h3 class="text-white text-2xl font-bold mb-2">Performance Bottom</h3>
-                                                    <p class="text-white/70 leading-relaxed">
-                                                        Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between.
-                                                    </p>
+
+                                            <div class="text-center">
+                                                <h3 class="text-white text-2xl font-bold mb-3">DreamFitness Track Bottom</h3>
+
+                                                <div class="flex items-center justify-center gap-4 mb-6">
+                                                    <span class="text-white/60 text-sm line-through">$55</span>
+                                                    <span class="text-[#ff1400] font-bold text-3xl">$45</span>
+                                                    <span class="bg-green-500/20 text-green-400 text-xs font-semibold px-2 py-1 rounded"
+                                                        >SAVE $10</span
+                                                    >
                                                 </div>
-                                                
-                                                <!-- Features -->
-                                                <div class="space-y-2">
-                                                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider">Key Features:</h4>
-                                                    <ul class="space-y-1 text-white/60 text-sm">
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            4-way stretch material
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Compression support technology
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Sweat-resistant waistband
-                                                        </li>
-                                                        <li class="flex items-center">
-                                                            <svg class="w-4 h-4 text-[#ff1400] mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            Squat-proof material
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                
-                                                <!-- Size Selection -->
-                                                <div>
-                                                    <h4 class="text-white font-semibold mb-3">Size:</h4>
-                                                    <div class="flex gap-2">
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">XS</button>
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">S</button>
-                                                        <button class="px-3 py-2 border border-[#ff1400] text-[#ff1400] bg-[#ff1400]/10 rounded transition-all text-sm">M</button>
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">L</button>
-                                                        <button class="px-3 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all text-sm">XL</button>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Price and CTA -->
-                                                <div class="border-t border-white/10 pt-6">
-                                                    <div class="flex items-center justify-between mb-4">
-                                                        <div>
-                                                            <span class="text-white/60 text-sm line-through">$55</span>
-                                                            <span class="text-[#ff1400] font-bold text-3xl ml-2">$45</span>
-                                                        </div>
-                                                        <span class="bg-green-500/20 text-green-400 text-xs font-semibold px-2 py-1 rounded">SAVE $10</span>
-                                                    </div>
-                                                    <button class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                                        Add to Cart - $45
-                                                    </button>
-                                                </div>
+
+                                                <button
+                                                    class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                                                >
+                                                    View Details
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Bundle Offer -->
-                                <div class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8 text-center">
+                                <div
+                                    class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8 text-center"
+                                >
                                     <h3 class="text-white text-2xl font-bold mb-4">🔥 Complete Set Bundle</h3>
-                                    <p class="text-white/70 mb-6">Get both items and save even more! Perfect for the complete DreamFitness experience.</p>
+                                    <p class="text-white/70 mb-6">
+                                        Get both items and save even more! Perfect for the complete DreamFitness experience.
+                                    </p>
                                     <div class="flex items-center justify-center gap-4 mb-6">
                                         <span class="text-white/60 text-lg line-through">$77</span>
-                                        <span class="text-[#ff1400] font-bold text-4xl">$65</span>
-                                        <span class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">SAVE $12</span>
+                                        <span class="text-[#ff1400] font-bold text-4xl">$60</span>
+                                        <span class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded-full">SAVE $17</span>
                                     </div>
-                                    <button class="bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
-                                        Buy Complete Set - $65
+                                    <button
+                                        class="bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+                                    >
+                                        Buy Complete Set - $70
                                     </button>
                                 </div>
                             </div>
@@ -382,16 +289,19 @@
                                     <!-- Review 1 -->
                                     <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
                                         <div class="flex items-center mb-4">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Jessica T." class="w-12 h-12 rounded-full mr-4">
+                                            <img
+                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+                                                alt="Jessica T."
+                                                class="w-12 h-12 rounded-full mr-4"
+                                            />
                                             <div>
                                                 <h4 class="text-white font-bold">Jessica T.</h4>
-                                                <div class="flex text-yellow-400 text-sm">
-                                                    ★★★★★
-                                                </div>
+                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
                                             </div>
                                         </div>
                                         <blockquote class="text-white/80 italic mb-4">
-                                            "The arm-cut shirt is incredible! Perfect range of motion for my workouts and the material stays dry even during intense sessions."
+                                            "The arm-cut shirt is incredible! Perfect range of motion for my workouts and the material stays
+                                            dry even during intense sessions."
                                         </blockquote>
                                         <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Arm-Cut Shirt</div>
                                     </div>
@@ -399,16 +309,19 @@
                                     <!-- Review 2 -->
                                     <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
                                         <div class="flex items-center mb-4">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="Marcus R." class="w-12 h-12 rounded-full mr-4">
+                                            <img
+                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
+                                                alt="Marcus R."
+                                                class="w-12 h-12 rounded-full mr-4"
+                                            />
                                             <div>
                                                 <h4 class="text-white font-bold">Marcus R.</h4>
-                                                <div class="flex text-yellow-400 text-sm">
-                                                    ★★★★★
-                                                </div>
+                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
                                             </div>
                                         </div>
                                         <blockquote class="text-white/80 italic mb-4">
-                                            "Quality is outstanding! I've washed my shirt dozens of times and it still looks brand new. Worth every penny."
+                                            "Quality is outstanding! I've washed my shirt dozens of times and it still looks brand new.
+                                            Worth every penny."
                                         </blockquote>
                                         <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Complete Set</div>
                                     </div>
@@ -416,80 +329,284 @@
                                     <!-- Review 3 -->
                                     <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
                                         <div class="flex items-center mb-4">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png" alt="Amanda K." class="w-12 h-12 rounded-full mr-4">
+                                            <img
+                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+                                                alt="Amanda K."
+                                                class="w-12 h-12 rounded-full mr-4"
+                                            />
                                             <div>
                                                 <h4 class="text-white font-bold">Amanda K.</h4>
-                                                <div class="flex text-yellow-400 text-sm">
-                                                    ★★★★★
-                                                </div>
+                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
                                             </div>
                                         </div>
                                         <blockquote class="text-white/80 italic mb-4">
-                                            "Love the exclusive design! I get compliments at the gym all the time. The performance bottoms are so comfortable too."
+                                            "Love the exclusive design! I get compliments at the gym all the time. The performance bottoms
+                                            are so comfortable too."
                                         </blockquote>
                                         <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Performance Bottom</div>
                                     </div>
                                 </div>
-
                             </div>
                         </section>
-                                    
-                        <!-- Final CTA Section -->
-                        <section class="py-20 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden w-[100vw]">
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
-                                <div class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
-                            </div>
-                            <div class="max-w-4xl mx-auto text-center relative z-10">
-                                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-                                    Ready to Elevate Your Training?
-                                </h2>
-                                <p class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
-                                    Join the DreamFitness community and experience gear that's built for champions.
-                                </p>
-                                
-                                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                                    <a
-                                        href="#products"
-                                        class="border-2 border-white bg-white text-[#f93900] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f93900] hover:text-white"
-                                    >
-                                        Shop Now
-                                    </a>
-                                    <a
-                                        href="./contact.html"
-                                        class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
-                                    >
-                                        Questions? Contact Us
-                                    </a>
-                                </div>
-                                
-                            </div>
-                        </section>
+                    </section>
                 </main>
 
-                <footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
-                <div class="max-w-6xl mx-auto text-center px-6">
-                    <div class="flex justify-center gap-6 mb-6">
-                        <a href="https://www.instagram.com/d.fitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >Instagram</a
-                        >
-                        <a href="https://www.tiktok.com/@dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >TikTok</a
-                        >
-                        <a href="https://www.facebook.com/dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >Facebook</a
-                        >
+                <!-- Final CTA Section - Full Width Outside Main -->
+                <section class="py-20 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-20">
+                        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
                     </div>
-                    <p class="text-white/50">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        DreamFitness | Created by <a href="https://psychdevs.site/" class="underline">PsychDevs</a>
-                    </p>
-                </div>
+                    <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
+                        <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight">Ready to Elevate Your Training?</h2>
+                        <p class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
+                            Join the DreamFitness community and experience gear that's built for champions.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                            <a
+                                href="#products"
+                                class="border-2 border-white bg-white text-[#f93900] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f93900] hover:text-white"
+                            >
+                                Shop Now
+                            </a>
+                            <a
+                                href="./contact.html"
+                                class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
+                            >
+                                Questions? Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <main class="w-0 h-0"></main>
+
+                <footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
+                    <div class="max-w-6xl mx-auto text-center px-6">
+                        <div class="flex justify-center gap-6 mb-6">
+                            <a href="https://www.instagram.com/d.fitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
+                                >Instagram</a
+                            >
+                            <a href="https://www.tiktok.com/@dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
+                                >TikTok</a
+                            >
+                            <a href="https://www.facebook.com/dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
+                                >Facebook</a
+                            >
+                        </div>
+                        <p class="text-white/50">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            DreamFitness | Created by <a href="https://psychdevs.site/" class="underline">PsychDevs</a>
+                        </p>
+                    </div>
                 </footer>
             </div>
         </div>
+
+        <!-- Product Modal -->
+        <div
+            id="productModal"
+            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-all duration-300"
+        >
+            <div class="flex items-center justify-center min-h-screen p-4">
+                <div
+                    class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300"
+                    id="modalContent"
+                >
+                    <!-- Modal Header -->
+                    <div class="flex items-center justify-between p-6 border-b border-white/10">
+                        <h2 id="modalTitle" class="text-white text-2xl font-bold">Product Details</h2>
+                        <button
+                            onclick="closeProductModal()"
+                            class="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                        >
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="p-6">
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <!-- Product Image -->
+                            <div class="overflow-hidden rounded-xl">
+                                <img id="modalImage" class="w-full aspect-square object-cover" src="" alt="" />
+                            </div>
+
+                            <!-- Product Details -->
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 id="modalProductTitle" class="text-white text-3xl font-bold mb-3"></h3>
+                                    <p id="modalDescription" class="text-white/70 text-lg leading-relaxed"></p>
+                                </div>
+
+                                <!-- Size Selection -->
+                                <div>
+                                    <h4 class="text-white font-semibold mb-3">Size:</h4>
+                                    <div id="modalSizes" class="flex gap-2 flex-wrap"></div>
+                                </div>
+
+                                <!-- Price and CTA -->
+                                <div class="border-t border-white/10 pt-6">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <span id="modalOriginalPrice" class="text-white/60 text-lg line-through"></span>
+                                        <span id="modalPrice" class="text-[#ff1400] font-bold text-4xl"></span>
+                                        <span
+                                            id="modalSavings"
+                                            class="bg-green-500/20 text-green-400 text-sm font-semibold px-3 py-1 rounded"
+                                        ></span>
+                                    </div>
+                                    <button
+                                        id="modalAddToCart"
+                                        class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Product data
+            const products = {
+                shirt: {
+                    title: "Arm-Cut Performance Shirt",
+                    description:
+                        "Our signature arm-cut design provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable throughout your training session.",
+                    image: "./Sources/arm-cut-top.jpg",
+                    originalPrice: "$45",
+                    price: "$32",
+                    savings: "SAVE $13",
+                    sizes: ["S", "M", "L", "XL"],
+                },
+                bottom: {
+                    title: "Performance Bottom",
+                    description:
+                        "Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between. Features compression support technology for enhanced performance.",
+                    image: "./Sources/track-bottom.jpeg",
+                    originalPrice: "$55",
+                    price: "$45",
+                    savings: "SAVE $10",
+                    sizes: ["XS", "S", "M", "L", "XL"],
+                },
+            };
+
+            let selectedSize = "M"; // Default size
+
+            function openProductModal(productType) {
+                const modal = document.getElementById("productModal");
+                const product = products[productType];
+
+                // Update modal content
+                document.getElementById("modalTitle").textContent = product.title;
+                document.getElementById("modalProductTitle").textContent = product.title;
+                document.getElementById("modalDescription").textContent = product.description;
+                document.getElementById("modalOriginalPrice").textContent = product.originalPrice;
+                document.getElementById("modalPrice").textContent = product.price;
+                document.getElementById("modalSavings").textContent = product.savings;
+                document.getElementById("modalAddToCart").textContent = `Place Order - ${product.price}`;
+
+                // Update image - Fix for bottom modal issue
+                const imageContainer = document.querySelector("#modalContent .grid.lg\\:grid-cols-2 > div:first-child");
+                if (product.image) {
+                    imageContainer.innerHTML = `
+                        <div class="overflow-hidden rounded-xl">
+                            <img id="modalImage" class="w-full aspect-square object-cover" src="${product.image}" alt="${product.title}" />
+                        </div>
+                    `;
+                } else {
+                    // Show placeholder for bottom without breaking DOM structure
+                    imageContainer.innerHTML = `
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="w-full aspect-square flex items-center justify-center bg-gradient-to-br from-[#272727] to-[#1a1a1a] text-white/30 text-xs tracking-wider rounded-xl">
+                                <div class="text-center">
+                                    <svg class="w-20 h-20 mx-auto mb-3 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z"></path>
+                                    </svg>
+                                    <div class="text-lg">PREMIUM BOTTOM</div>
+                                    <div class="text-sm mt-1">Coming Soon</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Update sizes
+                const sizesList = document.getElementById("modalSizes");
+                sizesList.innerHTML = product.sizes
+                    .map(
+                        (size) => `
+                    <button onclick="selectSize('${size}')" class="size-btn px-4 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all ${
+                            size === selectedSize ? "border-[#ff1400] text-[#ff1400] bg-[#ff1400]/10" : ""
+                        }">
+                        ${size}
+                    </button>
+                `
+                    )
+                    .join("");
+
+                // Show modal
+                modal.classList.remove("opacity-0", "pointer-events-none");
+                document.getElementById("modalContent").classList.remove("scale-95");
+                document.body.style.overflow = "hidden";
+            }
+
+            function closeProductModal() {
+                const modal = document.getElementById("productModal");
+                modal.classList.add("opacity-0", "pointer-events-none");
+                document.getElementById("modalContent").classList.add("scale-95");
+                document.body.style.overflow = "auto";
+            }
+
+            function selectSize(size) {
+                selectedSize = size;
+                // Update size buttons
+                document.querySelectorAll(".size-btn").forEach((btn) => {
+                    btn.classList.remove("border-[#ff1400]", "text-[#ff1400]", "bg-[#ff1400]/10");
+                    btn.classList.add("border-white/20", "text-white/60");
+                });
+                event.target.classList.remove("border-white/20", "text-white/60");
+                event.target.classList.add("border-[#ff1400]", "text-[#ff1400]", "bg-[#ff1400]/10");
+            }
+
+            // Close modal when clicking outside
+            function setupModalEventListeners() {
+                const modal = document.getElementById("productModal");
+
+                // Remove existing listeners to prevent duplicates
+                modal.removeEventListener("click", handleModalClick);
+                document.removeEventListener("keydown", handleEscapeKey);
+
+                // Add fresh event listeners
+                modal.addEventListener("click", handleModalClick);
+                document.addEventListener("keydown", handleEscapeKey);
+            }
+
+            function handleModalClick(e) {
+                if (e.target === document.getElementById("productModal")) {
+                    closeProductModal();
+                }
+            }
+
+            function handleEscapeKey(e) {
+                if (e.key === "Escape") {
+                    closeProductModal();
+                }
+            }
+
+            // Initialize event listeners when the page loads
+            document.addEventListener("DOMContentLoaded", function () {
+                setupModalEventListeners();
+            });
+        </script>
     </body>
 </html>
