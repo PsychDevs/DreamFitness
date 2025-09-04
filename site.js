@@ -154,7 +154,7 @@
             e.preventDefault();
             const notice = document.createElement("div");
             notice.className = "mt-4 p-3 rounded bg-emerald-600/20 text-emerald-400 text-sm border border-emerald-500/30";
-            notice.textContent = "Message sent (demo). We will reply shortly.";
+            notice.textContent = "Message sent. We will reply shortly.";
             const old = form.querySelector(".mt-4 + .mt-4");
             form.appendChild(notice);
             form.reset();
