@@ -60,6 +60,42 @@
                 top: 7px;
                 left: 0;
             }
+            
+            /* Image Gallery Styles */
+            .image-gallery {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                min-height: 300px;
+            }
+            
+            .gallery-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                object-fit: cover;
+            }
+            
+            .gallery-image.active {
+                opacity: 1;
+            }
+            
+            .gallery-dot {
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .gallery-dot:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            
+            .gallery-dot.active {
+                background-color: white;
+            }
         </style>
         <script>
             // Navbar background color on scroll
@@ -157,16 +193,21 @@
                     <!-- Hero Section -->
                     <section class="relative py-20 md:py-32 overflow-hidden">
                         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+                            <div class="mb-6">
+                                <span class="inline-block bg-[#ff1400] text-white text-sm font-bold px-4 py-2 rounded-full mb-4 animate-pulse">
+                                    🚨 LIMITED DROP ALERT 🚨
+                                </span>
+                            </div>
                             <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                                 DreamFitness
-                                <span class="block text-[#ff1400] text-3xl md:text-5xl mt-2">Merchandise Collection</span>
+                                <span class="block text-[#ff1400] text-3xl md:text-5xl mt-2">Exclusive Collection</span>
                             </h1>
 
                             <a
                                 href="#products"
                                 class="inline-block bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
                             >
-                                Shop Collection
+                                ⚡ Grab Yours TODAY & Level Up Your Style! ⚡
                             </a>
                         </div>
                     </section>
@@ -177,9 +218,10 @@
                         <div class="py-20 px-4 bg-[#1d1d1d] min-h-screen" id="products">
                             <div class="max-w-6xl mx-auto">
                                 <div class="text-center mb-16">
-                                    <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">Our Exclusive Collection</h2>
+                                    <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">🔥 Ultra-Limited Stock Available</h2>
                                     <p class="text-white/70 max-w-2xl mx-auto text-lg">
-                                        Two essential pieces, engineered for performance and designed to elevate your training experience.
+                                        Street x Gym ready pieces designed for dream-chasers who want comfort + aesthetic. 
+                                        <span class="text-[#ff1400] font-semibold">Oversize fit • Ultra-limited stock</span>
                                     </p>
                                 </div>
 
@@ -189,17 +231,39 @@
                                         <div
                                             class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
                                         >
-                                            <div class="overflow-hidden rounded-xl mb-6">
-                                                <img
-                                                    class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
-                                                    src="./Sources/arm-cut-top.jpg"
-                                                    alt="DreamFitness Arm-Cut Performance Shirt"
-                                                    loading="lazy"
-                                                />
+                                            <!-- Image Gallery -->
+                                            <div class="overflow-hidden rounded-xl mb-6 relative aspect-square">
+                                                <div class="image-gallery w-full h-full" id="shirt-gallery">
+                                                    <img
+                                                        class="gallery-image active"
+                                                        src="./Sources/arm-cut-top.jpg"
+                                                        alt="DreamFitness Arm-Cut Performance Shirt - Front View"
+                                                        loading="lazy"
+                                                    />
+                                                    <img
+                                                        class="gallery-image"
+                                                        src="./Sources/arm-cut-top.jpg"
+                                                        alt="DreamFitness Arm-Cut Performance Shirt - Side View"
+                                                        loading="lazy"
+                                                    />
+                                                    <img
+                                                        class="gallery-image"
+                                                        src="./Sources/arm-cut-top.jpg"
+                                                        alt="DreamFitness Arm-Cut Performance Shirt - Detail View"
+                                                        loading="lazy"
+                                                    />
+                                                </div>
+                                                <!-- Gallery dots -->
+                                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                                    <button class="gallery-dot active w-2 h-2 rounded-full bg-white" onclick="changeImage(event, 'shirt-gallery', 0)"></button>
+                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'shirt-gallery', 1)"></button>
+                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'shirt-gallery', 2)"></button>
+                                                </div>
                                             </div>
 
                                             <div class="text-center">
-                                                <h3 class="text-white text-2xl font-bold mb-3">Arm-Cut Performance Shirt</h3>
+                                                <h3 class="text-white text-2xl font-bold mb-3">Oversize "CROSS-OVER" Unisex Tank </h3>
+                                                <p class="text-white/60 text-sm mb-4">Street x Gym ready • Oversize fit</p>
 
                                                 <div class="flex items-center justify-center gap-4 mb-6">
                                                     <span class="text-white/60 text-sm line-through">$45</span>
@@ -212,7 +276,7 @@
                                                 <button
                                                     class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
                                                 >
-                                                    View Details
+                                                    ⚡ Grab Yours TODAY! ⚡
                                                 </button>
                                             </div>
                                         </div>
@@ -223,17 +287,39 @@
                                         <div
                                             class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
                                         >
-                                            <div class="overflow-hidden rounded-xl mb-6">
-                                                <img
-                                                    class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
-                                                    src="./Sources/track-bottom.jpeg"
-                                                    alt="DreamFitness Track Bottom"
-                                                    loading="lazy"
-                                                />
+                                            <!-- Image Gallery -->
+                                            <div class="overflow-hidden rounded-xl mb-6 relative aspect-square">
+                                                <div class="image-gallery w-full h-full" id="bottom-gallery">
+                                                    <img
+                                                        class="gallery-image active"
+                                                        src="./Sources/track-bottom.jpeg"
+                                                        alt="DreamFitness Performance Bottom - Front View"
+                                                        loading="lazy"
+                                                    />
+                                                    <img
+                                                        class="gallery-image"
+                                                        src="./Sources/track-bottom.jpeg"
+                                                        alt="DreamFitness Performance Bottom - Side View"
+                                                        loading="lazy"
+                                                    />
+                                                    <img
+                                                        class="gallery-image"
+                                                        src="./Sources/track-bottom.jpeg"
+                                                        alt="DreamFitness Performance Bottom - Detail View"
+                                                        loading="lazy"
+                                                    />
+                                                </div>
+                                                <!-- Gallery dots -->
+                                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                                    <button class="gallery-dot active w-2 h-2 rounded-full bg-white" onclick="changeImage(event, 'bottom-gallery', 0)"></button>
+                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'bottom-gallery', 1)"></button>
+                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'bottom-gallery', 2)"></button>
+                                                </div>
                                             </div>
 
                                             <div class="text-center">
-                                                <h3 class="text-white text-2xl font-bold mb-3">DreamFitness Track Bottom</h3>
+                                                <h3 class="text-white text-2xl font-bold mb-3">Oversize "CROSS-OVER" Unisex Pant </h3>
+                                                <p class="text-white/60 text-sm mb-4">Street x Gym ready • Oversize fit</p>
 
                                                 <div class="flex items-center justify-center gap-4 mb-6">
                                                     <span class="text-white/60 text-sm line-through">$55</span>
@@ -246,7 +332,7 @@
                                                 <button
                                                     class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
                                                 >
-                                                    View Details
+                                                    ⚡ Grab Yours TODAY! ⚡
                                                 </button>
                                             </div>
                                         </div>
@@ -257,9 +343,10 @@
                                 <div
                                     class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8 text-center"
                                 >
-                                    <h3 class="text-white text-2xl font-bold mb-4">🔥 Complete Set Bundle</h3>
+                                    <h3 class="text-white text-2xl font-bold mb-4">🔥 Complete "CROSS-OVER" Set Bundle</h3>
                                     <p class="text-white/70 mb-6">
-                                        Get both items and save even more! Perfect for the complete DreamFitness experience.
+                                        Get both pieces and save even more! Perfect for the complete DreamFitness experience. 
+                                        <span class="text-[#ff1400] font-semibold">Ultra-limited stock available!</span>
                                     </p>
                                     <div class="flex items-center justify-center gap-4 mb-6">
                                         <span class="text-white/60 text-lg line-through">$77</span>
@@ -269,7 +356,7 @@
                                     <button
                                         class="bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
                                     >
-                                        Buy Complete Set - $70
+                                        ⚡ Grab Complete Set TODAY! ⚡
                                     </button>
                                 </div>
                             </div>
@@ -358,24 +445,26 @@
                         <div class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
                     </div>
                     <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
-                        <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight">Ready to Elevate Your Training?</h2>
-                        <p class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
-                            Join the DreamFitness community and experience gear that's built for champions.
-                        </p>
+                        <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-10 leading-tight">Ready to Level Up Your Style?</h2>
+
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                             <a
                                 href="#products"
                                 class="border-2 border-white bg-white text-[#f93900] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f93900] hover:text-white"
                             >
-                                Shop Now
+                                ⚡ Grab Yours TODAY! ⚡
                             </a>
                             <a
                                 href="./contact.html"
                                 class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
                             >
-                                Questions? Contact Us
+                                📞 Questions? Contact Us
                             </a>
+                        </div>
+                        
+                        <div class="text-white/80 text-sm">
+                            <p>📞 072 557 0035 | #DreamFitness #CrossoverPant #LimitedDrop</p>
                         </div>
                     </div>
                 </section>
@@ -479,20 +568,28 @@
             // Product data
             const products = {
                 shirt: {
-                    title: "Arm-Cut Performance Shirt",
+                    title: "Oversize \"CROSS-OVER\" Unisex Tank",
                     description:
-                        "Our signature arm-cut design provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable throughout your training session.",
-                    image: "./Sources/arm-cut-top.jpg",
+                        "Designed for dream-chasers who want comfort + aesthetic! Our signature oversize fit provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable throughout your training session. Street x Gym ready!",
+                    images: [
+                        "./Sources/arm-cut-top.jpg",
+                        "./Sources/arm-cut-top.jpg", // You can replace with different angles
+                        "./Sources/arm-cut-top.jpg"  // You can replace with different angles
+                    ],
                     originalPrice: "$45",
                     price: "$32",
                     savings: "SAVE $13",
                     sizes: ["S", "M", "L", "XL"],
                 },
                 bottom: {
-                    title: "Performance Bottom",
+                    title: "Oversize \"CROSS-OVER\" Unisex Pant",
                     description:
-                        "Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between. Features compression support technology for enhanced performance.",
-                    image: "./Sources/track-bottom.jpeg",
+                        "Designed for dream-chasers who want comfort + aesthetic! Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between. Street x Gym ready with oversize fit!",
+                    images: [
+                        "./Sources/track-bottom.jpeg",
+                        "./Sources/track-bottom.jpeg", // You can replace with different angles
+                        "./Sources/track-bottom.jpeg"  // You can replace with different angles
+                    ],
                     originalPrice: "$55",
                     price: "$45",
                     savings: "SAVE $10",
@@ -515,16 +612,29 @@
                 document.getElementById("modalSavings").textContent = product.savings;
                 document.getElementById("modalAddToCart").textContent = `Place Order - ${product.price}`;
 
-                // Update image - Fix for bottom modal issue
+                // Update image gallery in modal
                 const imageContainer = document.querySelector("#modalContent .grid.lg\\:grid-cols-2 > div:first-child");
-                if (product.image) {
+                if (product.images && product.images.length > 0) {
                     imageContainer.innerHTML = `
-                        <div class="overflow-hidden rounded-xl">
-                            <img id="modalImage" class="w-full aspect-square object-cover" src="${product.image}" alt="${product.title}" />
+                        <div class="overflow-hidden rounded-xl relative aspect-square">
+                            <div class="image-gallery w-full h-full" id="modal-gallery">
+                                ${product.images.map((img, index) => `
+                                    <img class="gallery-image ${index === 0 ? 'active' : ''}" 
+                                         src="${img}" alt="${product.title} - View ${index + 1}" />
+                                `).join('')}
+                            </div>
+                            ${product.images.length > 1 ? `
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                    ${product.images.map((_, index) => `
+                                        <button class="gallery-dot ${index === 0 ? 'active' : ''} w-2 h-2 rounded-full ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                                                onclick="changeImage(event, 'modal-gallery', ${index})"></button>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
                         </div>
                     `;
                 } else {
-                    // Show placeholder for bottom without breaking DOM structure
+                    // Show placeholder
                     imageContainer.innerHTML = `
                         <div class="overflow-hidden rounded-xl">
                             <div class="w-full aspect-square flex items-center justify-center bg-gradient-to-br from-[#272727] to-[#1a1a1a] text-white/30 text-xs tracking-wider rounded-xl">
@@ -601,6 +711,33 @@
                 if (e.key === "Escape") {
                     closeProductModal();
                 }
+            }
+
+            // Image gallery functionality
+            function changeImage(event, galleryId, imageIndex) {
+                event.stopPropagation();
+                
+                const gallery = document.getElementById(galleryId);
+                const images = gallery.querySelectorAll('.gallery-image');
+                const dots = gallery.parentElement.querySelectorAll('.gallery-dot');
+                
+                // Hide all images
+                images.forEach(img => img.classList.remove('active'));
+                // Show selected image
+                images[imageIndex].classList.add('active');
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === imageIndex) {
+                        dot.classList.add('active');
+                        dot.classList.remove('bg-white/50');
+                        dot.classList.add('bg-white');
+                    } else {
+                        dot.classList.remove('active');
+                        dot.classList.add('bg-white/50');
+                        dot.classList.remove('bg-white');
+                    }
+                });
             }
 
             // Initialize event listeners when the page loads
