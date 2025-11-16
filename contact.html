@@ -1,442 +1,541 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-        <link
-            as="style"
-            href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
-            onload="this.rel='stylesheet'"
-            rel="stylesheet"
-        />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="description" content="Contact DreamFitness to start personal training or ask questions." />
-        <title>Contact - DreamFitness</title>
-        <link href="./Sources/logo.png" rel="icon" />
-        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                font-family: Lexend, "Noto Sans", sans-serif;
-            }
-            html,
-            body {
-                overflow-x: hidden;
-            }
-            /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
-            ::-webkit-scrollbar {
-                display: none;
-            }
+  <head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Contact DreamFitness to start personal training or ask questions."
+    />
+    <title>Contact - DreamFitness</title>
+    <link href="./Sources/logo.png" rel="icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Lexend, "Noto Sans", sans-serif;
+      }
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+      ::-webkit-scrollbar {
+        display: none;
+      }
 
-            /* Hide scrollbar for IE, Edge and Firefox */
-            html {
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-            }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      html {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
 
-            body {
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-            }
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
 
-            /* Prevent textarea and input resizing */
-            textarea,
-            input {
-                resize: none !important;
-            }
+      /* Prevent textarea and input resizing */
+      textarea,
+      input {
+        resize: none !important;
+      }
 
-            /* Custom form animations */
-            .form-group {
-                position: relative;
-            }
+      /* Custom form animations */
+      .form-group {
+        position: relative;
+      }
 
-            .floating-label {
-                position: absolute;
-                top: 12px;
-                left: 12px;
-                color: #ffffff66;
-                transition: all 0.3s ease;
-                pointer-events: none;
-                font-size: 16px;
-            }
+      .floating-label {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        color: #ffffff66;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        font-size: 16px;
+      }
 
-            .form-input:focus + .floating-label,
-            .form-input:not(:placeholder-shown) + .floating-label {
-                top: -8px;
-                left: 8px;
-                font-size: 12px;
-                color: #ff1400;
-                background: #1d1d1d;
-                border-radius: 7px;
-                padding: 2px 10px;
-                border-color: #ff1400;
-                border-width: 2px;
-            }
+      .form-input:focus + .floating-label,
+      .form-input:not(:placeholder-shown) + .floating-label {
+        top: -8px;
+        left: 8px;
+        font-size: 12px;
+        color: #ff1400;
+        background: #1d1d1d;
+        border-radius: 7px;
+        padding: 2px 10px;
+        border-color: #ff1400;
+        border-width: 2px;
+      }
 
-            .required-indicator {
-                color: #ff1400;
-                font-weight: bold;
-            }
-            .hamburger-lines,
-            .hamburger-lines::before,
-            .hamburger-lines::after {
-                content: "";
-                display: block;
-                width: 22px;
-                height: 2px;
-                background: currentColor;
-                border-radius: 2px;
-                position: relative;
-                transition: transform 0.35s ease, opacity 0.25s ease;
-            }
-            .hamburger-lines::before {
-                position: absolute;
-                top: -7px;
-                left: 0;
-            }
-            .hamburger-lines::after {
-                position: absolute;
-                top: 7px;
-                left: 0;
-            }
-        </style>
-        <script>
-            window.addEventListener("DOMContentLoaded", function () {
-                var navbar = document.getElementById("navbar");
-                function onScroll() {
-                    if (window.scrollY > 10) {
-                        navbar.classList.remove("bg-transparent");
-                        navbar.classList.add("bg-[#1d1d1d]");
-                    } else {
-                        navbar.classList.add("bg-transparent");
-                        navbar.classList.remove("bg-[#1d1d1d]");
-                    }
-                }
-                window.addEventListener("scroll", onScroll);
-                onScroll();
-            });
-        </script>
-        <script defer src="./site.js"></script>
-    </head>
-    <body class="bg-[#1d1d1d]">
-        <div class="relative min-h-screen flex flex-col">
-            <header
-                id="navbar"
-                class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
+      .required-indicator {
+        color: #ff1400;
+        font-weight: bold;
+      }
+      .hamburger-lines,
+      .hamburger-lines::before,
+      .hamburger-lines::after {
+        content: "";
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        position: relative;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+      }
+      .hamburger-lines::before {
+        position: absolute;
+        top: -7px;
+        left: 0;
+      }
+      .hamburger-lines::after {
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var navbar = document.getElementById("navbar");
+        function onScroll() {
+          if (window.scrollY > 10) {
+            navbar.classList.remove("bg-transparent");
+            navbar.classList.add("bg-[#1d1d1d]");
+          } else {
+            navbar.classList.add("bg-transparent");
+            navbar.classList.remove("bg-[#1d1d1d]");
+          }
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+      });
+    </script>
+    <script defer src="./site.js"></script>
+  </head>
+  <body class="bg-[#1d1d1d]">
+    <div class="relative min-h-screen flex flex-col">
+      <header
+        id="navbar"
+        class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
+      >
+        <a
+          href="./index.html"
+          class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
+        >
+          <img
+            class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
+            src="./Sources/logo.png"
+            alt="Logo"
+          />
+          <span class="hidden xs:inline">DreamFitness</span>
+        </a>
+        <nav class="hidden md:block">
+          <div class="flex items-center gap-6 lg:gap-8">
+            <a
+              class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+              href="./index.html"
+              >Home</a
             >
-                <a href="./index.html" class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2">
-                    <img class="h-12 w-12 sm:h-14 sm:w-14 object-cover" src="./Sources/logo.png" alt="Logo" />
-                    <span class="hidden xs:inline">DreamFitness</span>
-                </a>
-                <nav class="hidden md:block">
-                    <div class="flex items-center gap-6 lg:gap-8">
-                        <a
-                            class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                            href="./index.html"
-                            >Home</a
-                        >
-                        <a
-                            class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                            href="./services.html"
-                            >Services</a
-                        >
-                        <a
-                            class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                            href="./merch.html"
-                            >Merch</a
-                        >
-                    </div>
-                </nav>
-                <div class="flex items-center gap-3">
-                    <a
-                        href="./contact.html"
-                        class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
-                        >Contact Us</a
-                    >
-                    <button
-                        aria-label="Toggle navigation"
-                        aria-expanded="false"
-                        data-nav-toggle
-                        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
-                    >
-                        <span class="hamburger-lines" aria-hidden="true"></span>
-                    </button>
-                </div>
-                <div
-                    data-nav-panel
-                    data-open="false"
-                    class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Mobile navigation"
-                >
-                    <div class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg">
-                        <a class="text-white font-medium py-2 px-3 rounded hover:bg-white/5" href="./index.html">Home</a>
-                        <a class="text-white font-medium py-2 px-3 rounded hover:bg-white/5" href="./services.html">Services</a>
-                        <a class="text-white font-medium py-2 px-3 rounded hover:bg-white/5" href="./merch.html">Merch</a>
-                        <a class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center" href="./contact.html">Contact Us</a>
-                    </div>
-                </div>
-            </header>
-
-            <main class="pt-28 md:pt-32 w-full">
-                <section class="max-w-6xl mx-auto py-16 md:py-20 px-6">
-                    <div class="text-center mb-16">
-                        <h1 class="text-white text-4xl md:text-5xl font-extrabold mb-6">Let's Connect</h1>
-                        <p class="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">
-                            Ready to transform your fitness journey? We're here to help you achieve your goals. Send us a message and we'll
-                            get back to you within 24 hours.
-                        </p>
-                    </div>
-
-                    <!-- Contact Form - Full Width -->
-                    <div class="max-w-4xl mx-auto mb-16">
-                        <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10 shadow-2xl">
-                            <div class="mb-8">
-                                <h2 class="text-white text-2xl font-bold mb-2">Send us a Message</h2>
-                                <p class="text-white/60 text-sm">
-                                    Fields marked with <span class="required-indicator">*</span> are required
-                                </p>
-                            </div>
-
-                            <form action="#" method="post" class="space-y-6">
-                                <!-- Name and Email Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            placeholder=" "
-                                            class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
-                                            required
-                                        />
-                                        <label for="name" class="floating-label">Full Name <span class="required-indicator">*</span></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            placeholder=" "
-                                            class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
-                                            required
-                                        />
-                                        <label for="email" class="floating-label"
-                                            >Email Address <span class="required-indicator">*</span></label
-                                        >
-                                    </div>
-                                </div>
-
-                                <!-- Phone and Subject Row -->
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div class="form-group">
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            placeholder=" "
-                                            class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
-                                        />
-                                        <label for="phone" class="floating-label">Phone Number</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <select
-                                            id="subject"
-                                            name="subject"
-                                            class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
-                                            required
-                                        >
-                                            <option value="" disabled selected hidden></option>
-                                            <option value="personal-training">Personal Training</option>
-                                            <option value="nutrition-coaching">Nutrition Coaching</option>
-                                            <option value="workout-plans">Workout Plans</option>
-                                            <option value="merchandise">Merchandise</option>
-                                            <option value="general">General Inquiry</option>
-                                        </select>
-                                        <label for="subject" class="floating-label"
-                                            >Subject <span class="required-indicator">*</span></label
-                                        >
-                                    </div>
-                                </div>
-
-                                <!-- Message -->
-                                <div class="form-group">
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        rows="5"
-                                        placeholder=" "
-                                        class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300 resize-none"
-                                        required
-                                    ></textarea>
-                                    <label for="message" class="floating-label"
-                                        >Your Message <span class="required-indicator">*</span></label
-                                    >
-                                </div>
-
-                                <!-- Submit Button -->
-                                <button
-                                    type="submit"
-                                    class="w-full bg-gradient-to-r from-[#ff1400] to-[#ff3d00] text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:ring-offset-2 focus:ring-offset-[#1d1d1d]"
-                                >
-                                    <span class="flex items-center justify-center gap-2">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                                            ></path>
-                                        </svg>
-                                        Send Message
-                                    </span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Contact Information Sections - Below Form -->
-                    <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                        <!-- Quick Contact -->
-                        <div
-                            class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10 flex flex-col justify-center items-center text-center min-h-[300px]"
-                        >
-                            <div class="space-y-6">
-                                <div class="flex flex-col items-center gap-3 text-white/70">
-                                    <svg class="w-8 h-8 text-[#ff1400]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                        ></path>
-                                    </svg>
-                                    <div class="text-center">
-                                        <p class="font-medium text-white text-lg">Email</p>
-                                        <a class="text-base" href="mailto:info@dreamfitness.com">info@dreamfitness.com</a>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col items-center gap-3 text-white/70">
-                                    <svg class="w-8 h-8 text-[#ff1400]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                        ></path>
-                                    </svg>
-                                    <div class="text-center">
-                                        <p class="font-medium text-white text-lg">Response Time</p>
-                                        <p class="text-base">Within 1 hour</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Social Media -->
-                        <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10">
-                            <h3 class="text-white text-xl font-bold mb-6 flex items-center gap-3">
-                                <svg class="w-6 h-6 text-[#ff1400]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
-                                    ></path>
-                                </svg>
-                                Follow Our Journey
-                            </h3>
-                            <div class="grid grid-cols-1 gap-4">
-                                <a
-                                    href="https://www.instagram.com/d.fitnessbysenura"
-                                    target="_blank"
-                                    class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
-                                >
-                                    <div
-                                        class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
-                                    >
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-white font-medium">Instagram</p>
-                                        <p class="text-white/60 text-sm">@d.fitnessbysenura</p>
-                                    </div>
-                                </a>
-                                <a
-                                    href="https://www.tiktok.com/@dreamfitnessbysenura"
-                                    target="_blank"
-                                    class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
-                                >
-                                    <div
-                                        class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
-                                    >
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-white font-medium">TikTok</p>
-                                        <p class="text-white/60 text-sm">@dreamfitnessbysenura</p>
-                                    </div>
-                                </a>
-                                <a
-                                    href="https://www.facebook.com/dreamfitnessbysenura"
-                                    target="_blank"
-                                    class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
-                                >
-                                    <div
-                                        class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
-                                    >
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-white font-medium">Facebook</p>
-                                        <p class="text-white/60 text-sm">DreamFitness</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <footer class="mt-12 border-t border-white/10 py-10">
-                <div class="max-w-6xl mx-auto text-center px-6">
-                    <div class="flex justify-center gap-6 mb-6">
-                        <a href="https://www.instagram.com/d.fitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >Instagram</a
-                        >
-                        <a href="https://www.tiktok.com/@dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >TikTok</a
-                        >
-                        <a href="https://www.facebook.com/dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                            >Facebook</a
-                        >
-                    </div>
-                    <p class="text-white/50">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        DreamFitness | Created by <a href="https://psychdevs.site/" class="underline">PsychDevs</a>
-                    </p>
-                </div>
-            </footer>
+            <a
+              class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+              href="./services.html"
+              >Services</a
+            >
+            <a
+              class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+              href="./merch.html"
+              >Merch</a
+            >
+          </div>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a
+            href="./contact.html"
+            class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
+            >Contact Us</a
+          >
+          <button
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            data-nav-toggle
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
+          >
+            <span class="hamburger-lines" aria-hidden="true"></span>
+          </button>
         </div>
-    </body>
+        <div
+          data-nav-panel
+          data-open="false"
+          class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div
+            class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
+          >
+            <a
+              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+              href="./index.html"
+              >Home</a
+            >
+            <a
+              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+              href="./services.html"
+              >Services</a
+            >
+            <a
+              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+              href="./merch.html"
+              >Merch</a
+            >
+            <a
+              class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
+              href="./contact.html"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main class="pt-28 md:pt-32 w-full">
+        <section class="max-w-6xl mx-auto py-16 md:py-20 px-6">
+          <div class="text-center mb-16">
+            <h1 class="text-white text-4xl md:text-5xl font-extrabold mb-6">
+              Let's Connect
+            </h1>
+            <p class="text-white/70 max-w-2xl mx-auto text-lg leading-relaxed">
+              Ready to transform your fitness journey? We're here to help you
+              achieve your goals. Send us a message and we'll get back to you
+              within 24 hours.
+            </p>
+          </div>
+
+          <!-- Contact Form - Full Width -->
+          <div class="max-w-4xl mx-auto mb-16">
+            <div
+              class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10 shadow-2xl"
+            >
+              <div class="mb-8">
+                <h2 class="text-white text-2xl font-bold mb-2">
+                  Send us a Message
+                </h2>
+                <p class="text-white/60 text-sm">
+                  Fields marked with
+                  <span class="required-indicator">*</span> are required
+                </p>
+              </div>
+
+              <form action="#" method="post" class="space-y-6">
+                <!-- Name and Email Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder=" "
+                      class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                    <label for="name" class="floating-label"
+                      >Full Name
+                      <span class="required-indicator">*</span></label
+                    >
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder=" "
+                      class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
+                      required
+                    />
+                    <label for="email" class="floating-label"
+                      >Email Address
+                      <span class="required-indicator">*</span></label
+                    >
+                  </div>
+                </div>
+
+                <!-- Phone and Subject Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="form-group">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder=" "
+                      class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
+                    />
+                    <label for="phone" class="floating-label"
+                      >Phone Number</label
+                    >
+                  </div>
+                  <div class="form-group">
+                    <select
+                      id="subject"
+                      name="subject"
+                      class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300"
+                      required
+                    >
+                      <option value="" disabled selected hidden></option>
+                      <option value="personal-training">
+                        Personal Training
+                      </option>
+                      <option value="nutrition-coaching">
+                        Nutrition Coaching
+                      </option>
+                      <option value="workout-plans">Workout Plans</option>
+                      <option value="merchandise">Merchandise</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
+                    <label for="subject" class="floating-label"
+                      >Subject <span class="required-indicator">*</span></label
+                    >
+                  </div>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder=" "
+                    class="form-input w-full p-4 pt-5 rounded-lg bg-[#0a0a0a] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:border-transparent transition-all duration-300 resize-none"
+                    required
+                  ></textarea>
+                  <label for="message" class="floating-label"
+                    >Your Message
+                    <span class="required-indicator">*</span></label
+                  >
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-[#ff1400] to-[#ff3d00] text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#ff1400] focus:ring-offset-2 focus:ring-offset-[#1d1d1d]"
+                >
+                  <span class="flex items-center justify-center gap-2">
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                      ></path>
+                    </svg>
+                    Send Message
+                  </span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contact Information Sections - Below Form -->
+          <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <!-- Quick Contact -->
+            <div
+              class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10 flex flex-col justify-center items-center text-center min-h-[300px]"
+            >
+              <div class="space-y-6">
+                <div class="flex flex-col items-center gap-3 text-white/70">
+                  <svg
+                    class="w-8 h-8 text-[#ff1400]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <div class="text-center">
+                    <p class="font-medium text-white text-lg">Email</p>
+                    <a
+                      class="text-base"
+                      href="mailto:dreamfitnessbysenura@gmail.com"
+                      >dreamfitnessbysenura@gmail.com</a
+                    >
+                  </div>
+                </div>
+                <div class="flex flex-col items-center gap-3 text-white/70">
+                  <svg
+                    class="w-8 h-8 text-[#ff1400]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <div class="text-center">
+                    <p class="font-medium text-white text-lg">Response Time</p>
+                    <p class="text-base">Within 1 hour</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div
+              class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-2xl border border-white/10"
+            >
+              <h3
+                class="text-white text-xl font-bold mb-6 flex items-center gap-3"
+              >
+                <svg
+                  class="w-6 h-6 text-[#ff1400]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                  ></path>
+                </svg>
+                Follow Our Journey
+              </h3>
+              <div class="grid grid-cols-1 gap-4">
+                <a
+                  href="https://www.instagram.com/d.fitnessbysenura"
+                  target="_blank"
+                  class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
+                >
+                  <div
+                    class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white font-medium">Instagram</p>
+                    <p class="text-white/60 text-sm">@d.fitnessbysenura</p>
+                  </div>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@dreamfitnessbysenura"
+                  target="_blank"
+                  class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
+                >
+                  <div
+                    class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white font-medium">TikTok</p>
+                    <p class="text-white/60 text-sm">@dreamfitnessbysenura</p>
+                  </div>
+                </a>
+                <a
+                  href="https://www.facebook.com/dreamfitnessbysenura"
+                  target="_blank"
+                  class="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] hover:bg-white/5 transition-colors group"
+                >
+                  <div
+                    class="w-10 h-10 bg-gradient-to-br from-[#ff1400] to-[#ff3d00] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-white font-medium">Facebook</p>
+                    <p class="text-white/60 text-sm">DreamFitness</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mt-12 border-t border-white/10 py-10">
+        <div class="max-w-6xl mx-auto text-center px-6">
+          <div class="flex justify-center gap-6 mb-6">
+            <a
+              href="https://www.instagram.com/d.fitnessbysenura"
+              class="text-white/70 hover:text-white"
+              target="_blank"
+              >Instagram</a
+            >
+            <a
+              href="https://www.tiktok.com/@dreamfitnessbysenura"
+              class="text-white/70 hover:text-white"
+              target="_blank"
+              >TikTok</a
+            >
+            <a
+              href="https://www.facebook.com/dreamfitnessbysenura"
+              class="text-white/70 hover:text-white"
+              target="_blank"
+              >Facebook</a
+            >
+          </div>
+          <p class="text-white/50">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            DreamFitness | Created by
+            <a href="https://psychdevs.site/" class="underline" target="_blank"
+              >PsychDevs</a
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

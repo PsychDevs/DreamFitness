@@ -1,630 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-        <link
-            as="style"
-            href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
-            onload="this.rel='stylesheet'"
-            rel="stylesheet"
-        />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="description" content="DreamFitness merch: performance arm-cut shirts and premium bottoms." />
-        <title>DreamFitness</title>
-        <link href="./Sources/logo.png" rel="icon" />
-        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-            html,
-            body {
-                overflow-x: hidden;
-            }
+  <head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="DreamFitness merch: performance arm-cut shirts and premium bottoms."
+    />
+    <title>DreamFitness</title>
+    <link href="./Sources/logo.png" rel="icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        overflow-x: hidden;
+      }
 
-            /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
-            ::-webkit-scrollbar {
-                display: none;
-            }
+      /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+      ::-webkit-scrollbar {
+        display: none;
+      }
 
-            /* Hide scrollbar for IE, Edge and Firefox */
-            html {
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-            }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      html {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
 
-            body {
-                -ms-overflow-style: none; /* IE and Edge */
-                scrollbar-width: none; /* Firefox */
-            }
-            .hamburger-lines,
-            .hamburger-lines::before,
-            .hamburger-lines::after {
-                content: "";
-                display: block;
-                width: 22px;
-                height: 2px;
-                background: currentColor;
-                position: relative;
-            }
-            .hamburger-lines::before {
-                position: absolute;
-                top: -7px;
-                left: 0;
-            }
-            .hamburger-lines::after {
-                position: absolute;
-                top: 7px;
-                left: 0;
-            }
-            
-            /* Image Gallery Styles */
-            .image-gallery {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                min-height: 300px;
-            }
-            
-            .gallery-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-                object-fit: cover;
-            }
-            
-            .gallery-image.active {
-                opacity: 1;
-            }
-            
-            .gallery-dot {
-                transition: all 0.3s ease;
-                cursor: pointer;
-            }
-            
-            .gallery-dot:hover {
-                background-color: rgba(255, 255, 255, 0.8);
-            }
-            
-            .gallery-dot.active {
-                background-color: white;
-            }
-        </style>
-        <script>
-            // Navbar background color on scroll
-            window.addEventListener("DOMContentLoaded", function () {
-                var navbar = document.getElementById("navbar");
-                function onScroll() {
-                    if (window.scrollY > 10) {
-                        navbar.classList.remove("bg-transparent");
-                        navbar.classList.add("bg-[#1d1d1d]");
-                    } else {
-                        navbar.classList.add("bg-transparent");
-                        navbar.classList.remove("bg-[#1d1d1d]");
-                    }
-                }
-                window.addEventListener("scroll", onScroll);
-                onScroll();
-            });
-            
-            // Convert displayed USD prices to LKR using a static rate for site copy
-            // If you prefer live rates, we can fetch from an API later.
-            document.addEventListener("DOMContentLoaded", function () {
-                var usdToLkr = 300; // adjustable conversion rate
-                function formatLkr(amount) {
-                    return `Rs.${amount.toLocaleString('en-LK')}/=`;
-                }
-                // Update elements that have data-usd attributes
-                document.querySelectorAll('[data-usd]').forEach(function (el) {
-                    var usd = parseFloat(el.getAttribute('data-usd'));
-                    if (!isNaN(usd)) {
-                        var lkr = Math.round(usd * usdToLkr);
-                        el.textContent = formatLkr(lkr);
-                    }
-                });
-            });
-        </script>
-        <script defer src="./site.js"></script>
-    </head>
-    <body class="bg-[#1d1d1d]">
-        <div
-            class="relative flex size-full min-h-screen flex-col dark group/design-root"
-            style="font-family: Lexend, 'Noto Sans', sans-serif"
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hamburger-lines,
+      .hamburger-lines::before,
+      .hamburger-lines::after {
+        content: "";
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        position: relative;
+      }
+      .hamburger-lines::before {
+        position: absolute;
+        top: -7px;
+        left: 0;
+      }
+      .hamburger-lines::after {
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+
+      /* Image Gallery Styles */
+      .image-gallery {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+      }
+
+      .gallery-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        object-fit: cover;
+      }
+
+      .gallery-image.active {
+        opacity: 1;
+      }
+
+      .gallery-dot {
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery-dot:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      .gallery-dot.active {
+        background-color: white;
+      }
+    </style>
+    <script>
+      // Navbar background color on scroll
+      window.addEventListener("DOMContentLoaded", function () {
+        var navbar = document.getElementById("navbar");
+        function onScroll() {
+          if (window.scrollY > 10) {
+            navbar.classList.remove("bg-transparent");
+            navbar.classList.add("bg-[#1d1d1d]");
+          } else {
+            navbar.classList.add("bg-transparent");
+            navbar.classList.remove("bg-[#1d1d1d]");
+          }
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+      });
+
+      // Convert displayed USD prices to LKR using a static rate for site copy
+      // If you prefer live rates, we can fetch from an API later.
+      document.addEventListener("DOMContentLoaded", function () {
+        var usdToLkr = 300; // adjustable conversion rate
+        function formatLkr(amount) {
+          return `Rs.${amount.toLocaleString("en-LK")}/=`;
+        }
+        // Update elements that have data-usd attributes
+        document.querySelectorAll("[data-usd]").forEach(function (el) {
+          var usd = parseFloat(el.getAttribute("data-usd"));
+          if (!isNaN(usd)) {
+            var lkr = Math.round(usd * usdToLkr);
+            el.textContent = formatLkr(lkr);
+          }
+        });
+      });
+    </script>
+    <script defer src="./site.js"></script>
+  </head>
+  <body class="bg-[#1d1d1d]">
+    <div
+      class="relative flex size-full min-h-screen flex-col dark group/design-root"
+      style="font-family: Lexend, 'Noto Sans', sans-serif"
+    >
+      <div class="flex h-full grow flex-col">
+        <header
+          id="navbar"
+          class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
         >
-            <div class="flex h-full grow flex-col">
-                <header
-                    id="navbar"
-                    class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
-                >
-                    <a href="./index.html" class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2">
-                        <img class="h-12 w-12 sm:h-14 sm:w-14 object-cover" src="./Sources/logo.png" alt="Logo" />
-                        <span class="hidden xs:inline">DreamFitness</span>
-                    </a>
-                    <nav class="hidden md:block">
-                        <div class="flex items-center gap-6 lg:gap-8">
-                            <a
-                                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                                href="./index.html"
-                                >Home</a
-                            >
-                            <a
-                                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                                href="./services.html"
-                                >Services</a
-                            >
-                            <a
-                                class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
-                                href="./merch.html"
-                                aria-current="page"
-                                >Merch</a
-                            >
-                        </div>
-                    </nav>
-                    <div class="flex items-center gap-3">
-                        <a
-                            href="./contact.html"
-                            class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
-                            >Contact Us</a
-                        >
-                        <button
-                            aria-label="Toggle navigation"
-                            aria-expanded="false"
-                            data-nav-toggle
-                            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
-                        >
-                            <span class="hamburger-lines" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div
-                        data-nav-panel
-                        data-open="false"
-                        class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
-                        role="dialog"
-                        aria-modal="true"
-                        aria-label="Mobile navigation"
+          <a
+            href="./index.html"
+            class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
+          >
+            <img
+              class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
+              src="./Sources/logo.png"
+              alt="Logo"
+            />
+            <span class="hidden xs:inline">DreamFitness</span>
+          </a>
+          <nav class="hidden md:block">
+            <div class="flex items-center gap-6 lg:gap-8">
+              <a
+                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+                href="./index.html"
+                >Home</a
+              >
+              <a
+                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+                href="./services.html"
+                >Services</a
+              >
+              <a
+                class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
+                href="./merch.html"
+                aria-current="page"
+                >Merch</a
+              >
+            </div>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a
+              href="./contact.html"
+              class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
+              >Contact Us</a
+            >
+            <button
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              data-nav-toggle
+              class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
+            >
+              <span class="hamburger-lines" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div
+            data-nav-panel
+            data-open="false"
+            class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+          >
+            <div
+              class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
+            >
+              <a
+                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+                href="./index.html"
+                >Home</a
+              >
+              <a
+                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+                href="./services.html"
+                >Services</a
+              >
+              <a
+                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
+                href="./merch.html"
+                aria-current="page"
+                >Merch</a
+              >
+              <a
+                class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
+                href="./contact.html"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <main class="pt-28 md:pt-32 w-full">
+          <!-- Hero Section -->
+          <section class="relative py-20 md:py-32 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+              <h1
+                class="text-white text-4xl md:text-6xl font-extrabold mb-10 leading-tight"
+              >
+                Premium Merch
+              </h1>
+              <a
+                href="#products"
+                class="inline-block bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                View Products
+              </a>
+            </div>
+          </section>
+
+          <!-- Products Section -->
+          <section class="py-20 px-4 bg-[#1d1d1d]" id="products">
+            <!-- Products Section -->
+            <div class="py-20 px-4 bg-[#1d1d1d] min-h-screen" id="products">
+              <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                  <p class="text-white/70 max-w-2xl mx-auto text-lg">
+                    Street-to-gym essentials engineered for comfort, durability,
+                    and a clean athletic look.
+                    <span class="text-[#ff1400] font-semibold"
+                      >Oversize fit • Limited stock</span
                     >
-                        <div class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg">
-                            <a class="text-white font-medium py-2 px-3 rounded hover:bg-white/5" href="./index.html">Home</a>
-                            <a class="text-white font-medium py-2 px-3 rounded hover:bg-white/5" href="./services.html">Services</a>
-                            <a
-                                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
-                                href="./merch.html"
-                                aria-current="page"
-                                >Merch</a
-                            >
-                            <a class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center" href="./contact.html"
-                                >Contact Us</a
-                            >
-                        </div>
-                    </div>
-                </header>
-
-                <main class="pt-28 md:pt-32 w-full">
-                    <!-- Hero Section -->
-                    <section class="relative py-20 md:py-32 overflow-hidden">
-                        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-                            <h1 class="text-white text-4xl md:text-6xl font-extrabold mb-10 leading-tight">Premium Merch</h1>
-                            <a
-                                href="#products"
-                                class="inline-block bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-                            >
-                                View Products
-                            </a>
-                        </div>
-                    </section>
-
-                    <!-- Products Section -->
-                    <section class="py-20 px-4 bg-[#1d1d1d]" id="products">
-                        <!-- Products Section -->
-                        <div class="py-20 px-4 bg-[#1d1d1d] min-h-screen" id="products">
-                            <div class="max-w-6xl mx-auto">
-                                <div class="text-center mb-16">
-                                    <p class="text-white/70 max-w-2xl mx-auto text-lg">
-                                        Street-to-gym essentials engineered for comfort, durability, and a clean athletic look.
-                                        <span class="text-[#ff1400] font-semibold">Oversize fit • Limited stock</span>
-                                    </p>
-                                </div>
-
-                                <div class="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">
-                                    <!-- Arm Cut Shirt -->
-                                    <div class="group relative cursor-pointer" onclick="openProductModal('shirt')">
-                                        <div
-                                            class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
-                                        >
-                                            <!-- Image Gallery -->
-                                            <div class="overflow-hidden rounded-xl mb-6 relative aspect-square">
-                                                <div class="image-gallery w-full h-full" id="shirt-gallery">
-                                                    <img
-                                                        class="gallery-image active"
-                                                        src="./Sources/arm-cut-top.jpg"
-                                                        alt="DreamFitness Arm-Cut Performance Shirt - Front View"
-                                                        loading="lazy"
-                                                    />
-                                                    <img
-                                                        class="gallery-image"
-                                                        src="./Sources/arm-cut-top.jpg"
-                                                        alt="DreamFitness Arm-Cut Performance Shirt - Side View"
-                                                        loading="lazy"
-                                                    />
-                                                    <img
-                                                        class="gallery-image"
-                                                        src="./Sources/arm-cut-top.jpg"
-                                                        alt="DreamFitness Arm-Cut Performance Shirt - Detail View"
-                                                        loading="lazy"
-                                                    />
-                                                </div>
-                                                <!-- Gallery dots -->
-                                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                                                    <button class="gallery-dot active w-2 h-2 rounded-full bg-white" onclick="changeImage(event, 'shirt-gallery', 0)"></button>
-                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'shirt-gallery', 1)"></button>
-                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'shirt-gallery', 2)"></button>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-center">
-                                                <h3 class="text-white text-2xl font-bold mb-3">Oversize Cross-Over Unisex Tank</h3>
-                                                <p class="text-white/60 text-sm mb-4">Training + lifestyle • Oversize fit</p>
-
-                                                <div class="flex items-center justify-center gap-4 mb-6">
-                                                    <span class="text-white/60 text-sm line-through" data-usd="45"></span>
-                                                    <span class="text-[#ff1400] font-bold text-3xl" data-usd="32"></span>
-                                                </div>
-
-                                                <button
-                                                    class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
-                                                >
-                                                    Order Now
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Performance Bottom -->
-                                    <div class="group relative cursor-pointer" onclick="openProductModal('bottom')">
-                                        <div
-                                            class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
-                                        >
-                                            <!-- Image Gallery -->
-                                            <div class="overflow-hidden rounded-xl mb-6 relative aspect-square">
-                                                <div class="image-gallery w-full h-full" id="bottom-gallery">
-                                                    <img
-                                                        class="gallery-image active"
-                                                        src="./Sources/track-bottom.jpeg"
-                                                        alt="DreamFitness Performance Bottom - Front View"
-                                                        loading="lazy"
-                                                    />
-                                                    <img
-                                                        class="gallery-image"
-                                                        src="./Sources/track-bottom.jpeg"
-                                                        alt="DreamFitness Performance Bottom - Side View"
-                                                        loading="lazy"
-                                                    />
-                                                    <img
-                                                        class="gallery-image"
-                                                        src="./Sources/track-bottom.jpeg"
-                                                        alt="DreamFitness Performance Bottom - Detail View"
-                                                        loading="lazy"
-                                                    />
-                                                </div>
-                                                <!-- Gallery dots -->
-                                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                                                    <button class="gallery-dot active w-2 h-2 rounded-full bg-white" onclick="changeImage(event, 'bottom-gallery', 0)"></button>
-                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'bottom-gallery', 1)"></button>
-                                                    <button class="gallery-dot w-2 h-2 rounded-full bg-white/50" onclick="changeImage(event, 'bottom-gallery', 2)"></button>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-center">
-                                                <h3 class="text-white text-2xl font-bold mb-3">Oversize Cross-Over Unisex Pant</h3>
-                                                <p class="text-white/60 text-sm mb-4">Training + lifestyle • Oversize fit</p>
-
-                                                <div class="flex items-center justify-center gap-4 mb-6">
-                                                    <span class="text-white/60 text-sm line-through" data-usd="55"></span>
-                                                    <span class="text-[#ff1400] font-bold text-3xl" data-usd="45"></span>
-                                                </div>
-
-                                                <button
-                                                    class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
-                                                >
-                                                    Order Now
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Bundle Offer -->
-                                <div
-                                    class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8 text-center"
-                                >
-                                    <h3 class="text-white text-2xl font-bold mb-4">Complete Cross-Over Set Bundle</h3>
-                                    <p class="text-white/70 mb-6">
-                                        Get both pieces and save. A streamlined kit for training and recovery.
-                                        <span class="text-[#ff1400] font-semibold">Limited stock available</span>
-                                    </p>
-                                    <div class="flex items-center justify-center gap-4 mb-6">
-                                        <span class="text-white/60 text-lg line-through" data-usd="77"></span>
-                                        <span class="text-[#ff1400] font-bold text-4xl" data-usd="60"></span>
-                                    </div>
-                                    <button
-                                        class="bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
-                                    >
-                                        Order Bundle
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Customer Reviews Section -->
-                        <section class="py-20 px-4 min-h-screen">
-                            <div class="max-w-6xl mx-auto">
-                                <div class="text-center mb-16">
-                                <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">Customer Feedback</h2>
-                                <p class="text-white/70 max-w-2xl mx-auto text-lg">Real feedback from athletes who train in DreamFitness gear.</p>
-                                </div>
-
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                                    <!-- Review 1 -->
-                                    <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
-                                        <div class="flex items-center mb-4">
-                                            <img
-                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-                                                alt="Jessica T."
-                                                class="w-12 h-12 rounded-full mr-4"
-                                            />
-                                            <div>
-                                                <h4 class="text-white font-bold">Jessica T.</h4>
-                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <blockquote class="text-white/80 italic mb-4">“Excellent range of motion and the fabric stays dry during hard sessions.”</blockquote>
-                                        <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Arm-Cut Shirt</div>
-                                    </div>
-
-                                    <!-- Review 2 -->
-                                    <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
-                                        <div class="flex items-center mb-4">
-                                            <img
-                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
-                                                alt="Marcus R."
-                                                class="w-12 h-12 rounded-full mr-4"
-                                            />
-                                            <div>
-                                                <h4 class="text-white font-bold">Marcus R.</h4>
-                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <blockquote class="text-white/80 italic mb-4">“Quality holds up wash after wash. Great value.”</blockquote>
-                                        <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Complete Set</div>
-                                    </div>
-
-                                    <!-- Review 3 -->
-                                    <div class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6">
-                                        <div class="flex items-center mb-4">
-                                            <img
-                                                src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
-                                                alt="Amanda K."
-                                                class="w-12 h-12 rounded-full mr-4"
-                                            />
-                                            <div>
-                                                <h4 class="text-white font-bold">Amanda K.</h4>
-                                                <div class="flex text-yellow-400 text-sm">★★★★★</div>
-                                            </div>
-                                        </div>
-                                        <blockquote class="text-white/80 italic mb-4">“Clean design and very comfortable bottoms.”</blockquote>
-                                        <div class="text-[#ff1400] text-sm font-semibold">Verified Purchase - Performance Bottom</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </section>
-                </main>
-
-                <!-- Final CTA Section - Full Width Outside Main -->
-                <section class="py-20 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-20">
-                        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
-                        <div class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
-                    </div>
-                    <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
-                        <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-10 leading-tight">Ready to Level Up Your Style?</h2>
-
-
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                            <a
-                                href="#products"
-                                class="border-2 border-white bg-white text-[#f93900] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f93900] hover:text-white"
-                            >
-                                View Products
-                            </a>
-                            <a
-                                href="./contact.html"
-                                class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
-                            >
-                                Contact Us
-                            </a>
-                        </div>
-                        
-                        <div class="text-white/80 text-sm">
-                            <p>072 557 0035 | DreamFitness</p>
-                        </div>
-                    </div>
-                </section>
-
-                <main class="w-0 h-0"></main>
-
-                <footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
-                    <div class="max-w-6xl mx-auto text-center px-6">
-                        <div class="flex justify-center gap-6 mb-6">
-                            <a href="https://www.instagram.com/d.fitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                                >Instagram</a
-                            >
-                            <a href="https://www.tiktok.com/@dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                                >TikTok</a
-                            >
-                            <a href="https://www.facebook.com/dreamfitnessbysenura" class="text-white/70 hover:text-white" target="_blank"
-                                >Facebook</a
-                            >
-                        </div>
-                        <p class="text-white/50">
-                            &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            DreamFitness | Created by <a href="https://psychdevs.site/" class="underline">PsychDevs</a>
-                        </p>
-                    </div>
-                </footer>
-            </div>
-        </div>
-
-        <!-- Product Modal -->
-        <div
-            id="productModal"
-            class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-all duration-300"
-        >
-            <div class="flex items-center justify-center min-h-screen p-4">
-                <div
-                    class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300"
-                    id="modalContent"
-                >
-                    <!-- Modal Header -->
-                    <div class="flex items-center justify-between p-6 border-b border-white/10">
-                        <h2 id="modalTitle" class="text-white text-2xl font-bold">Product Details</h2>
-                        <button
-                            onclick="closeProductModal()"
-                            class="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
-                        >
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Modal Body -->
-                    <div class="p-6">
-                        <div class="grid lg:grid-cols-2 gap-8">
-                            <!-- Product Image -->
-                            <div class="overflow-hidden rounded-xl">
-                                <img id="modalImage" class="w-full aspect-square object-cover" src="" alt="" />
-                            </div>
-
-                            <!-- Product Details -->
-                            <div class="space-y-6">
-                                <div>
-                                    <h3 id="modalProductTitle" class="text-white text-3xl font-bold mb-3"></h3>
-                                    <p id="modalDescription" class="text-white/70 text-lg leading-relaxed"></p>
-                                </div>
-
-                                <!-- Size Selection -->
-                                <div>
-                                    <h4 class="text-white font-semibold mb-3">Size:</h4>
-                                    <div id="modalSizes" class="flex gap-2 flex-wrap"></div>
-                                </div>
-
-                                <!-- Price and CTA -->
-                                <div class="border-t border-white/10 pt-6">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <span id="modalOriginalPrice" class="text-white/60 text-lg line-through"></span>
-                                        <span id="modalPrice" class="text-[#ff1400] font-bold text-4xl"></span>
-                                        <span
-                                            id="modalSavings"
-                                            class="bg-green-500/20 text-green-400 text-sm font-semibold px-3 py-1 rounded"
-                                        ></span>
-                                    </div>
-                                    <button
-                                        id="modalAddToCart"
-                                        class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
-                                    >
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </p>
                 </div>
+
+                <div class="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">
+                  <!-- Arm Cut Shirt -->
+                  <div
+                    class="group relative cursor-pointer"
+                    onclick="openProductModal('shirt')"
+                  >
+                    <div
+                      class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
+                    >
+                      <!-- Image Gallery -->
+                      <div
+                        class="overflow-hidden rounded-xl mb-6 relative aspect-square"
+                      >
+                        <div
+                          class="image-gallery w-full h-full"
+                          id="shirt-gallery"
+                        >
+                          <img
+                            class="gallery-image active"
+                            src="./Sources/arm-cut-top.jpg"
+                            alt="DreamFitness Arm-Cut Performance Shirt - Front View"
+                            loading="lazy"
+                          />
+                          <img
+                            class="gallery-image"
+                            src="./Sources/arm-cut-top.jpg"
+                            alt="DreamFitness Arm-Cut Performance Shirt - Side View"
+                            loading="lazy"
+                          />
+                          <img
+                            class="gallery-image"
+                            src="./Sources/arm-cut-top.jpg"
+                            alt="DreamFitness Arm-Cut Performance Shirt - Detail View"
+                            loading="lazy"
+                          />
+                        </div>
+                        <!-- Gallery dots -->
+                        <div
+                          class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
+                        >
+                          <button
+                            class="gallery-dot active w-2 h-2 rounded-full bg-white"
+                            onclick="changeImage(event, 'shirt-gallery', 0)"
+                          ></button>
+                          <button
+                            class="gallery-dot w-2 h-2 rounded-full bg-white/50"
+                            onclick="changeImage(event, 'shirt-gallery', 1)"
+                          ></button>
+                          <button
+                            class="gallery-dot w-2 h-2 rounded-full bg-white/50"
+                            onclick="changeImage(event, 'shirt-gallery', 2)"
+                          ></button>
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <h3 class="text-white text-2xl font-bold mb-3">
+                          Oversize Cross-Over Unisex Tank
+                        </h3>
+                        <p class="text-white/60 text-sm mb-4">
+                          Training + lifestyle • Oversize fit
+                        </p>
+
+                        <div
+                          class="flex items-center justify-center gap-4 mb-6"
+                        >
+                          <span
+                            class="text-white/60 text-sm line-through"
+                            data-usd="45"
+                          ></span>
+                          <span
+                            class="text-[#ff1400] font-bold text-3xl"
+                            data-usd="32"
+                          ></span>
+                        </div>
+
+                        <button
+                          class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Performance Bottom -->
+                  <div
+                    class="group relative cursor-pointer"
+                    onclick="openProductModal('bottom')"
+                  >
+                    <div
+                      class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 hover:scale-105"
+                    >
+                      <!-- Image Gallery -->
+                      <div
+                        class="overflow-hidden rounded-xl mb-6 relative aspect-square"
+                      >
+                        <div
+                          class="image-gallery w-full h-full"
+                          id="bottom-gallery"
+                        >
+                          <img
+                            class="gallery-image active"
+                            src="./Sources/track-bottom.jpeg"
+                            alt="DreamFitness Performance Bottom - Front View"
+                            loading="lazy"
+                          />
+                          <img
+                            class="gallery-image"
+                            src="./Sources/track-bottom.jpeg"
+                            alt="DreamFitness Performance Bottom - Side View"
+                            loading="lazy"
+                          />
+                          <img
+                            class="gallery-image"
+                            src="./Sources/track-bottom.jpeg"
+                            alt="DreamFitness Performance Bottom - Detail View"
+                            loading="lazy"
+                          />
+                        </div>
+                        <!-- Gallery dots -->
+                        <div
+                          class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2"
+                        >
+                          <button
+                            class="gallery-dot active w-2 h-2 rounded-full bg-white"
+                            onclick="changeImage(event, 'bottom-gallery', 0)"
+                          ></button>
+                          <button
+                            class="gallery-dot w-2 h-2 rounded-full bg-white/50"
+                            onclick="changeImage(event, 'bottom-gallery', 1)"
+                          ></button>
+                          <button
+                            class="gallery-dot w-2 h-2 rounded-full bg-white/50"
+                            onclick="changeImage(event, 'bottom-gallery', 2)"
+                          ></button>
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <h3 class="text-white text-2xl font-bold mb-3">
+                          Oversize Cross-Over Unisex Pant
+                        </h3>
+                        <p class="text-white/60 text-sm mb-4">
+                          Training + lifestyle • Oversize fit
+                        </p>
+
+                        <div
+                          class="flex items-center justify-center gap-4 mb-6"
+                        >
+                          <span
+                            class="text-white/60 text-sm line-through"
+                            data-usd="55"
+                          ></span>
+                          <span
+                            class="text-[#ff1400] font-bold text-3xl"
+                            data-usd="45"
+                          ></span>
+                        </div>
+
+                        <button
+                          class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bundle Offer -->
+                <div
+                  class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8 text-center"
+                >
+                  <h3 class="text-white text-2xl font-bold mb-4">
+                    Complete Cross-Over Set Bundle
+                  </h3>
+                  <p class="text-white/70 mb-6">
+                    Get both pieces and save. A streamlined kit for training and
+                    recovery.
+                    <span class="text-[#ff1400] font-semibold"
+                      >Limited stock available</span
+                    >
+                  </p>
+                  <div class="flex items-center justify-center gap-4 mb-6">
+                    <span
+                      class="text-white/60 text-lg line-through"
+                      data-usd="77"
+                    ></span>
+                    <span
+                      class="text-[#ff1400] font-bold text-4xl"
+                      data-usd="60"
+                    ></span>
+                  </div>
+                  <button
+                    class="bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+                  >
+                    Order Bundle
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <!-- Customer Reviews Section -->
+            <section class="py-20 px-4 min-h-screen">
+              <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                  <h2
+                    class="text-white text-3xl md:text-4xl font-extrabold mb-4"
+                  >
+                    Customer Feedback
+                  </h2>
+                  <p class="text-white/70 max-w-2xl mx-auto text-lg">
+                    Real feedback from athletes who train in DreamFitness gear.
+                  </p>
+                </div>
+
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+                >
+                  <!-- Review 1 -->
+                  <div
+                    class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+                  >
+                    <div class="flex items-center mb-4">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+                        alt="Jessica T."
+                        class="w-12 h-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <h4 class="text-white font-bold">Jessica T.</h4>
+                        <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                      </div>
+                    </div>
+                    <blockquote class="text-white/80 italic mb-4">
+                      “Excellent range of motion and the fabric stays dry during
+                      hard sessions.”
+                    </blockquote>
+                    <div class="text-[#ff1400] text-sm font-semibold">
+                      Verified Purchase - Arm-Cut Shirt
+                    </div>
+                  </div>
+
+                  <!-- Review 2 -->
+                  <div
+                    class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+                  >
+                    <div class="flex items-center mb-4">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
+                        alt="Marcus R."
+                        class="w-12 h-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <h4 class="text-white font-bold">Marcus R.</h4>
+                        <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                      </div>
+                    </div>
+                    <blockquote class="text-white/80 italic mb-4">
+                      “Quality holds up wash after wash. Great value.”
+                    </blockquote>
+                    <div class="text-[#ff1400] text-sm font-semibold">
+                      Verified Purchase - Complete Set
+                    </div>
+                  </div>
+
+                  <!-- Review 3 -->
+                  <div
+                    class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+                  >
+                    <div class="flex items-center mb-4">
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+                        alt="Amanda K."
+                        class="w-12 h-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <h4 class="text-white font-bold">Amanda K.</h4>
+                        <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                      </div>
+                    </div>
+                    <blockquote class="text-white/80 italic mb-4">
+                      “Clean design and very comfortable bottoms.”
+                    </blockquote>
+                    <div class="text-[#ff1400] text-sm font-semibold">
+                      Verified Purchase - Performance Bottom
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+        </main>
+
+        <!-- Final CTA Section - Full Width Outside Main -->
+        <section
+          class="py-20 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden"
+        >
+          <div class="absolute inset-0 opacity-20">
+            <div
+              class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"
+            ></div>
+            <div
+              class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"
+            ></div>
+          </div>
+          <div class="max-w-4xl mx-auto text-center relative z-10 px-6">
+            <h2
+              class="text-white text-3xl md:text-5xl font-extrabold mb-10 leading-tight"
+            >
+              Ready to Level Up Your Style?
+            </h2>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            >
+              <a
+                href="#products"
+                class="border-2 border-white bg-white text-[#f93900] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f93900] hover:text-white"
+              >
+                View Products
+              </a>
+              <a
+                href="./contact.html"
+                class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
+              >
+                Contact Us
+              </a>
+            </div>
+
+            <div class="text-white/80 text-sm">
+              <p>072 557 0035 | DreamFitness</p>
+            </div>
+          </div>
+        </section>
+
+        <main class="w-0 h-0"></main>
+
+        <footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
+          <div class="max-w-6xl mx-auto text-center px-6">
+            <div class="flex justify-center gap-6 mb-6">
+              <a
+                href="https://www.instagram.com/d.fitnessbysenura"
+                class="text-white/70 hover:text-white"
+                target="_blank"
+                >Instagram</a
+              >
+              <a
+                href="https://www.tiktok.com/@dreamfitnessbysenura"
+                class="text-white/70 hover:text-white"
+                target="_blank"
+                >TikTok</a
+              >
+              <a
+                href="https://www.facebook.com/dreamfitnessbysenura"
+                class="text-white/70 hover:text-white"
+                target="_blank"
+                >Facebook</a
+              >
+            </div>
+            <p class="text-white/50">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              DreamFitness | Created by
+              <a
+                href="https://psychdevs.site/"
+                class="underline"
+                target="_blank"
+                >PsychDevs</a
+              >
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div
+      id="productModal"
+      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-all duration-300"
+    >
+      <div class="flex items-center justify-center min-h-screen p-4">
+        <div
+          class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300"
+          id="modalContent"
+        >
+          <!-- Modal Header -->
+          <div
+            class="flex items-center justify-between p-6 border-b border-white/10"
+          >
+            <h2 id="modalTitle" class="text-white text-2xl font-bold">
+              Product Details
+            </h2>
+            <button
+              onclick="closeProductModal()"
+              class="text-white/70 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="p-6">
+            <div class="grid lg:grid-cols-2 gap-8">
+              <!-- Product Image -->
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  id="modalImage"
+                  class="w-full aspect-square object-cover"
+                  src=""
+                  alt=""
+                />
+              </div>
+
+              <!-- Product Details -->
+              <div class="space-y-6">
+                <div>
+                  <h3
+                    id="modalProductTitle"
+                    class="text-white text-3xl font-bold mb-3"
+                  ></h3>
+                  <p
+                    id="modalDescription"
+                    class="text-white/70 text-lg leading-relaxed"
+                  ></p>
+                </div>
+
+                <!-- Size Selection -->
+                <div>
+                  <h4 class="text-white font-semibold mb-3">Size:</h4>
+                  <div id="modalSizes" class="flex gap-2 flex-wrap"></div>
+                </div>
+
+                <!-- Price and CTA -->
+                <div class="border-t border-white/10 pt-6">
+                  <div class="flex items-center gap-4 mb-6">
+                    <span
+                      id="modalOriginalPrice"
+                      class="text-white/60 text-lg line-through"
+                    ></span>
+                    <span
+                      id="modalPrice"
+                      class="text-[#ff1400] font-bold text-4xl"
+                    ></span>
+                    <span
+                      id="modalSavings"
+                      class="bg-green-500/20 text-green-400 text-sm font-semibold px-3 py-1 rounded"
+                    ></span>
+                  </div>
+                  <button
+                    id="modalAddToCart"
+                    class="w-full bg-[#ff1400] hover:bg-[#ff3d00] text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <script>
-            // Product data
-            const products = {
-                shirt: {
-                    title: "Oversize \"CROSS-OVER\" Unisex Tank",
-                    description:
-                        "Designed for dream-chasers who want comfort + aesthetic! Our signature oversize fit provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable throughout your training session. Street x Gym ready!",
-                    images: [
-                        "./Sources/arm-cut-top.jpg",
-                        "./Sources/arm-cut-top.jpg", // You can replace with different angles
-                        "./Sources/arm-cut-top.jpg"  // You can replace with different angles
-                    ],
-                    originalPrice: "$45",
-                    price: "$32",
-                    savings: "SAVE $13",
-                    sizes: ["S", "M", "L", "XL"],
-                },
-                bottom: {
-                    title: "Oversize \"CROSS-OVER\" Unisex Pant",
-                    description:
-                        "Designed for dream-chasers who want comfort + aesthetic! Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between. Street x Gym ready with oversize fit!",
-                    images: [
-                        "./Sources/track-bottom.jpeg",
-                        "./Sources/track-bottom.jpeg", // You can replace with different angles
-                        "./Sources/track-bottom.jpeg"  // You can replace with different angles
-                    ],
-                    originalPrice: "$55",
-                    price: "$45",
-                    savings: "SAVE $10",
-                    sizes: ["XS", "S", "M", "L", "XL"],
-                },
-            };
+    <script>
+      // Product data
+      const products = {
+        shirt: {
+          title: 'Oversize "CROSS-OVER" Unisex Tank',
+          description:
+            "Designed for dream-chasers who want comfort + aesthetic! Our signature oversize fit provides maximum range of motion during intense workouts. Made with premium moisture-wicking fabric that keeps you dry and comfortable throughout your training session. Street x Gym ready!",
+          images: [
+            "./Sources/arm-cut-top.jpg",
+            "./Sources/arm-cut-top.jpg", // You can replace with different angles
+            "./Sources/arm-cut-top.jpg", // You can replace with different angles
+          ],
+          originalPrice: "$45",
+          price: "$32",
+          savings: "SAVE $13",
+          sizes: ["S", "M", "L", "XL"],
+        },
+        bottom: {
+          title: 'Oversize "CROSS-OVER" Unisex Pant',
+          description:
+            "Designed for dream-chasers who want comfort + aesthetic! Engineered with supportive stretch material that moves with your body. Perfect for training sessions, recovery, and everything in between. Street x Gym ready with oversize fit!",
+          images: [
+            "./Sources/track-bottom.jpeg",
+            "./Sources/track-bottom.jpeg", // You can replace with different angles
+            "./Sources/track-bottom.jpeg", // You can replace with different angles
+          ],
+          originalPrice: "$55",
+          price: "$45",
+          savings: "SAVE $10",
+          sizes: ["XS", "S", "M", "L", "XL"],
+        },
+      };
 
-            let selectedSize = "M"; // Default size
+      let selectedSize = "M"; // Default size
 
-            function openProductModal(productType) {
-                const modal = document.getElementById("productModal");
-                const product = products[productType];
+      function openProductModal(productType) {
+        const modal = document.getElementById("productModal");
+        const product = products[productType];
 
-                // Update modal content
-                document.getElementById("modalTitle").textContent = product.title;
-                document.getElementById("modalProductTitle").textContent = product.title;
-                document.getElementById("modalDescription").textContent = product.description;
-                document.getElementById("modalOriginalPrice").textContent = product.originalPrice;
-                document.getElementById("modalPrice").textContent = product.price;
-                document.getElementById("modalSavings").textContent = product.savings;
-                document.getElementById("modalAddToCart").textContent = `Place Order - ${product.price}`;
+        // Update modal content
+        document.getElementById("modalTitle").textContent = product.title;
+        document.getElementById("modalProductTitle").textContent =
+          product.title;
+        document.getElementById("modalDescription").textContent =
+          product.description;
+        document.getElementById("modalOriginalPrice").textContent =
+          product.originalPrice;
+        document.getElementById("modalPrice").textContent = product.price;
+        document.getElementById("modalSavings").textContent = product.savings;
+        document.getElementById(
+          "modalAddToCart"
+        ).textContent = `Place Order - ${product.price}`;
 
-                // Update image gallery in modal
-                const imageContainer = document.querySelector("#modalContent .grid.lg\\:grid-cols-2 > div:first-child");
-                if (product.images && product.images.length > 0) {
-                    imageContainer.innerHTML = `
+        // Update image gallery in modal
+        const imageContainer = document.querySelector(
+          "#modalContent .grid.lg\\:grid-cols-2 > div:first-child"
+        );
+        if (product.images && product.images.length > 0) {
+          imageContainer.innerHTML = `
                         <div class="overflow-hidden rounded-xl relative aspect-square">
                             <div class="image-gallery w-full h-full" id="modal-gallery">
-                                ${product.images.map((img, index) => `
-                                    <img class="gallery-image ${index === 0 ? 'active' : ''}" 
-                                         src="${img}" alt="${product.title} - View ${index + 1}" />
-                                `).join('')}
+                                ${product.images
+                                  .map(
+                                    (img, index) => `
+                                    <img class="gallery-image ${
+                                      index === 0 ? "active" : ""
+                                    }" 
+                                         src="${img}" alt="${
+                                      product.title
+                                    } - View ${index + 1}" />
+                                `
+                                  )
+                                  .join("")}
                             </div>
-                            ${product.images.length > 1 ? `
+                            ${
+                              product.images.length > 1
+                                ? `
                                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                                    ${product.images.map((_, index) => `
-                                        <button class="gallery-dot ${index === 0 ? 'active' : ''} w-2 h-2 rounded-full ${index === 0 ? 'bg-white' : 'bg-white/50'}" 
+                                    ${product.images
+                                      .map(
+                                        (_, index) => `
+                                        <button class="gallery-dot ${
+                                          index === 0 ? "active" : ""
+                                        } w-2 h-2 rounded-full ${
+                                          index === 0
+                                            ? "bg-white"
+                                            : "bg-white/50"
+                                        }" 
                                                 onclick="changeImage(event, 'modal-gallery', ${index})"></button>
-                                    `).join('')}
+                                    `
+                                      )
+                                      .join("")}
                                 </div>
-                            ` : ''}
+                            `
+                                : ""
+                            }
                         </div>
                     `;
-                } else {
-                    // Show placeholder
-                    imageContainer.innerHTML = `
+        } else {
+          // Show placeholder
+          imageContainer.innerHTML = `
                         <div class="overflow-hidden rounded-xl">
                             <div class="w-full aspect-square flex items-center justify-center bg-gradient-to-br from-[#272727] to-[#1a1a1a] text-white/30 text-xs tracking-wider rounded-xl">
                                 <div class="text-center">
@@ -637,102 +852,112 @@
                             </div>
                         </div>
                     `;
-                }
+        }
 
-                // Update sizes
-                const sizesList = document.getElementById("modalSizes");
-                sizesList.innerHTML = product.sizes
-                    .map(
-                        (size) => `
+        // Update sizes
+        const sizesList = document.getElementById("modalSizes");
+        sizesList.innerHTML = product.sizes
+          .map(
+            (size) => `
                     <button onclick="selectSize('${size}')" class="size-btn px-4 py-2 border border-white/20 text-white/60 rounded hover:border-[#ff1400] hover:text-[#ff1400] transition-all ${
-                            size === selectedSize ? "border-[#ff1400] text-[#ff1400] bg-[#ff1400]/10" : ""
-                        }">
+              size === selectedSize
+                ? "border-[#ff1400] text-[#ff1400] bg-[#ff1400]/10"
+                : ""
+            }">
                         ${size}
                     </button>
                 `
-                    )
-                    .join("");
+          )
+          .join("");
 
-                // Show modal
-                modal.classList.remove("opacity-0", "pointer-events-none");
-                document.getElementById("modalContent").classList.remove("scale-95");
-                document.body.style.overflow = "hidden";
-            }
+        // Show modal
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        document.getElementById("modalContent").classList.remove("scale-95");
+        document.body.style.overflow = "hidden";
+      }
 
-            function closeProductModal() {
-                const modal = document.getElementById("productModal");
-                modal.classList.add("opacity-0", "pointer-events-none");
-                document.getElementById("modalContent").classList.add("scale-95");
-                document.body.style.overflow = "auto";
-            }
+      function closeProductModal() {
+        const modal = document.getElementById("productModal");
+        modal.classList.add("opacity-0", "pointer-events-none");
+        document.getElementById("modalContent").classList.add("scale-95");
+        document.body.style.overflow = "auto";
+      }
 
-            function selectSize(size) {
-                selectedSize = size;
-                // Update size buttons
-                document.querySelectorAll(".size-btn").forEach((btn) => {
-                    btn.classList.remove("border-[#ff1400]", "text-[#ff1400]", "bg-[#ff1400]/10");
-                    btn.classList.add("border-white/20", "text-white/60");
-                });
-                event.target.classList.remove("border-white/20", "text-white/60");
-                event.target.classList.add("border-[#ff1400]", "text-[#ff1400]", "bg-[#ff1400]/10");
-            }
+      function selectSize(size) {
+        selectedSize = size;
+        // Update size buttons
+        document.querySelectorAll(".size-btn").forEach((btn) => {
+          btn.classList.remove(
+            "border-[#ff1400]",
+            "text-[#ff1400]",
+            "bg-[#ff1400]/10"
+          );
+          btn.classList.add("border-white/20", "text-white/60");
+        });
+        event.target.classList.remove("border-white/20", "text-white/60");
+        event.target.classList.add(
+          "border-[#ff1400]",
+          "text-[#ff1400]",
+          "bg-[#ff1400]/10"
+        );
+      }
 
-            // Close modal when clicking outside
-            function setupModalEventListeners() {
-                const modal = document.getElementById("productModal");
+      // Close modal when clicking outside
+      function setupModalEventListeners() {
+        const modal = document.getElementById("productModal");
 
-                // Remove existing listeners to prevent duplicates
-                modal.removeEventListener("click", handleModalClick);
-                document.removeEventListener("keydown", handleEscapeKey);
+        // Remove existing listeners to prevent duplicates
+        modal.removeEventListener("click", handleModalClick);
+        document.removeEventListener("keydown", handleEscapeKey);
 
-                // Add fresh event listeners
-                modal.addEventListener("click", handleModalClick);
-                document.addEventListener("keydown", handleEscapeKey);
-            }
+        // Add fresh event listeners
+        modal.addEventListener("click", handleModalClick);
+        document.addEventListener("keydown", handleEscapeKey);
+      }
 
-            function handleModalClick(e) {
-                if (e.target === document.getElementById("productModal")) {
-                    closeProductModal();
-                }
-            }
+      function handleModalClick(e) {
+        if (e.target === document.getElementById("productModal")) {
+          closeProductModal();
+        }
+      }
 
-            function handleEscapeKey(e) {
-                if (e.key === "Escape") {
-                    closeProductModal();
-                }
-            }
+      function handleEscapeKey(e) {
+        if (e.key === "Escape") {
+          closeProductModal();
+        }
+      }
 
-            // Image gallery functionality
-            function changeImage(event, galleryId, imageIndex) {
-                event.stopPropagation();
-                
-                const gallery = document.getElementById(galleryId);
-                const images = gallery.querySelectorAll('.gallery-image');
-                const dots = gallery.parentElement.querySelectorAll('.gallery-dot');
-                
-                // Hide all images
-                images.forEach(img => img.classList.remove('active'));
-                // Show selected image
-                images[imageIndex].classList.add('active');
-                
-                // Update dots
-                dots.forEach((dot, index) => {
-                    if (index === imageIndex) {
-                        dot.classList.add('active');
-                        dot.classList.remove('bg-white/50');
-                        dot.classList.add('bg-white');
-                    } else {
-                        dot.classList.remove('active');
-                        dot.classList.add('bg-white/50');
-                        dot.classList.remove('bg-white');
-                    }
-                });
-            }
+      // Image gallery functionality
+      function changeImage(event, galleryId, imageIndex) {
+        event.stopPropagation();
 
-            // Initialize event listeners when the page loads
-            document.addEventListener("DOMContentLoaded", function () {
-                setupModalEventListeners();
-            });
-        </script>
-    </body>
+        const gallery = document.getElementById(galleryId);
+        const images = gallery.querySelectorAll(".gallery-image");
+        const dots = gallery.parentElement.querySelectorAll(".gallery-dot");
+
+        // Hide all images
+        images.forEach((img) => img.classList.remove("active"));
+        // Show selected image
+        images[imageIndex].classList.add("active");
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === imageIndex) {
+            dot.classList.add("active");
+            dot.classList.remove("bg-white/50");
+            dot.classList.add("bg-white");
+          } else {
+            dot.classList.remove("active");
+            dot.classList.add("bg-white/50");
+            dot.classList.remove("bg-white");
+          }
+        });
+      }
+
+      // Initialize event listeners when the page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        setupModalEventListeners();
+      });
+    </script>
+  </body>
 </html>
