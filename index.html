@@ -1,941 +1,1026 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-    <link
-      as="style"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
-      onload="this.rel='stylesheet'"
-      rel="stylesheet"
-    />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="DreamFitness personal training, coaching, and premium fitness merch."
-    />
-    <title>DreamFitness</title>
-    <link href="./Sources/logo.png" rel="icon" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      /* Allow natural document flow; only prevent horizontal overflow */
-      html,
-      body {
-        overflow-x: hidden;
-      }
+	<head>
+		<link
+			crossorigin=""
+			href="https://fonts.gstatic.com/"
+			rel="preconnect"
+		/>
+		<link
+			as="style"
+			href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+			onload="this.rel = 'stylesheet'"
+			rel="stylesheet"
+		/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta
+			name="description"
+			content="DreamFitness personal training, coaching, and premium fitness merch."
+		/>
+		<title>DreamFitness</title>
+		<link href="./Sources/logo.png" rel="icon" />
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			/* Allow natural document flow; only prevent horizontal overflow */
+			html,
+			body {
+				overflow-x: hidden;
+			}
 
-      /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
-      ::-webkit-scrollbar {
-        display: none;
-      }
+			/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+			::-webkit-scrollbar {
+				display: none;
+			}
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      html {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
+			/* Hide scrollbar for IE, Edge and Firefox */
+			html {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
 
-      body {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-      /* Animated hamburger */
-      .hamburger-lines,
-      .hamburger-lines::before,
-      .hamburger-lines::after {
-        content: "";
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: currentColor;
-        border-radius: 2px;
-        position: relative;
-        transition: transform 0.35s ease, opacity 0.25s ease;
-      }
-      .hamburger-lines::before {
-        position: absolute;
-        top: -7px;
-        left: 0;
-      }
-      .hamburger-lines::after {
-        position: absolute;
-        top: 7px;
-        left: 0;
-      }
-      /* Responsive typography helpers (mobile-first smaller) */
-      .hero-title-main {
-        font-size: clamp(2.4rem, 8vw, 5rem);
-        line-height: 1.05;
-      }
-      .hero-sub {
-        font-size: clamp(0.9rem, 3.4vw, 1.4rem);
-        letter-spacing: 0.05em;
-      }
-      .section-title {
-        font-size: clamp(1.6rem, 6.2vw, 2.5rem);
-        line-height: 1.15;
-      }
-      .section-text {
-        font-size: clamp(0.85rem, 3.4vw, 1.125rem);
-      }
-      .stat-number {
-        font-size: clamp(2.25rem, 9vw, 3.5rem);
-      }
-      .cta-title {
-        font-size: clamp(1.9rem, 7vw, 3.25rem);
-        line-height: 1.15;
-      }
-      .testimonial-title {
-        font-size: clamp(1.7rem, 6.5vw, 2.5rem);
-      }
-      .feature-card h3 {
-        font-size: clamp(1rem, 4vw, 1.125rem);
-      }
-      .feature-card p {
-        font-size: clamp(0.75rem, 3.2vw, 0.9rem);
-      }
-      .testimonial-quote {
-        font-size: clamp(0.85rem, 3.2vw, 1.05rem);
-      }
-      @media (min-width: 1024px) {
-        .stat-number {
-          font-size: 3.75rem;
-        }
-      }
-      /* Compact layout for very small devices (<=400px) */
-      @media (max-width: 400px) {
-        body,
-        html {
-          font-size: 15px;
-        }
-        .compact-page {
-          max-width: 100vw;
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-        }
-        header#navbar {
-          padding-left: 8px;
-          padding-right: 8px;
-          max-width: 100vw;
-        }
-        /* All sections need proper mobile padding */
-        section {
-          padding-left: 12px !important;
-          padding-right: 12px !important;
-        }
-        .max-w-6xl,
-        .max-w-5xl,
-        .max-w-4xl,
-        .max-w-3xl,
-        .max-w-2xl {
-          max-width: calc(100vw - 24px) !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-        }
-        .hero-title-main {
-          font-size: clamp(2rem, 12vw, 3.2rem);
-        }
-        .hero-sub {
-          font-size: clamp(0.75rem, 3.4vw, 0.95rem);
-        }
-        .section-title {
-          font-size: clamp(1.35rem, 7vw, 1.9rem);
-        }
-        .section-text {
-          font-size: clamp(0.75rem, 3.5vw, 0.95rem);
-        }
-        .stat-number {
-          font-size: clamp(1.9rem, 11vw, 2.4rem);
-        }
-        .cta-title {
-          font-size: clamp(1.5rem, 8vw, 2.2rem);
-        }
-        .testimonial-title {
-          font-size: clamp(1.45rem, 7vw, 2rem);
-        }
-        .testimonial-quote {
-          font-size: clamp(0.75rem, 3.4vw, 0.95rem);
-        }
-        .feature-card {
-          padding: 14px !important;
-        }
-        .feature-card h3 {
-          font-size: 0.95rem;
-        }
-        .feature-card p {
-          font-size: 0.7rem;
-        }
-        section.py-20 {
-          padding-top: 3.5rem !important;
-          padding-bottom: 3.5rem !important;
-        }
-        section.py-24 {
-          padding-top: 3.75rem !important;
-          padding-bottom: 3.75rem !important;
-        }
-        .py-16 {
-          padding-top: 3.5rem !important;
-          padding-bottom: 3.5rem !important;
-        }
-        .cta-title + p {
-          margin-top: 0.5rem;
-        }
-        .cta-title {
-          margin-bottom: 0.25rem;
-        }
-        .hero-sub {
-          margin-top: 0.35rem !important;
-        }
-        /* Carousel adjustments */
-        #testimonial-track > div {
-          padding: 1.75rem 1.25rem !important;
-        }
-        #testimonial-prev,
-        #testimonial-next {
-          width: 2.25rem;
-          height: 2.25rem;
-        }
-        #testimonial-prev svg,
-        #testimonial-next svg {
-          width: 18px;
-          height: 18px;
-        }
-        .stat-number + span {
-          font-size: 0.6rem;
-        }
-        .grid.gap-12 {
-          gap: 2.25rem !important;
-        }
-        .grid.gap-5 {
-          gap: 1.1rem !important;
-        }
-        a.bg-white {
-          padding: 0.9rem 1.3rem !important;
-          font-size: 0.8rem;
-        }
-      }
-    </style>
-    <script>
-      // Navbar background color on scroll (parity with other pages)
-      window.addEventListener("DOMContentLoaded", function () {
-        var navbar = document.getElementById("navbar");
-        function onScroll() {
-          if (window.scrollY > 10) {
-            navbar.classList.remove("bg-transparent");
-            navbar.classList.add("bg-[#1d1d1d]");
-          } else {
-            navbar.classList.add("bg-transparent");
-            navbar.classList.remove("bg-[#1d1d1d]");
-          }
-        }
-        window.addEventListener("scroll", onScroll);
-        onScroll();
-      });
-    </script>
-    <script defer src="./site.js"></script>
-  </head>
-  <body class="bg-[#1d1d1d]">
-    <div
-      class="relative flex size-full min-h-screen flex-col dark group/design-root compact-page"
-      style="
-        font-family: Lexend, 'Noto Sans', sans-serif;
-        width: 100%;
-        max-width: 100vw;
-      "
-    >
-      <div class="layout-container flex h-full grow flex-col">
-        <header
-          id="navbar"
-          class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
-        >
-          <a
-            href="./index.html"
-            class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
-          >
-            <img
-              class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
-              src="./Sources/logo.png"
-              alt="Logo"
-            />
-            <span class="hidden xs:inline">DreamFitness</span>
-          </a>
-          <nav class="hidden md:block">
-            <div class="flex items-center gap-6 lg:gap-8">
-              <a
-                class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
-                href="./index.html"
-                aria-current="page"
-                >Home</a
-              >
-              <a
-                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                href="./services.html"
-                >Services</a
-              >
-              <a
-                class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-                href="./merch.html"
-                >Merch</a
-              >
-            </div>
-          </nav>
-          <div class="flex items-center gap-3">
-            <a
-              href="./contact.html"
-              class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
-              >Contact Us</a
-            >
-            <button
-              aria-label="Toggle navigation"
-              aria-expanded="false"
-              data-nav-toggle
-              class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
-            >
-              <span class="hamburger-lines" aria-hidden="true"></span>
-            </button>
-          </div>
-          <!-- Mobile panel -->
-          <div
-            data-nav-panel
-            data-open="false"
-            class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobile navigation"
-          >
-            <div
-              class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
-            >
-              <a
-                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
-                href="./index.html"
-                aria-current="page"
-                >Home</a
-              >
-              <a
-                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
-                href="./services.html"
-                >Services</a
-              >
-              <a
-                class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
-                href="./merch.html"
-                >Merch</a
-              >
-              <a
-                class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
-                href="./contact.html"
-                >Contact Us</a
-              >
-            </div>
-          </div>
-        </header>
-        <div class="flex justify-center">
-          <div class="flex flex-col">
-            <div class="relative">
-              <section
-                style="
-                  position: relative;
-                  width: 100%;
-                  height: 100vh;
-                  overflow: hidden;
-                  margin: 0;
-                  padding: 0;
-                "
-              >
-                <video
-                  src="./Sources/videos/gymVid.mp4"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  style="
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    object-fit: cover;
-                    z-index: -2;
-                    margin: 0;
-                    padding: 0;
-                    border: none;
-                    outline: none;
-                    pointer-events: none;
-                  "
-                ></video>
-                <div
-                  style="
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    z-index: -1;
-                    background: linear-gradient(
-                      to bottom,
-                      rgba(0, 0, 0, 0.4),
-                      rgba(0, 0, 0, 0.9)
-                    );
-                    pointer-events: none;
-                  "
-                ></div>
-                <div
-                  class="relative flex mx-auto px-4 flex-col gap-6 text-center items-center justify-center"
-                  style="
-                    position: relative;
-                    z-index: 2;
-                    height: 100vh;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    max-width: 100%;
-                  "
-                >
-                  <h1 class="text-white mb-4 text-center drop-shadow-lg">
-                    <span
-                      class="text-[#ff1400] font-extrabold uppercase hero-title-main block"
-                      >DreamFitness</span
-                    >
-                    <span
-                      class="text-white/80 font-semibold block mt-2 hero-sub"
-                      >Where Fitness Dreams Become Reality</span
-                    >
-                  </h1>
-                </div>
-              </section>
-            </div>
-            <div
-              class="py-16 min-h-screen w-full flex flex-col justify-center items-center bg-[#1d1d1d] px-4"
-              style="
-                background: linear-gradient(
-                  to bottom,
-                  rgba(0, 0, 0, 0),
-                  #18181870,
-                  #181818d0,
-                  #181818
-                );
-              "
-              id="about"
-            >
-              <h2
-                class="text-white font-bold tracking-tighter text-center mb-4 section-title"
-              >
-                About DreamFitness
-              </h2>
-              <p
-                class="text-white/70 font-normal leading-relaxed text-center mx-auto section-text"
-                style="max-width: calc(100% - 70px)"
-              >
-                DreamFitness is a certified fitness instructor with over 10
-                years of experience in helping individuals achieve their fitness
-                aspirations. Specializing in personalized training, DreamFitness
-                combines cutting-edge techniques with a holistic approach to
-                wellness, ensuring sustainable results and a healthier
-                lifestyle.
-              </p>
-            </div>
-            <!-- Features Section -->
-            <section class="py-20 px-6 bg-[#181818] border-white/10">
-              <div class="max-w-6xl mx-auto">
-                <h2
-                  class="text-white font-extrabold text-center mb-4 section-title"
-                >
-                  Why Train With Us
-                </h2>
-                <p
-                  class="text-white/60 text-center max-w-2xl mx-auto mb-12 section-text"
-                >
-                  Evidence-based programming, accountability, and a supportive
-                  culture focused on sustainable progress.
-                </p>
-                <div class="grid gap-5 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
-                  <div
-                    class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
-                    >
-                      1
-                    </div>
-                    <h3 class="text-white font-semibold">Personalization</h3>
-                    <p class="text-white/60 leading-relaxed">
-                      Programs adapted to your physiology, schedule, and goals.
-                    </p>
-                  </div>
-                  <div
-                    class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
-                    >
-                      2
-                    </div>
-                    <h3 class="text-white font-semibold">Holistic Coaching</h3>
-                    <p class="text-white/60 leading-relaxed">
-                      Lifestyle, recovery, and nutrition guidance—not just
-                      workouts.
-                    </p>
-                  </div>
-                  <div
-                    class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
-                    >
-                      3
-                    </div>
-                    <h3 class="text-white font-semibold">Data & Feedback</h3>
-                    <p class="text-white/60 leading-relaxed">
-                      Track progress with objective metrics and regular reviews.
-                    </p>
-                  </div>
-                  <div
-                    class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
-                  >
-                    <div
-                      class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
-                    >
-                      4
-                    </div>
-                    <h3 class="text-white font-semibold">Community</h3>
-                    <p class="text-white/60 leading-relaxed">
-                      Supportive environment that keeps you consistent and
-                      inspired.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- Stats Section -->
-            <section class="py-24 px-6 bg-[#1d1d1d]" id="stats">
-              <div
-                class="max-w-6xl mx-auto grid gap-12 md:grid-cols-4 text-center"
-              >
-                <div class="flex flex-col gap-2">
-                  <span
-                    class="font-extrabold text-white counter stat-number"
-                    data-target="10+"
-                    >0</span
-                  >
-                  <span class="text-white/60 text-sm tracking-wide uppercase"
-                    >Clients Trained</span
-                  >
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span
-                    class="font-extrabold text-white counter stat-number"
-                    data-target="500+"
-                    >0</span
-                  >
-                  <span class="text-white/60 text-sm tracking-wide uppercase"
-                    >Sessions Delivered</span
-                  >
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span
-                    class="font-extrabold text-white counter stat-number"
-                    data-target="100"
-                    >0</span
-                  >
-                  <span class="text-white/60 text-sm tracking-wide uppercase"
-                    >Satisfaction %</span
-                  >
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span
-                    class="font-extrabold text-white counter stat-number"
-                    data-target="4"
-                    >0</span
-                  >
-                  <span class="text-white/60 text-sm tracking-wide uppercase"
-                    >Years Experience</span
-                  >
-                </div>
-              </div>
-            </section>
-            <!-- CTA Banner -->
-            <section
-              class="relative py-24 px-6 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] overflow-hidden"
-            >
-              <div
-                class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,#ffffff40,transparent_60%)]"
-              ></div>
-              <div
-                class="relative max-w-5xl mx-auto flex flex-col items-center text-center gap-6"
-              >
-                <h2
-                  class="text-white font-extrabold leading-tight cta-title text-center"
-                >
-                  Start Building Your Future Body Today
-                </h2>
-                <p class="text-white/90 max-w-2xl section-text">
-                  Book a free consultation call and get a personalized roadmap
-                  to accelerate your transformation.
-                </p>
-                <a
-                  href="./contact.html"
-                  class="bg-white text-[#ff1400] font-bold px-8 py-4 rounded-lg shadow hover:shadow-lg transition"
-                >
-                  Book Your Free Call
-                </a>
-              </div>
-            </section>
-            <div
-              class="py-16 px-4 min-h-screen w-full flex flex-col justify-center bg-[#1d1d1d]"
-            >
-              <h2
-                class="text-white font-bold leading-tight tracking-tighter text-center mb-12 testimonial-title"
-              >
-                What Our Clients Say
-              </h2>
-              <div
-                class="relative mx-auto"
-                style="width: calc(100vw - 32px); max-width: 800px"
-              >
-                <div id="testimonial-carousel" class="overflow-hidden relative">
-                  <div
-                    class="flex transition-transform duration-500"
-                    id="testimonial-track"
-                    style="will-change: transform"
-                  >
-                    <!-- Slide 1 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-                          alt="Manjula U Gamage"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Manjula U Gamage</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "Highly recommended ♥️ Great guidance for body shaping
-                        and not just workout schedules but also the right meal
-                        plan!"
-                      </p>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
-                          alt="Nadeen Nelan"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Nadeen Nelan</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "Updated and knowledgeable Techniques and friendly
-                        teaching and coaching sessions . So I’m Highly recommend
-                        this coaching service to all 💪"
-                      </p>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
-                          alt="Sachith Rajapaksha"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Sachith Rajapaksha</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "He is a very good guide with recommended exercises and
-                        diet plans for quick results 💪🤜❤️"
-                      </p>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
-                          alt="Swarna Chapa"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Swarna Chapa</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "Highly recommended ❤💯"
-                      </p>
-                    </div>
-                    <!-- Slide 5 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
-                          alt="Akila Munthaj"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Akila Munthaj</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "Highly recommend ❤️"
-                      </p>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div
-                      class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
-                    >
-                      <div class="flex items-center gap-4 mb-2">
-                        <img
-                          src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
-                          alt="Nipun Gimhana"
-                          class="w-14 h-14 rounded-full object-cover"
-                        />
-                        <div>
-                          <a
-                            href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
-                            target="_blank"
-                            class="text-white text-xl font-bold leading-normal"
-                            >Nipun Gimhana</a
-                          >
-                          <p
-                            class="text-white/60 text-base font-medium leading-normal"
-                          >
-                            via Facebook
-                          </p>
-                        </div>
-                      </div>
-                      <p
-                        class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
-                      >
-                        "Highly recommended ❤💯"
-                      </p>
-                    </div>
-                  </div>
-                  <!-- Carousel Controls -->
-                  <button
-                    id="testimonial-prev"
-                    aria-label="Previous testimonial"
-                    class="absolute left-1 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    id="testimonial-next"
-                    aria-label="Next testimonial"
-                    class="absolute right-1 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-                  <!-- Carousel Indicators -->
-                  <div
-                    class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10"
-                  >
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="0"
-                    ></button>
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="1"
-                    ></button>
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="2"
-                    ></button>
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="3"
-                    ></button>
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="4"
-                    ></button>
-                    <button
-                      class="w-4 h-1.5 rounded bg-white/40"
-                      data-slide="5"
-                    ></button>
-                  </div>
-                </div>
-              </div>
-              <script>
-                // Simple carousel logic
-                (function () {
-                  const track = document.getElementById("testimonial-track");
-                  const prev = document.getElementById("testimonial-prev");
-                  const next = document.getElementById("testimonial-next");
-                  const indicators = document.querySelectorAll("[data-slide]");
-                  let current = 0;
-                  const slides = 6;
-                  function updateCarousel(idx) {
-                    current = idx;
-                    track.style.transform = `translateX(-${current * 100}%)`;
-                    indicators.forEach((el, i) => {
-                      el.classList.toggle("bg-white", i === current);
-                      el.classList.toggle("bg-white/40", i !== current);
-                    });
-                  }
-                  prev.addEventListener("click", () => {
-                    updateCarousel((current - 1 + slides) % slides);
-                  });
-                  next.addEventListener("click", () => {
-                    updateCarousel((current + 1) % slides);
-                  });
-                  indicators.forEach((el, i) => {
-                    el.addEventListener("click", () => updateCarousel(i));
-                  });
-                  updateCarousel(0);
-                })();
-              </script>
-            </div>
-          </div>
-        </div>
-        <footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
-          <div
-            class="max-w-6xl mx-auto text-center px-6"
-            style="max-width: calc(100vw - 32px)"
-          >
-            <div class="flex justify-center gap-6 mb-6">
-              <a
-                href="https://www.instagram.com/d.fitnessbysenura"
-                class="text-white/70 hover:text-white"
-                target="_blank"
-                >Instagram</a
-              >
-              <a
-                href="https://www.tiktok.com/@dreamfitnessbysenura"
-                class="text-white/70 hover:text-white"
-                target="_blank"
-                >TikTok</a
-              >
-              <a
-                href="https://www.facebook.com/dreamfitnessbysenura"
-                class="text-white/70 hover:text-white"
-                target="_blank"
-                >Facebook</a
-              >
-            </div>
-            <p class="text-white/50">
-              &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              DreamFitness | Created by
-              <a
-                href="https://psychdevs.site/"
-                class="underline"
-                target="_blank"
-                >PsychDevs</a
-              >
-            </p>
-          </div>
-        </footer>
-      </div>
-    </div>
-  </body>
+			body {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
+			/* Animated hamburger */
+			.hamburger-lines,
+			.hamburger-lines::before,
+			.hamburger-lines::after {
+				content: "";
+				display: block;
+				width: 22px;
+				height: 2px;
+				background: currentColor;
+				border-radius: 2px;
+				position: relative;
+				transition:
+					transform 0.35s ease,
+					opacity 0.25s ease;
+			}
+			.hamburger-lines::before {
+				position: absolute;
+				top: -7px;
+				left: 0;
+			}
+			.hamburger-lines::after {
+				position: absolute;
+				top: 7px;
+				left: 0;
+			}
+			/* Responsive typography helpers (mobile-first smaller) */
+			.hero-title-main {
+				font-size: clamp(2.4rem, 8vw, 5rem);
+				line-height: 1.05;
+			}
+			.hero-sub {
+				font-size: clamp(0.9rem, 3.4vw, 1.4rem);
+				letter-spacing: 0.05em;
+			}
+			.section-title {
+				font-size: clamp(1.6rem, 6.2vw, 2.5rem);
+				line-height: 1.15;
+			}
+			.section-text {
+				font-size: clamp(0.85rem, 3.4vw, 1.125rem);
+			}
+			.stat-number {
+				font-size: clamp(2.25rem, 9vw, 3.5rem);
+			}
+			.cta-title {
+				font-size: clamp(1.9rem, 7vw, 3.25rem);
+				line-height: 1.15;
+			}
+			.testimonial-title {
+				font-size: clamp(1.7rem, 6.5vw, 2.5rem);
+			}
+			.feature-card h3 {
+				font-size: clamp(1rem, 4vw, 1.125rem);
+			}
+			.feature-card p {
+				font-size: clamp(0.75rem, 3.2vw, 0.9rem);
+			}
+			.testimonial-quote {
+				font-size: clamp(0.85rem, 3.2vw, 1.05rem);
+			}
+			@media (min-width: 1024px) {
+				.stat-number {
+					font-size: 3.75rem;
+				}
+			}
+			/* Compact layout for very small devices (<=400px) */
+			@media (max-width: 400px) {
+				body,
+				html {
+					font-size: 15px;
+				}
+				.compact-page {
+					max-width: 100vw;
+					margin: 0;
+					padding: 0;
+					overflow-x: hidden;
+				}
+				header#navbar {
+					padding-left: 8px;
+					padding-right: 8px;
+					max-width: 100vw;
+				}
+				/* All sections need proper mobile padding */
+				section {
+					padding-left: 12px !important;
+					padding-right: 12px !important;
+				}
+				.max-w-6xl,
+				.max-w-5xl,
+				.max-w-4xl,
+				.max-w-3xl,
+				.max-w-2xl {
+					max-width: calc(100vw - 24px) !important;
+					margin-left: auto !important;
+					margin-right: auto !important;
+				}
+				.hero-title-main {
+					font-size: clamp(2rem, 12vw, 3.2rem);
+				}
+				.hero-sub {
+					font-size: clamp(0.75rem, 3.4vw, 0.95rem);
+				}
+				.section-title {
+					font-size: clamp(1.35rem, 7vw, 1.9rem);
+				}
+				.section-text {
+					font-size: clamp(0.75rem, 3.5vw, 0.95rem);
+				}
+				.stat-number {
+					font-size: clamp(1.9rem, 11vw, 2.4rem);
+				}
+				.cta-title {
+					font-size: clamp(1.5rem, 8vw, 2.2rem);
+				}
+				.testimonial-title {
+					font-size: clamp(1.45rem, 7vw, 2rem);
+				}
+				.testimonial-quote {
+					font-size: clamp(0.75rem, 3.4vw, 0.95rem);
+				}
+				.feature-card {
+					padding: 14px !important;
+				}
+				.feature-card h3 {
+					font-size: 0.95rem;
+				}
+				.feature-card p {
+					font-size: 0.7rem;
+				}
+				section.py-20 {
+					padding-top: 3.5rem !important;
+					padding-bottom: 3.5rem !important;
+				}
+				section.py-24 {
+					padding-top: 3.75rem !important;
+					padding-bottom: 3.75rem !important;
+				}
+				.py-16 {
+					padding-top: 3.5rem !important;
+					padding-bottom: 3.5rem !important;
+				}
+				.cta-title + p {
+					margin-top: 0.5rem;
+				}
+				.cta-title {
+					margin-bottom: 0.25rem;
+				}
+				.hero-sub {
+					margin-top: 0.35rem !important;
+				}
+				/* Carousel adjustments */
+				#testimonial-track > div {
+					padding: 1.75rem 1.25rem !important;
+				}
+				#testimonial-prev,
+				#testimonial-next {
+					width: 2.25rem;
+					height: 2.25rem;
+				}
+				#testimonial-prev svg,
+				#testimonial-next svg {
+					width: 18px;
+					height: 18px;
+				}
+				.stat-number + span {
+					font-size: 0.6rem;
+				}
+				.grid.gap-12 {
+					gap: 2.25rem !important;
+				}
+				.grid.gap-5 {
+					gap: 1.1rem !important;
+				}
+				a.bg-white {
+					padding: 0.9rem 1.3rem !important;
+					font-size: 0.8rem;
+				}
+			}
+		</style>
+		<script>
+			// Navbar background color on scroll (parity with other pages)
+			window.addEventListener("DOMContentLoaded", function () {
+				var navbar = document.getElementById("navbar");
+				function onScroll() {
+					if (window.scrollY > 10) {
+						navbar.classList.remove("bg-transparent");
+						navbar.classList.add("bg-[#1d1d1d]");
+					} else {
+						navbar.classList.add("bg-transparent");
+						navbar.classList.remove("bg-[#1d1d1d]");
+					}
+				}
+				window.addEventListener("scroll", onScroll);
+				onScroll();
+			});
+		</script>
+		<script defer src="./site.js"></script>
+	</head>
+	<body class="bg-[#1d1d1d]">
+		<div
+			class="relative flex size-full min-h-screen flex-col dark group/design-root compact-page"
+			style="
+				font-family: Lexend, &quot;Noto Sans&quot;, sans-serif;
+				width: 100%;
+				max-width: 100vw;
+			"
+		>
+			<div class="layout-container flex h-full grow flex-col">
+				<header
+					id="navbar"
+					class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
+				>
+					<a
+						href="./index.html"
+						class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
+					>
+						<img
+							class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
+							src="./Sources/logo.png"
+							alt="Logo"
+						/>
+						<span class="hidden xs:inline">DreamFitness</span>
+					</a>
+					<nav class="hidden md:block">
+						<div class="flex items-center gap-6 lg:gap-8">
+							<a
+								class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
+								href="./index.html"
+								aria-current="page"
+								>Home</a
+							>
+							<a
+								class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+								href="./services.html"
+								>Services</a
+							>
+							<a
+								class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+								href="./merch.html"
+								>Merch</a
+							>
+						</div>
+					</nav>
+					<div class="flex items-center gap-3">
+						<a
+							href="./contact.html"
+							class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
+							>Contact Us</a
+						>
+						<button
+							aria-label="Toggle navigation"
+							aria-expanded="false"
+							data-nav-toggle
+							class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
+						>
+							<span
+								class="hamburger-lines"
+								aria-hidden="true"
+							></span>
+						</button>
+					</div>
+					<!-- Mobile panel -->
+					<div
+						data-nav-panel
+						data-open="false"
+						class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
+						role="dialog"
+						aria-modal="true"
+						aria-label="Mobile navigation"
+					>
+						<div
+							class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
+						>
+							<a
+								class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
+								href="./index.html"
+								aria-current="page"
+								>Home</a
+							>
+							<a
+								class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+								href="./services.html"
+								>Services</a
+							>
+							<a
+								class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+								href="./merch.html"
+								>Merch</a
+							>
+							<a
+								class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
+								href="./contact.html"
+								>Contact Us</a
+							>
+						</div>
+					</div>
+				</header>
+				<div class="flex justify-center">
+					<div class="flex flex-col">
+						<div class="relative">
+							<section
+								style="
+									position: relative;
+									width: 100%;
+									height: 100vh;
+									overflow: hidden;
+									margin: 0;
+									padding: 0;
+								"
+							>
+								<video
+									src="./Sources/videos/gymVid.mp4"
+									autoplay
+									muted
+									loop
+									playsinline
+									style="
+										position: fixed;
+										top: 0;
+										left: 0;
+										width: 100%;
+										height: 100vh;
+										object-fit: cover;
+										z-index: -2;
+										margin: 0;
+										padding: 0;
+										border: none;
+										outline: none;
+										pointer-events: none;
+									"
+								></video>
+								<div
+									style="
+										position: fixed;
+										top: 0;
+										left: 0;
+										width: 100%;
+										height: 100vh;
+										z-index: -1;
+										background: linear-gradient(
+											to bottom,
+											rgba(0, 0, 0, 0.4),
+											rgba(0, 0, 0, 0.9)
+										);
+										pointer-events: none;
+									"
+								></div>
+								<div
+									class="relative flex mx-auto px-4 flex-col gap-6 text-center items-center justify-center"
+									style="
+										position: relative;
+										z-index: 2;
+										height: 100vh;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+										max-width: 100%;
+									"
+								>
+									<h1
+										class="text-white mb-4 text-center drop-shadow-lg"
+									>
+										<span
+											class="text-[#ff1400] font-extrabold uppercase hero-title-main block"
+											>DreamFitness</span
+										>
+										<span
+											class="text-white/80 font-semibold block mt-2 hero-sub"
+											>Where Fitness Dreams Become
+											Reality</span
+										>
+									</h1>
+								</div>
+							</section>
+						</div>
+						<div
+							class="py-16 min-h-screen w-full flex flex-col justify-center items-center bg-[#1d1d1d] px-4"
+							style="
+								background: linear-gradient(
+									to bottom,
+									rgba(0, 0, 0, 0),
+									#18181870,
+									#181818d0,
+									#181818
+								);
+							"
+							id="about"
+						>
+							<h2
+								class="text-white font-bold tracking-tighter text-center mb-4 section-title"
+							>
+								About DreamFitness
+							</h2>
+							<p
+								class="text-white/70 font-normal leading-relaxed text-center mx-auto section-text"
+								style="max-width: calc(100% - 70px)"
+							>
+								DreamFitness is a certified fitness instructor
+								with over 10 years of experience in helping
+								individuals achieve their fitness aspirations.
+								Specializing in personalized training,
+								DreamFitness combines cutting-edge techniques
+								with a holistic approach to wellness, ensuring
+								sustainable results and a healthier lifestyle.
+							</p>
+						</div>
+						<!-- Features Section -->
+						<section
+							class="py-20 px-6 bg-[#181818] border-white/10"
+						>
+							<div class="max-w-6xl mx-auto">
+								<h2
+									class="text-white font-extrabold text-center mb-4 section-title"
+								>
+									Why Train With Us
+								</h2>
+								<p
+									class="text-white/60 text-center max-w-2xl mx-auto mb-12 section-text"
+								>
+									Evidence-based programming, accountability,
+									and a supportive culture focused on
+									sustainable progress.
+								</p>
+								<div
+									class="grid gap-5 md:gap-8 md:grid-cols-2 lg:grid-cols-4"
+								>
+									<div
+										class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
+									>
+										<div
+											class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
+										>
+											1
+										</div>
+										<h3 class="text-white font-semibold">
+											Personalization
+										</h3>
+										<p
+											class="text-white/60 leading-relaxed"
+										>
+											Programs adapted to your physiology,
+											schedule, and goals.
+										</p>
+									</div>
+									<div
+										class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
+									>
+										<div
+											class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
+										>
+											2
+										</div>
+										<h3 class="text-white font-semibold">
+											Holistic Coaching
+										</h3>
+										<p
+											class="text-white/60 leading-relaxed"
+										>
+											Lifestyle, recovery, and nutrition
+											guidance—not just workouts.
+										</p>
+									</div>
+									<div
+										class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
+									>
+										<div
+											class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
+										>
+											3
+										</div>
+										<h3 class="text-white font-semibold">
+											Data & Feedback
+										</h3>
+										<p
+											class="text-white/60 leading-relaxed"
+										>
+											Track progress with objective
+											metrics and regular reviews.
+										</p>
+									</div>
+									<div
+										class="rounded-xl bg-[#1f1f1f] border border-white/10 p-5 md:p-6 flex flex-col gap-3 feature-card"
+									>
+										<div
+											class="w-12 h-12 rounded-lg bg-[#ff1400]/10 flex items-center justify-center text-[#ff1400] font-bold text-xl"
+										>
+											4
+										</div>
+										<h3 class="text-white font-semibold">
+											Community
+										</h3>
+										<p
+											class="text-white/60 leading-relaxed"
+										>
+											Supportive environment that keeps
+											you consistent and inspired.
+										</p>
+									</div>
+								</div>
+							</div>
+						</section>
+						<!-- Stats Section -->
+						<section class="py-24 px-6 bg-[#1d1d1d]" id="stats">
+							<div
+								class="max-w-6xl mx-auto grid gap-12 md:grid-cols-4 text-center"
+							>
+								<div class="flex flex-col gap-2">
+									<span
+										class="font-extrabold text-white counter stat-number"
+										data-target="10+"
+										>0</span
+									>
+									<span
+										class="text-white/60 text-sm tracking-wide uppercase"
+										>Clients Trained</span
+									>
+								</div>
+								<div class="flex flex-col gap-2">
+									<span
+										class="font-extrabold text-white counter stat-number"
+										data-target="500+"
+										>0</span
+									>
+									<span
+										class="text-white/60 text-sm tracking-wide uppercase"
+										>Sessions Delivered</span
+									>
+								</div>
+								<div class="flex flex-col gap-2">
+									<span
+										class="font-extrabold text-white counter stat-number"
+										data-target="100"
+										>0</span
+									>
+									<span
+										class="text-white/60 text-sm tracking-wide uppercase"
+										>Satisfaction %</span
+									>
+								</div>
+								<div class="flex flex-col gap-2">
+									<span
+										class="font-extrabold text-white counter stat-number"
+										data-target="4"
+										>0</span
+									>
+									<span
+										class="text-white/60 text-sm tracking-wide uppercase"
+										>Years Experience</span
+									>
+								</div>
+							</div>
+						</section>
+						<!-- CTA Banner -->
+						<section
+							class="relative py-24 px-6 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] overflow-hidden"
+						>
+							<div
+								class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_30%,#ffffff40,transparent_60%)]"
+							></div>
+							<div
+								class="relative max-w-5xl mx-auto flex flex-col items-center text-center gap-6"
+							>
+								<h2
+									class="text-white font-extrabold leading-tight cta-title text-center"
+								>
+									Start Building Your Future Body Today
+								</h2>
+								<p class="text-white/90 max-w-2xl section-text">
+									Book a free consultation call and get a
+									personalized roadmap to accelerate your
+									transformation.
+								</p>
+								<a
+									href="./contact.html"
+									class="bg-white text-[#ff1400] font-bold px-8 py-4 rounded-lg shadow hover:shadow-lg transition"
+								>
+									Book Your Free Call
+								</a>
+							</div>
+						</section>
+						<div
+							class="py-16 px-4 min-h-screen w-full flex flex-col justify-center bg-[#1d1d1d]"
+						>
+							<h2
+								class="text-white font-bold leading-tight tracking-tighter text-center mb-12 testimonial-title"
+							>
+								What Our Clients Say
+							</h2>
+							<div
+								class="relative mx-auto"
+								style="
+									width: calc(100vw - 32px);
+									max-width: 800px;
+								"
+							>
+								<div
+									id="testimonial-carousel"
+									class="overflow-hidden relative"
+								>
+									<div
+										class="flex transition-transform duration-500"
+										id="testimonial-track"
+										style="will-change: transform"
+									>
+										<!-- Slide 1 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+													alt="Manjula U Gamage"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Manjula U Gamage</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"Highly recommended ♥️ Great
+												guidance for body shaping and
+												not just workout schedules but
+												also the right meal plan!"
+											</p>
+										</div>
+										<!-- Slide 2 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
+													alt="Nadeen Nelan"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Nadeen Nelan</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"Updated and knowledgeable
+												Techniques and friendly teaching
+												and coaching sessions . So I’m
+												Highly recommend this coaching
+												service to all 💪"
+											</p>
+										</div>
+										<!-- Slide 3 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+													alt="Sachith Rajapaksha"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Sachith Rajapaksha</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"He is a very good guide with
+												recommended exercises and diet
+												plans for quick results 💪🤜❤️"
+											</p>
+										</div>
+										<!-- Slide 4 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+													alt="Swarna Chapa"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Swarna Chapa</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"Highly recommended ❤💯"
+											</p>
+										</div>
+										<!-- Slide 5 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+													alt="Akila Munthaj"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Akila Munthaj</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"Highly recommend ❤️"
+											</p>
+										</div>
+										<!-- Slide 6 -->
+										<div
+											class="min-w-full flex flex-col items-center justify-center gap-4 rounded-xl border border-white/10 bg-[#1d1d1d] p-8 shadow-lg text-center"
+										>
+											<div
+												class="flex items-center gap-4 mb-2"
+											>
+												<img
+													src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png"
+													alt="Nipun Gimhana"
+													class="w-14 h-14 rounded-full object-cover"
+												/>
+												<div>
+													<a
+														href="https://www.facebook.com/story.php?story_fbid=1185799166900186&id=100064103412078&rdid=jo5nNlqLL1viIPHo#"
+														target="_blank"
+														class="text-white text-xl font-bold leading-normal"
+														>Nipun Gimhana</a
+													>
+													<p
+														class="text-white/60 text-base font-medium leading-normal"
+													>
+														via Facebook
+													</p>
+												</div>
+											</div>
+											<p
+												class="max-w-xl mx-auto text-white/90 font-medium leading-relaxed testimonial-quote"
+											>
+												"Highly recommended ❤💯"
+											</p>
+										</div>
+									</div>
+									<!-- Carousel Controls -->
+									<button
+										id="testimonial-prev"
+										aria-label="Previous testimonial"
+										class="absolute left-1 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+											class="w-6 h-6"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M15 19l-7-7 7-7"
+											/>
+										</svg>
+									</button>
+									<button
+										id="testimonial-next"
+										aria-label="Next testimonial"
+										class="absolute right-1 top-1/2 -translate-y-1/2 bg-[#1d1d1d]/80 hover:bg-[#ff1400] text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-10 transition-colors duration-200"
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+											class="w-6 h-6"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M9 5l7 7-7 7"
+											/>
+										</svg>
+									</button>
+									<!-- Carousel Indicators -->
+									<div
+										class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10"
+									>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="0"
+										></button>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="1"
+										></button>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="2"
+										></button>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="3"
+										></button>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="4"
+										></button>
+										<button
+											class="w-4 h-1.5 rounded bg-white/40"
+											data-slide="5"
+										></button>
+									</div>
+								</div>
+							</div>
+							<script>
+								// Simple carousel logic
+								(function () {
+									const track =
+										document.getElementById(
+											"testimonial-track",
+										);
+									const prev =
+										document.getElementById(
+											"testimonial-prev",
+										);
+									const next =
+										document.getElementById(
+											"testimonial-next",
+										);
+									const indicators =
+										document.querySelectorAll(
+											"[data-slide]",
+										);
+									let current = 0;
+									const slides = 6;
+									function updateCarousel(idx) {
+										current = idx;
+										track.style.transform = `translateX(-${current * 100}%)`;
+										indicators.forEach((el, i) => {
+											el.classList.toggle(
+												"bg-white",
+												i === current,
+											);
+											el.classList.toggle(
+												"bg-white/40",
+												i !== current,
+											);
+										});
+									}
+									prev.addEventListener("click", () => {
+										updateCarousel(
+											(current - 1 + slides) % slides,
+										);
+									});
+									next.addEventListener("click", () => {
+										updateCarousel((current + 1) % slides);
+									});
+									indicators.forEach((el, i) => {
+										el.addEventListener("click", () =>
+											updateCarousel(i),
+										);
+									});
+									updateCarousel(0);
+								})();
+							</script>
+						</div>
+					</div>
+				</div>
+				<footer class="border-t border-white/10 py-10 bg-[#1d1d1d]">
+					<div
+						class="max-w-6xl mx-auto text-center px-6"
+						style="max-width: calc(100vw - 32px)"
+					>
+						<div class="flex justify-center gap-6 mb-6">
+							<a
+								href="https://www.instagram.com/d.fitnessbysenura"
+								class="text-white/70 hover:text-white"
+								target="_blank"
+								>Instagram</a
+							>
+							<a
+								href="https://www.tiktok.com/@dreamfitnessbysenura"
+								class="text-white/70 hover:text-white"
+								target="_blank"
+								>TikTok</a
+							>
+							<a
+								href="https://www.facebook.com/dreamfitnessbysenura"
+								class="text-white/70 hover:text-white"
+								target="_blank"
+								>Facebook</a
+							>
+						</div>
+						<p class="text-white/50">
+							&copy;
+							<script>
+								document.write(new Date().getFullYear());
+							</script>
+							DreamFitness | Created by
+							<a
+								href="https://lasith.site/"
+								class="underline"
+								target="_blank"
+								>Lasith</a
+							>
+						</p>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</body>
 </html>

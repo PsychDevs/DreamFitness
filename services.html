@@ -1,1263 +1,1532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-    <link
-      as="style"
-      href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
-      onload="this.rel='stylesheet'"
-      rel="stylesheet"
-    />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="DreamFitness services: personal training, group classes, nutrition coaching."
-    />
-    <title>Services - DreamFitness</title>
-    <link href="./Sources/logo.png" rel="icon" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: Lexend, "Noto Sans", sans-serif;
-      }
-      html,
-      body {
-        overflow-x: hidden;
-      }
+	<head>
+		<link
+			crossorigin=""
+			href="https://fonts.gstatic.com/"
+			rel="preconnect"
+		/>
+		<link
+			as="style"
+			href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900"
+			onload="this.rel = 'stylesheet'"
+			rel="stylesheet"
+		/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta
+			name="description"
+			content="DreamFitness services: personal training, group classes, nutrition coaching."
+		/>
+		<title>Services - DreamFitness</title>
+		<link href="./Sources/logo.png" rel="icon" />
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Lexend, "Noto Sans", sans-serif;
+			}
+			html,
+			body {
+				overflow-x: hidden;
+			}
 
-      /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
-      ::-webkit-scrollbar {
-        display: none;
-      }
+			/* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+			::-webkit-scrollbar {
+				display: none;
+			}
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      html {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
+			/* Hide scrollbar for IE, Edge and Firefox */
+			html {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
 
-      body {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-      .hamburger-lines,
-      .hamburger-lines::before,
-      .hamburger-lines::after {
-        content: "";
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: currentColor;
-        border-radius: 2px;
-        position: relative;
-        transition: transform 0.35s ease, opacity 0.25s ease;
-      }
-      .hamburger-lines::before {
-        position: absolute;
-        top: -7px;
-        left: 0;
-      }
-      .hamburger-lines::after {
-        position: absolute;
-        top: 7px;
-        left: 0;
-      }
-    </style>
-    <script>
-      window.addEventListener("DOMContentLoaded", function () {
-        var navbar = document.getElementById("navbar");
-        function onScroll() {
-          if (window.scrollY > 10) {
-            navbar.classList.remove("bg-transparent");
-            navbar.classList.add("bg-[#1d1d1d]");
-          } else {
-            navbar.classList.add("bg-transparent");
-            navbar.classList.remove("bg-[#1d1d1d]");
-          }
-        }
-        window.addEventListener("scroll", onScroll);
-        onScroll();
-      });
-    </script>
-    <script defer src="./site.js"></script>
-  </head>
-  <body class="bg-[#1d1d1d]">
-    <div class="relative min-h-screen flex flex-col">
-      <header
-        id="navbar"
-        class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
-      >
-        <a
-          href="./index.html"
-          class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
-        >
-          <img
-            class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
-            src="./Sources/logo.png"
-            alt="Logo"
-          />
-          <span class="hidden xs:inline">DreamFitness</span>
-        </a>
-        <nav class="hidden md:block">
-          <div class="flex items-center gap-6 lg:gap-8">
-            <a
-              class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-              href="./index.html"
-              >Home</a
-            >
-            <a
-              class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
-              href="./services.html"
-              aria-current="page"
-              >Services</a
-            >
-            <a
-              class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
-              href="./merch.html"
-              >Merch</a
-            >
-          </div>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a
-            href="./contact.html"
-            class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
-            >Contact Us</a
-          >
-          <button
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-            data-nav-toggle
-            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
-          >
-            <span class="hamburger-lines" aria-hidden="true"></span>
-          </button>
-        </div>
-        <div
-          data-nav-panel
-          data-open="false"
-          class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
-        >
-          <div
-            class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
-          >
-            <a
-              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
-              href="./index.html"
-              >Home</a
-            >
-            <a
-              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
-              href="./services.html"
-              aria-current="page"
-              >Services</a
-            >
-            <a
-              class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
-              href="./merch.html"
-              >Merch</a
-            >
-            <a
-              class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
-              href="./contact.html"
-              >Contact Us</a
-            >
-          </div>
-        </div>
-      </header>
+			body {
+				-ms-overflow-style: none; /* IE and Edge */
+				scrollbar-width: none; /* Firefox */
+			}
+			.hamburger-lines,
+			.hamburger-lines::before,
+			.hamburger-lines::after {
+				content: "";
+				display: block;
+				width: 22px;
+				height: 2px;
+				background: currentColor;
+				border-radius: 2px;
+				position: relative;
+				transition:
+					transform 0.35s ease,
+					opacity 0.25s ease;
+			}
+			.hamburger-lines::before {
+				position: absolute;
+				top: -7px;
+				left: 0;
+			}
+			.hamburger-lines::after {
+				position: absolute;
+				top: 7px;
+				left: 0;
+			}
+		</style>
+		<script>
+			window.addEventListener("DOMContentLoaded", function () {
+				var navbar = document.getElementById("navbar");
+				function onScroll() {
+					if (window.scrollY > 10) {
+						navbar.classList.remove("bg-transparent");
+						navbar.classList.add("bg-[#1d1d1d]");
+					} else {
+						navbar.classList.add("bg-transparent");
+						navbar.classList.remove("bg-[#1d1d1d]");
+					}
+				}
+				window.addEventListener("scroll", onScroll);
+				onScroll();
+			});
+		</script>
+		<script defer src="./site.js"></script>
+	</head>
+	<body class="bg-[#1d1d1d]">
+		<div class="relative min-h-screen flex flex-col">
+			<header
+				id="navbar"
+				class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-white/10 px-4 sm:px-6 py-3 sm:py-4 bg-transparent transition-colors duration-300 backdrop-blur"
+			>
+				<a
+					href="./index.html"
+					class="text-white text-xl sm:text-2xl font-bold leading-tight flex items-center gap-2"
+				>
+					<img
+						class="h-12 w-12 sm:h-14 sm:w-14 object-cover"
+						src="./Sources/logo.png"
+						alt="Logo"
+					/>
+					<span class="hidden xs:inline">DreamFitness</span>
+				</a>
+				<nav class="hidden md:block">
+					<div class="flex items-center gap-6 lg:gap-8">
+						<a
+							class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+							href="./index.html"
+							>Home</a
+						>
+						<a
+							class="text-white text-sm lg:text-base font-medium leading-normal underline underline-offset-8"
+							href="./services.html"
+							aria-current="page"
+							>Services</a
+						>
+						<a
+							class="text-white text-sm lg:text-base font-medium leading-normal hover:underline hover:underline-offset-8"
+							href="./merch.html"
+							>Merch</a
+						>
+					</div>
+				</nav>
+				<div class="flex items-center gap-3">
+					<a
+						href="./contact.html"
+						class="hidden md:inline-flex items-center justify-center rounded-lg bg-[#ff1400] px-4 h-10 text-white font-bold text-sm lg:text-base"
+						>Contact Us</a
+					>
+					<button
+						aria-label="Toggle navigation"
+						aria-expanded="false"
+						data-nav-toggle
+						class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white focus:outline-none focus:ring-2 focus:ring-[#ff1400] transition-colors"
+					>
+						<span class="hamburger-lines" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div
+					data-nav-panel
+					data-open="false"
+					class="pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 md:hidden absolute top-full left-0 w-full px-4"
+					role="dialog"
+					aria-modal="true"
+					aria-label="Mobile navigation"
+				>
+					<div
+						class="mt-2 rounded-xl border border-white/10 bg-[#1d1d1d]/95 backdrop-blur p-4 flex flex-col gap-3 shadow-lg"
+					>
+						<a
+							class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+							href="./index.html"
+							>Home</a
+						>
+						<a
+							class="text-white font-medium py-2 px-3 rounded hover:bg-white/5 underline"
+							href="./services.html"
+							aria-current="page"
+							>Services</a
+						>
+						<a
+							class="text-white font-medium py-2 px-3 rounded hover:bg-white/5"
+							href="./merch.html"
+							>Merch</a
+						>
+						<a
+							class="text-white font-semibold py-2 px-3 rounded bg-[#ff1400] text-center"
+							href="./contact.html"
+							>Contact Us</a
+						>
+					</div>
+				</div>
+			</header>
 
-      <main class="w-full">
-        <!-- Detailed Services Section -->
-        <section id="services" class="max-w-6xl mx-auto py-40 px-6">
-          <div class="text-center mb-16">
-            <h1
-              class="text-center text-white text-4xl md:text-6xl font-extrabold mb-10"
-            >
-              Premium Fitness
-            </h1>
-            <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">
-              BUDGET BASIC PACKAGES
-            </h2>
-            <p class="text-white/70 max-w-2xl mx-auto text-lg">
-              Carefully crafted one-time services to kickstart your journey.
-            </p>
-          </div>
+			<main class="w-full">
+				<!-- Detailed Services Section -->
+				<section id="services" class="max-w-6xl mx-auto py-40 px-6">
+					<div class="text-center mb-16">
+						<h1
+							class="text-center text-white text-4xl md:text-6xl font-extrabold mb-10"
+						>
+							Premium Fitness
+						</h1>
+						<h2
+							class="text-white text-3xl md:text-4xl font-extrabold mb-4"
+						>
+							BUDGET BASIC PACKAGES
+						</h2>
+						<p class="text-white/70 max-w-2xl mx-auto text-lg">
+							Carefully crafted one-time services to kickstart
+							your journey.
+						</p>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <!-- Meal Plan -->
-            <div
-              class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] mx-auto"
-            >
-              <div class="flex items-center mb-6">
-                <div
-                  class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 10h16M10 14h10M10 18h10"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-white text-2xl font-bold">Meal Plan</h3>
-                  <p class="text-white text-3xl font-extrabold">Rs.8000/=</p>
-                </div>
-              </div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+						<!-- Meal Plan -->
+						<div
+							class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] mx-auto"
+						>
+							<div class="flex items-center mb-6">
+								<div
+									class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M4 6h16M4 10h16M10 14h10M10 18h10"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white text-2xl font-bold">
+										Meal Plan
+									</h3>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.8000/=
+									</p>
+								</div>
+							</div>
 
-              <div class="mb-6">
-                <h4 class="text-white font-semibold mb-3">In Details</h4>
-                <ul class="space-y-2 text-white/70">
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>With 1 Ajustments
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                    plan (according to height, weight, age and food
-                    preferences).
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >One time service</span
-                    >
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >Not online coaching</span
-                    >
-                  </li>
-                </ul>
-              </div>
+							<div class="mb-6">
+								<h4 class="text-white font-semibold mb-3">
+									In Details
+								</h4>
+								<ul class="space-y-2 text-white/70">
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>With 1 Ajustments
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>Personalized meal plan (according to
+										height, weight, age and food
+										preferences).
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>One time service</span
+										>
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>Not online coaching</span
+										>
+									</li>
+								</ul>
+							</div>
 
-              <a
-                href="./contact.html"
-                class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
-                >Contact to Purchase</a
-              >
-            </div>
+							<a
+								href="./contact.html"
+								class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
+								>Contact to Purchase</a
+							>
+						</div>
 
-            <!-- Work out plan -->
-            <div
-              class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] mx-auto"
-            >
-              <div class="flex items-center mb-6">
-                <div
-                  class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 7h6m-9 4h12M7 15h10M9 19h6"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-white text-2xl font-bold">Work out plan</h3>
-                  <p class="text-white text-3xl font-extrabold">Rs.6500/=</p>
-                </div>
-              </div>
+						<!-- Work out plan -->
+						<div
+							class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] mx-auto"
+						>
+							<div class="flex items-center mb-6">
+								<div
+									class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M9 7h6m-9 4h12M7 15h10M9 19h6"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white text-2xl font-bold">
+										Work out plan
+									</h3>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.6500/=
+									</p>
+								</div>
+							</div>
 
-              <div class="mb-6">
-                <h4 class="text-white font-semibold mb-3">In Details</h4>
-                <ul class="space-y-2 text-white/70">
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>With 1 Ajustments
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                    out plan after analysing the body type and body response
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >One time service</span
-                    >
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >Not online coaching</span
-                    >
-                  </li>
-                </ul>
-              </div>
+							<div class="mb-6">
+								<h4 class="text-white font-semibold mb-3">
+									In Details
+								</h4>
+								<ul class="space-y-2 text-white/70">
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>With 1 Ajustments
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>Personalized work out plan after
+										analysing the body type and body
+										response
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>One time service</span
+										>
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>Not online coaching</span
+										>
+									</li>
+								</ul>
+							</div>
 
-              <a
-                href="./contact.html"
-                class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
-                >Contact to Purchase</a
-              >
-            </div>
+							<a
+								href="./contact.html"
+								class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
+								>Contact to Purchase</a
+							>
+						</div>
 
-            <!-- Smart Plan -->
-            <div
-              class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
-            >
-              <div class="flex items-center mb-6">
-                <div
-                  class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 6v12m6-6H6"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-white text-2xl font-bold">Smart Plan</h3>
-                  <p class="text-white text-3xl font-extrabold">Rs.12500/=</p>
-                </div>
-              </div>
+						<!-- Smart Plan -->
+						<div
+							class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 hover:border-[#ff1400]/30 transition-all duration-300 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
+						>
+							<div class="flex items-center mb-6">
+								<div
+									class="w-16 h-16 bg-[#ff1400]/10 rounded-xl flex items-center justify-center mr-4"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M12 6v12m6-6H6"
+										></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-white text-2xl font-bold">
+										Smart Plan
+									</h3>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.12500/=
+									</p>
+								</div>
+							</div>
 
-              <div class="mb-6">
-                <h4 class="text-white font-semibold mb-3">In Details</h4>
-                <ul class="space-y-2 text-white/70">
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>With 1 Ajustments
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                    out plan after analysing the body type and body response
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                    plan (according to height, weight, age and food
-                    preferences).
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >One time service</span
-                    >
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-[#ff1400] mr-2">•</span
-                    ><span class="font-semibold text-white"
-                      >Not online coaching</span
-                    >
-                  </li>
-                </ul>
-              </div>
+							<div class="mb-6">
+								<h4 class="text-white font-semibold mb-3">
+									In Details
+								</h4>
+								<ul class="space-y-2 text-white/70">
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>With 1 Ajustments
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>Personalized work out plan after
+										analysing the body type and body
+										response
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										>Personalized meal plan (according to
+										height, weight, age and food
+										preferences).
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>One time service</span
+										>
+									</li>
+									<li class="flex items-start">
+										<span class="text-[#ff1400] mr-2"
+											>•</span
+										><span class="font-semibold text-white"
+											>Not online coaching</span
+										>
+									</li>
+								</ul>
+							</div>
 
-              <a
-                href="./contact.html"
-                class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
-                >Contact to Purchase</a
-              >
-            </div>
-          </div>
+							<a
+								href="./contact.html"
+								class="w-full bg-[#f13300] hover:bg-[#f13300] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 inline-block text-center"
+								>Contact to Purchase</a
+							>
+						</div>
+					</div>
 
-          <!-- Promo -->
-          <div
-            class="text-center bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8"
-          >
-            <p class="text-white font-extrabold text-xl md:text-2xl">
-              Make your Dream body come true with Dream Fitness
-            </p>
-            <p class="text-[#ff1400] font-black text-2xl md:text-3xl mt-2">
-              10% OFF FOR First 5
-            </p>
-            <p class="text-white/80 mt-2">
-              Take a step and contact now:
-              <a class="underline" href="tel:+94725570035">+94-72-55-700-35</a>
-            </p>
-          </div>
-        </section>
+					<!-- Promo -->
+					<div
+						class="text-center bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8"
+					>
+						<p
+							class="text-white font-extrabold text-xl md:text-2xl"
+						>
+							Make your Dream body come true with Dream Fitness
+						</p>
+						<p
+							class="text-[#ff1400] font-black text-2xl md:text-3xl mt-2"
+						>
+							10% OFF FOR First 5
+						</p>
+						<p class="text-white/80 mt-2">
+							Take a step and contact now:
+							<a class="underline" href="tel:+94725570035"
+								>+94-72-55-700-35</a
+							>
+						</p>
+					</div>
+				</section>
 
-        <!-- Online Coaching Packages -->
-        <section class="max-w-6xl mx-auto py-20 md:py-24 px-6">
-          <div class="text-center mb-12">
-            <h2 class="text-white text-3xl md:text-4xl font-extrabold">
-              ONLINE COACHING PACKAGES
-            </h2>
-          </div>
+				<!-- Online Coaching Packages -->
+				<section class="max-w-6xl mx-auto py-20 md:py-24 px-6">
+					<div class="text-center mb-12">
+						<h2
+							class="text-white text-3xl md:text-4xl font-extrabold"
+						>
+							ONLINE COACHING PACKAGES
+						</h2>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Moderate Performer -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-2">
-                Moderate Performer
-              </h3>
-              <div class="grid grid-cols-1 gap-2 mb-6">
-                <div>
-                  <p class="text-white/60">Monthly</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.15500/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">3 Months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.42500/=</p>
-                </div>
-              </div>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                  out plan for your fitness capacity after analysing the body
-                  type and body response.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan (according to height, weight, age and food preferences).
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow up
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Progress discussions
-                  for every 2 weeks.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>48-72 Hour whats app
-                  attention.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide.
-                </li>
-              </ul>
-            </div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Moderate Performer -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-2">
+								Moderate Performer
+							</h3>
+							<div class="grid grid-cols-1 gap-2 mb-6">
+								<div>
+									<p class="text-white/60">Monthly</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.15500/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">3 Months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.42500/=
+									</p>
+								</div>
+							</div>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized work out plan for your fitness
+									capacity after analysing the body type and
+									body response.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan (according to
+									height, weight, age and food preferences).
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow up
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Progress discussions for every 2 weeks.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>48-72 Hour whats app attention.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide.
+								</li>
+							</ul>
+						</div>
 
-            <!-- Absolute Beginner -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-2">
-                Absolute Beginner
-              </h3>
-              <div class="grid grid-cols-1 gap-2 mb-6">
-                <div>
-                  <p class="text-white/60">Monthly</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.17000/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">3 Months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.47000/=</p>
-                </div>
-              </div>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                  out plan for your fitness capacity after analysing the body
-                  type and body response.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan (according to height, weight, age and food preferences).
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow up
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Progress discussions
-                  for every week.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>24-48 Hour whats app
-                  attention.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide.
-                </li>
-              </ul>
-            </div>
+						<!-- Absolute Beginner -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-2">
+								Absolute Beginner
+							</h3>
+							<div class="grid grid-cols-1 gap-2 mb-6">
+								<div>
+									<p class="text-white/60">Monthly</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.17000/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">3 Months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.47000/=
+									</p>
+								</div>
+							</div>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized work out plan for your fitness
+									capacity after analysing the body type and
+									body response.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan (according to
+									height, weight, age and food preferences).
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow up
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Progress discussions for every week.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>24-48 Hour whats app attention.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide.
+								</li>
+							</ul>
+						</div>
 
-            <!-- 6 Months -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-2">6 Months</h3>
-              <div class="mb-6">
-                <p class="text-white/60">Price</p>
-                <p class="text-white text-3xl font-extrabold">Rs.75000/=</p>
-              </div>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                  out plan for your fitness capacity after analysing the body
-                  type and body response.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan (according to height, weight, age and food preferences).
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow up
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Progress discussions
-                  for every week.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>24-48 Hour whats app
-                  attention.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+						<!-- 6 Months -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-2">
+								6 Months
+							</h3>
+							<div class="mb-6">
+								<p class="text-white/60">Price</p>
+								<p class="text-white text-3xl font-extrabold">
+									Rs.75000/=
+								</p>
+							</div>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized work out plan for your fitness
+									capacity after analysing the body type and
+									body response.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan (according to
+									height, weight, age and food preferences).
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow up
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Progress discussions for every week.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>24-48 Hour whats app attention.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide.
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
 
-        <!-- Online Coaching 1-on-1: Fatloss for Busy Life -->
-        <section class="max-w-6xl mx-auto py-20 md:py-24 px-6" id="services">
-          <div class="text-center mb-4">
-            <h2 class="text-white text-3xl md:text-4xl font-extrabold">
-              ONLINE COACHING 1 ON 1 PACKAGES
-            </h2>
-            <p class="text-white/80 text-lg mt-2">FATLOSS FOR BUSY LIFE</p>
-            <p class="text-blue-300 mt-2">
-              Only 4 Slots are available for each packages below
-            </p>
-          </div>
+				<!-- Online Coaching 1-on-1: Fatloss for Busy Life -->
+				<section
+					class="max-w-6xl mx-auto py-20 md:py-24 px-6"
+					id="services"
+				>
+					<div class="text-center mb-4">
+						<h2
+							class="text-white text-3xl md:text-4xl font-extrabold"
+						>
+							ONLINE COACHING 1 ON 1 PACKAGES
+						</h2>
+						<p class="text-white/80 text-lg mt-2">
+							FATLOSS FOR BUSY LIFE
+						</p>
+						<p class="text-blue-300 mt-2">
+							Only 4 Slots are available for each packages below
+						</p>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Busy 45 Minutes - Single -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-1">
-                Busy 45 Minutes
-              </h3>
-              <p class="text-white/50 text-sm mb-4">
-                (RECOMMEND FOR BUSY MEN AND WOMEN WHO IS WHO HAS A FITNESS GOAL
-                BUT SHORT ON TIME)
-              </p>
-              <div class="grid grid-cols-1 gap-2 mb-2">
-                <div>
-                  <p class="text-white/60">For a month</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.38000/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">For 3 months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.110000/=</p>
-                </div>
-              </div>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan according to the fitness goal
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized home
-                  work out plan according to the fitness goal
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide (Illegal substance free)
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Best for fat loss
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>4 Session per week
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Guaranteed results
-                </li>
-              </ul>
-            </div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Busy 45 Minutes - Single -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-1">
+								Busy 45 Minutes
+							</h3>
+							<p class="text-white/50 text-sm mb-4">
+								(RECOMMEND FOR BUSY MEN AND WOMEN WHO IS WHO HAS
+								A FITNESS GOAL BUT SHORT ON TIME)
+							</p>
+							<div class="grid grid-cols-1 gap-2 mb-2">
+								<div>
+									<p class="text-white/60">For a month</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.38000/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">For 3 months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.110000/=
+									</p>
+								</div>
+							</div>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan according to the
+									fitness goal
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized home work out plan according
+									to the fitness goal
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide (Illegal substance
+									free)
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Best for fat loss
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span>4
+									Session per week
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Guaranteed results
+								</li>
+							</ul>
+						</div>
 
-            <!-- Busy 45 Minutes - Team of 3 -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-1">
-                Busy 45 Minutes
-              </h3>
-              <p class="text-white/50 text-sm mb-4">
-                (RECOMMEND FOR BUSY 3 MEN AND WOMEN WHO HAS SAME FITNESS GOAL
-                BUT SHORT ON TIME)
-              </p>
-              <div class="grid grid-cols-1 gap-2 mb-2">
-                <div>
-                  <p class="text-white/60">For a month</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.99000/=</p>
-                  <p class="text-white/60">Per person Rs.33000/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">For 3 months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.285000/=</p>
-                  <p class="text-white/60">Per person Rs.95000/=</p>
-                </div>
-              </div>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan according to the fitness goal for each person.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized home
-                  work out plan according to the fitness goal for each person.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide (Illegal substance free)
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Best for fat loss
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>4 session per week
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Guaranteed results
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+						<!-- Busy 45 Minutes - Team of 3 -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-1">
+								Busy 45 Minutes
+							</h3>
+							<p class="text-white/50 text-sm mb-4">
+								(RECOMMEND FOR BUSY 3 MEN AND WOMEN WHO HAS SAME
+								FITNESS GOAL BUT SHORT ON TIME)
+							</p>
+							<div class="grid grid-cols-1 gap-2 mb-2">
+								<div>
+									<p class="text-white/60">For a month</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.99000/=
+									</p>
+									<p class="text-white/60">
+										Per person Rs.33000/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">For 3 months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.285000/=
+									</p>
+									<p class="text-white/60">
+										Per person Rs.95000/=
+									</p>
+								</div>
+							</div>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan according to the
+									fitness goal for each person.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized home work out plan according
+									to the fitness goal for each person.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide (Illegal substance
+									free)
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Best for fat loss
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span>4
+									session per week
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Guaranteed results
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
 
-        <!-- Personal Training Packages -->
-        <section class="max-w-6xl mx-auto py-20 md:py-24 px-6">
-          <div class="text-center mb-4">
-            <h2 class="text-white text-3xl md:text-4xl font-extrabold">
-              PERSONAL TRAINING PACKAGES
-            </h2>
-            <p class="text-white/80 text-lg mt-2">
-              (1 ON 1 TRAINING Only around Kandy)
-            </p>
-            <p class="text-blue-300 mt-2">
-              Only 1 Slot is available for each packages below
-            </p>
-          </div>
+				<!-- Personal Training Packages -->
+				<section class="max-w-6xl mx-auto py-20 md:py-24 px-6">
+					<div class="text-center mb-4">
+						<h2
+							class="text-white text-3xl md:text-4xl font-extrabold"
+						>
+							PERSONAL TRAINING PACKAGES
+						</h2>
+						<p class="text-white/80 text-lg mt-2">
+							(1 ON 1 TRAINING Only around Kandy)
+						</p>
+						<p class="text-blue-300 mt-2">
+							Only 1 Slot is available for each packages below
+						</p>
+					</div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Buddy Training -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-1">Buddy Training</h3>
-              <p class="text-white/50 text-sm mb-4">
-                (RECOMMEND FOR GYM ATTENDERS)
-              </p>
-              <div class="grid grid-cols-1 gap-2 mb-2">
-                <div>
-                  <p class="text-white/60">For a month</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.53000/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">For 3 months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.150000/=</p>
-                </div>
-              </div>
-              <p class="text-[#ff6b6b] text-sm mb-4">
-                with in Kandy City limit
-              </p>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized work
-                  out plan and meal plan according to the fitness goal
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide (Illegal substance free)
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Training support and
-                  help
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Weight
-                  recommendation for resistance training.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow up
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>4 Session per week
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Muscle relaxation
-                  session per each month
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Guaranteed results
-                </li>
-              </ul>
-            </div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						<!-- Buddy Training -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-1">
+								Buddy Training
+							</h3>
+							<p class="text-white/50 text-sm mb-4">
+								(RECOMMEND FOR GYM ATTENDERS)
+							</p>
+							<div class="grid grid-cols-1 gap-2 mb-2">
+								<div>
+									<p class="text-white/60">For a month</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.53000/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">For 3 months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.150000/=
+									</p>
+								</div>
+							</div>
+							<p class="text-[#ff6b6b] text-sm mb-4">
+								with in Kandy City limit
+							</p>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized work out plan and meal plan
+									according to the fitness goal
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide (Illegal substance
+									free)
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Training support and help
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Weight recommendation for resistance
+									training.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow up
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span>4
+									Session per week
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Muscle relaxation session per each month
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Guaranteed results
+								</li>
+							</ul>
+						</div>
 
-            <!-- Busy 45 Minutes -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-1">
-                Busy 45 Minutes
-              </h3>
-              <p class="text-white/50 text-sm mb-4">
-                (RECOMMEND FOR BUSY MEN AND WOMEN WHO HAS A FITNESS GOAL BUT
-                SHORT ON TIME)
-              </p>
-              <div class="grid grid-cols-1 gap-2 mb-2">
-                <div>
-                  <p class="text-white/60">For a month</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.48000/=</p>
-                </div>
-                <div class="pt-2 border-t border-white/10">
-                  <p class="text-white/60">For 3 months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.135000/=</p>
-                </div>
-              </div>
-              <p class="text-[#ff6b6b] text-sm mb-4">
-                with in Kandy City limit
-              </p>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan according to the fitness goal
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized home
-                  work out plan according to the fitness goal
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide (Illegal substance free)
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Best for fat loss
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow ups
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Muscle relaxation
-                  session per each month
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>4 Session per week
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Guaranteed results
-                </li>
-              </ul>
-            </div>
+						<!-- Busy 45 Minutes -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-1">
+								Busy 45 Minutes
+							</h3>
+							<p class="text-white/50 text-sm mb-4">
+								(RECOMMEND FOR BUSY MEN AND WOMEN WHO HAS A
+								FITNESS GOAL BUT SHORT ON TIME)
+							</p>
+							<div class="grid grid-cols-1 gap-2 mb-2">
+								<div>
+									<p class="text-white/60">For a month</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.48000/=
+									</p>
+								</div>
+								<div class="pt-2 border-t border-white/10">
+									<p class="text-white/60">For 3 months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.135000/=
+									</p>
+								</div>
+							</div>
+							<p class="text-[#ff6b6b] text-sm mb-4">
+								with in Kandy City limit
+							</p>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan according to the
+									fitness goal
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized home work out plan according
+									to the fitness goal
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide (Illegal substance
+									free)
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Best for fat loss
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow ups
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Muscle relaxation session per each month
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span>4
+									Session per week
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Guaranteed results
+								</li>
+							</ul>
+						</div>
 
-            <!-- Busy Team 45 Minutes -->
-            <div
-              class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
-            >
-              <h3 class="text-white text-2xl font-bold mb-1">
-                Busy Team 45 Minutes
-              </h3>
-              <p class="text-white/50 text-sm mb-4">
-                (RECOMMEND FOR BUSY 3 MEN AND WOMEN WHO HAS SAME FITNESS GOAL
-                BUT SHORT ON TIME)
-              </p>
-              <div class="grid grid-cols-1 gap-2 mb-2">
-                <div>
-                  <p class="text-white/60">For 3 months</p>
-                  <p class="text-white text-3xl font-extrabold">Rs.360000/=</p>
-                  <p class="text-white/60">Per person Rs.120000/=</p>
-                </div>
-              </div>
-              <p class="text-[#ff6b6b] text-sm mb-4">
-                with in Kandy City limit
-              </p>
-              <h4 class="text-white font-semibold mb-3">In Details</h4>
-              <ul class="space-y-2 text-white/70">
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized meal
-                  plan according to the fitness goal for each person.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Personalized home
-                  work out plan according to the fitness goal for each person.
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Supplementation
-                  guide (Illegal substance free)
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Best for fat loss
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Daily follow ups
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Muscle relaxation
-                  session per each month
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>4 session per week
-                </li>
-                <li class="flex items-start">
-                  <span class="text-[#ff1400] mr-2">•</span>Guaranteed results
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+						<!-- Busy Team 45 Minutes -->
+						<div
+							class="rounded-2xl border border-white/10 bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 w-full md:max-w-[28rem] md:col-span-2 md:mx-auto"
+						>
+							<h3 class="text-white text-2xl font-bold mb-1">
+								Busy Team 45 Minutes
+							</h3>
+							<p class="text-white/50 text-sm mb-4">
+								(RECOMMEND FOR BUSY 3 MEN AND WOMEN WHO HAS SAME
+								FITNESS GOAL BUT SHORT ON TIME)
+							</p>
+							<div class="grid grid-cols-1 gap-2 mb-2">
+								<div>
+									<p class="text-white/60">For 3 months</p>
+									<p
+										class="text-white text-3xl font-extrabold"
+									>
+										Rs.360000/=
+									</p>
+									<p class="text-white/60">
+										Per person Rs.120000/=
+									</p>
+								</div>
+							</div>
+							<p class="text-[#ff6b6b] text-sm mb-4">
+								with in Kandy City limit
+							</p>
+							<h4 class="text-white font-semibold mb-3">
+								In Details
+							</h4>
+							<ul class="space-y-2 text-white/70">
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized meal plan according to the
+									fitness goal for each person.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Personalized home work out plan according
+									to the fitness goal for each person.
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Supplementation guide (Illegal substance
+									free)
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Best for fat loss
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Daily follow ups
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Muscle relaxation session per each month
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span>4
+									session per week
+								</li>
+								<li class="flex items-start">
+									<span class="text-[#ff1400] mr-2">•</span
+									>Guaranteed results
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
 
-        <!-- Training Process Section -->
-        <section
-          class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#181818] to-[#1d1d1d]"
-        >
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">
-                Our Proven Process
-              </h2>
-              <p class="text-white/70 max-w-2xl mx-auto text-lg">
-                Every successful transformation follows a structured approach.
-                Here's how we ensure your success from day one.
-              </p>
-            </div>
+				<!-- Training Process Section -->
+				<section
+					class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#181818] to-[#1d1d1d]"
+				>
+					<div class="max-w-6xl mx-auto">
+						<div class="text-center mb-16">
+							<h2
+								class="text-white text-3xl md:text-4xl font-extrabold mb-4"
+							>
+								Our Proven Process
+							</h2>
+							<p class="text-white/70 max-w-2xl mx-auto text-lg">
+								Every successful transformation follows a
+								structured approach. Here's how we ensure your
+								success from day one.
+							</p>
+						</div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <!-- Step 1 -->
-              <div class="relative">
-                <div
-                  class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
-                >
-                  <div
-                    class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                  >
-                    <span class="text-2xl font-bold text-[#ff1400]">1</span>
-                  </div>
-                  <h3 class="text-white font-bold text-xl mb-3">Assessment</h3>
-                  <p class="text-white/90 text-sm leading-relaxed">
-                    Comprehensive evaluation of your current fitness level,
-                    goals, and lifestyle to create your personalized roadmap.
-                  </p>
-                </div>
-                <!-- Arrow for larger screens -->
-                <div
-                  class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+						<div
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+						>
+							<!-- Step 1 -->
+							<div class="relative">
+								<div
+									class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
+								>
+									<div
+										class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
+									>
+										<span
+											class="text-2xl font-bold text-[#ff1400]"
+											>1</span
+										>
+									</div>
+									<h3
+										class="text-white font-bold text-xl mb-3"
+									>
+										Assessment
+									</h3>
+									<p
+										class="text-white/90 text-sm leading-relaxed"
+									>
+										Comprehensive evaluation of your current
+										fitness level, goals, and lifestyle to
+										create your personalized roadmap.
+									</p>
+								</div>
+								<!-- Arrow for larger screens -->
+								<div
+									class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+											clip-rule="evenodd"
+										></path>
+									</svg>
+								</div>
+							</div>
 
-              <!-- Step 2 -->
-              <div class="relative">
-                <div
-                  class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
-                >
-                  <div
-                    class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                  >
-                    <span class="text-2xl font-bold text-[#ff1400]">2</span>
-                  </div>
-                  <h3 class="text-white font-bold text-xl mb-3">
-                    Program Design
-                  </h3>
-                  <p class="text-white/70 text-sm leading-relaxed">
-                    Custom workout and nutrition plans tailored specifically to
-                    your goals, preferences, and schedule constraints.
-                  </p>
-                </div>
-                <div
-                  class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+							<!-- Step 2 -->
+							<div class="relative">
+								<div
+									class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
+								>
+									<div
+										class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
+									>
+										<span
+											class="text-2xl font-bold text-[#ff1400]"
+											>2</span
+										>
+									</div>
+									<h3
+										class="text-white font-bold text-xl mb-3"
+									>
+										Program Design
+									</h3>
+									<p
+										class="text-white/70 text-sm leading-relaxed"
+									>
+										Custom workout and nutrition plans
+										tailored specifically to your goals,
+										preferences, and schedule constraints.
+									</p>
+								</div>
+								<div
+									class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+											clip-rule="evenodd"
+										></path>
+									</svg>
+								</div>
+							</div>
 
-              <!-- Step 3 -->
-              <div class="relative">
-                <div
-                  class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
-                >
-                  <div
-                    class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                  >
-                    <span class="text-2xl font-bold text-[#ff1400]">3</span>
-                  </div>
-                  <h3 class="text-white font-bold text-xl mb-3">
-                    Implementation
-                  </h3>
-                  <p class="text-white/70 text-sm leading-relaxed">
-                    Guided execution with real-time feedback, form corrections,
-                    and motivation to ensure optimal results.
-                  </p>
-                </div>
-                <div
-                  class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
-                >
-                  <svg
-                    class="w-8 h-8 text-[#ff1400]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+							<!-- Step 3 -->
+							<div class="relative">
+								<div
+									class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
+								>
+									<div
+										class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
+									>
+										<span
+											class="text-2xl font-bold text-[#ff1400]"
+											>3</span
+										>
+									</div>
+									<h3
+										class="text-white font-bold text-xl mb-3"
+									>
+										Implementation
+									</h3>
+									<p
+										class="text-white/70 text-sm leading-relaxed"
+									>
+										Guided execution with real-time
+										feedback, form corrections, and
+										motivation to ensure optimal results.
+									</p>
+								</div>
+								<div
+									class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2"
+								>
+									<svg
+										class="w-8 h-8 text-[#ff1400]"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+											clip-rule="evenodd"
+										></path>
+									</svg>
+								</div>
+							</div>
 
-              <!-- Step 4 -->
-              <div class="relative">
-                <div
-                  class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
-                >
-                  <div
-                    class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
-                  >
-                    <span class="text-2xl font-bold text-[#ff1400]">4</span>
-                  </div>
-                  <h3 class="text-white font-bold text-xl mb-3">
-                    Optimization
-                  </h3>
-                  <p class="text-white/70 text-sm leading-relaxed">
-                    Continuous monitoring and adjustments to maximize progress
-                    and overcome plateaus for sustained results.
-                  </p>
-                </div>
-              </div>
-            </div>
+							<!-- Step 4 -->
+							<div class="relative">
+								<div
+									class="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10 rounded-2xl p-6 text-center"
+								>
+									<div
+										class="w-16 h-16 bg-[#ff1400]/20 rounded-full flex items-center justify-center mx-auto mb-4"
+									>
+										<span
+											class="text-2xl font-bold text-[#ff1400]"
+											>4</span
+										>
+									</div>
+									<h3
+										class="text-white font-bold text-xl mb-3"
+									>
+										Optimization
+									</h3>
+									<p
+										class="text-white/70 text-sm leading-relaxed"
+									>
+										Continuous monitoring and adjustments to
+										maximize progress and overcome plateaus
+										for sustained results.
+									</p>
+								</div>
+							</div>
+						</div>
 
-            <!-- Process Benefits -->
-            <div
-              class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8"
-            >
-              <div class="text-center">
-                <h3 class="text-white text-2xl font-bold mb-4">
-                  Why This Process Works
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                  <div class="text-center">
-                    <div
-                      class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
-                    >
-                      <svg
-                        class="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4 class="text-white font-semibold mb-2">
-                      Personalized Approach
-                    </h4>
-                    <p class="text-white/70 text-sm">
-                      Every aspect is tailored to your unique needs and
-                      circumstances
-                    </p>
-                  </div>
-                  <div class="text-center">
-                    <div
-                      class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
-                    >
-                      <svg
-                        class="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4 class="text-white font-semibold mb-2">
-                      Faster Results
-                    </h4>
-                    <p class="text-white/70 text-sm">
-                      Structured methodology eliminates guesswork and
-                      accelerates progress
-                    </p>
-                  </div>
-                  <div class="text-center">
-                    <div
-                      class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
-                    >
-                      <svg
-                        class="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h4 class="text-white font-semibold mb-2">
-                      Sustainable Habits
-                    </h4>
-                    <p class="text-white/70 text-sm">
-                      Focus on long-term lifestyle changes, not quick fixes
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+						<!-- Process Benefits -->
+						<div
+							class="mt-16 bg-gradient-to-r from-[#ff1400]/10 to-[#ff3d00]/10 border border-[#ff1400]/20 rounded-2xl p-8"
+						>
+							<div class="text-center">
+								<h3 class="text-white text-2xl font-bold mb-4">
+									Why This Process Works
+								</h3>
+								<div
+									class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+								>
+									<div class="text-center">
+										<div
+											class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
+										>
+											<svg
+												class="w-6 h-6 text-white"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+												></path>
+											</svg>
+										</div>
+										<h4
+											class="text-white font-semibold mb-2"
+										>
+											Personalized Approach
+										</h4>
+										<p class="text-white/70 text-sm">
+											Every aspect is tailored to your
+											unique needs and circumstances
+										</p>
+									</div>
+									<div class="text-center">
+										<div
+											class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
+										>
+											<svg
+												class="w-6 h-6 text-white"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M13 10V3L4 14h7v7l9-11h-7z"
+												></path>
+											</svg>
+										</div>
+										<h4
+											class="text-white font-semibold mb-2"
+										>
+											Faster Results
+										</h4>
+										<p class="text-white/70 text-sm">
+											Structured methodology eliminates
+											guesswork and accelerates progress
+										</p>
+									</div>
+									<div class="text-center">
+										<div
+											class="w-12 h-12 bg-[#ff1400] rounded-full flex items-center justify-center mx-auto mb-3"
+										>
+											<svg
+												class="w-6 h-6 text-white"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+												></path>
+											</svg>
+										</div>
+										<h4
+											class="text-white font-semibold mb-2"
+										>
+											Sustainable Habits
+										</h4>
+										<p class="text-white/70 text-sm">
+											Focus on long-term lifestyle
+											changes, not quick fixes
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
-        <!-- Why Dream Fitness -->
-        <section class="py-20 md:py-24 px-6 bg-[#1d1d1d]">
-          <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#5aa2ff] mb-6">
-              Why Dream Fitness?
-            </h2>
-            <ul
-              class="list-disc marker:text-[#5aa2ff] pl-6 space-y-3 text-white/90"
-            >
-              <li>Wide range of Services.</li>
-              <li>100% Natural transformations.</li>
-              <li>Only using healthy food supplement.</li>
-              <li>Friendly Services.</li>
-              <li>Amazing rates and Discounts.</li>
-              <li>Result focused guidance.</li>
-              <li>
-                Certified instructor with over 3 years of instructing and over 6
-                years of training period.
-              </li>
-            </ul>
-          </div>
-        </section>
+				<!-- Why Dream Fitness -->
+				<section class="py-20 md:py-24 px-6 bg-[#1d1d1d]">
+					<div class="max-w-4xl mx-auto">
+						<h2
+							class="text-2xl md:text-3xl font-extrabold text-[#5aa2ff] mb-6"
+						>
+							Why Dream Fitness?
+						</h2>
+						<ul
+							class="list-disc marker:text-[#5aa2ff] pl-6 space-y-3 text-white/90"
+						>
+							<li>Wide range of Services.</li>
+							<li>100% Natural transformations.</li>
+							<li>Only using healthy food supplement.</li>
+							<li>Friendly Services.</li>
+							<li>Amazing rates and Discounts.</li>
+							<li>Result focused guidance.</li>
+							<li>
+								Certified instructor with over 3 years of
+								instructing and over 6 years of training period.
+							</li>
+						</ul>
+					</div>
+				</section>
 
-        <!-- FAQ Section -->
-        <section
-          class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#181818] to-[#1d1d1d]"
-        >
-          <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p class="text-white/70 max-w-2xl mx-auto text-lg">
-                Get answers to the most common questions about our services and
-                training approach.
-              </p>
-            </div>
+				<!-- FAQ Section -->
+				<section
+					class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#181818] to-[#1d1d1d]"
+				>
+					<div class="max-w-4xl mx-auto">
+						<div class="text-center mb-16">
+							<h2
+								class="text-white text-3xl md:text-4xl font-extrabold mb-4"
+							>
+								Frequently Asked Questions
+							</h2>
+							<p class="text-white/70 max-w-2xl mx-auto text-lg">
+								Get answers to the most common questions about
+								our services and training approach.
+							</p>
+						</div>
 
-            <div class="space-y-6">
-              <!-- FAQ Item 1 -->
-              <div
-                class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
-              >
-                <h3 class="text-white font-semibold text-lg mb-3">
-                  How quickly will I see results?
-                </h3>
-                <p class="text-white/70 leading-relaxed">
-                  Most clients start seeing noticeable changes within 2-3 weeks,
-                  with significant transformations typically occurring within
-                  8-12 weeks. Results depend on consistency, starting fitness
-                  level, and specific goals.
-                </p>
-              </div>
+						<div class="space-y-6">
+							<!-- FAQ Item 1 -->
+							<div
+								class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+							>
+								<h3
+									class="text-white font-semibold text-lg mb-3"
+								>
+									How quickly will I see results?
+								</h3>
+								<p class="text-white/70 leading-relaxed">
+									Most clients start seeing noticeable changes
+									within 2-3 weeks, with significant
+									transformations typically occurring within
+									8-12 weeks. Results depend on consistency,
+									starting fitness level, and specific goals.
+								</p>
+							</div>
 
-              <!-- FAQ Item 2 -->
-              <div
-                class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
-              >
-                <h3 class="text-white font-semibold text-lg mb-3">
-                  Do I need experience to start?
-                </h3>
-                <p class="text-white/70 leading-relaxed">
-                  Absolutely not! We work with clients of all fitness levels,
-                  from complete beginners to advanced athletes. Every program is
-                  customized to your current abilities and progressively
-                  challenges you as you improve.
-                </p>
-              </div>
+							<!-- FAQ Item 2 -->
+							<div
+								class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+							>
+								<h3
+									class="text-white font-semibold text-lg mb-3"
+								>
+									Do I need experience to start?
+								</h3>
+								<p class="text-white/70 leading-relaxed">
+									Absolutely not! We work with clients of all
+									fitness levels, from complete beginners to
+									advanced athletes. Every program is
+									customized to your current abilities and
+									progressively challenges you as you improve.
+								</p>
+							</div>
 
-              <!-- FAQ Item 3 -->
-              <div
-                class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
-              >
-                <h3 class="text-white font-semibold text-lg mb-3">
-                  What makes your approach different?
-                </h3>
-                <p class="text-white/70 leading-relaxed">
-                  Our approach combines personalized programming, evidence-based
-                  methods, comprehensive lifestyle coaching, and continuous
-                  support. We focus on sustainable habits rather than quick
-                  fixes, ensuring long-term success.
-                </p>
-              </div>
+							<!-- FAQ Item 3 -->
+							<div
+								class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+							>
+								<h3
+									class="text-white font-semibold text-lg mb-3"
+								>
+									What makes your approach different?
+								</h3>
+								<p class="text-white/70 leading-relaxed">
+									Our approach combines personalized
+									programming, evidence-based methods,
+									comprehensive lifestyle coaching, and
+									continuous support. We focus on sustainable
+									habits rather than quick fixes, ensuring
+									long-term success.
+								</p>
+							</div>
 
-              <!-- FAQ Item 4 -->
-              <div
-                class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
-              >
-                <h3 class="text-white font-semibold text-lg mb-3">
-                  Can I switch between service types?
-                </h3>
-                <p class="text-white/70 leading-relaxed">
-                  Yes! We understand that life circumstances change. You can
-                  easily transition between personal training, group classes, or
-                  online coaching based on your evolving needs and preferences.
-                </p>
-              </div>
+							<!-- FAQ Item 4 -->
+							<div
+								class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+							>
+								<h3
+									class="text-white font-semibold text-lg mb-3"
+								>
+									Can I switch between service types?
+								</h3>
+								<p class="text-white/70 leading-relaxed">
+									Yes! We understand that life circumstances
+									change. You can easily transition between
+									personal training, group classes, or online
+									coaching based on your evolving needs and
+									preferences.
+								</p>
+							</div>
 
-              <!-- FAQ Item 5 -->
-              <div
-                class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
-              >
-                <h3 class="text-white font-semibold text-lg mb-3">
-                  Do you provide nutrition guidance?
-                </h3>
-                <p class="text-white/70 leading-relaxed">
-                  Yes! All our services include basic nutrition guidance. For
-                  comprehensive meal planning and detailed nutritional support,
-                  we offer dedicated nutrition coaching packages that can
-                  complement any fitness program.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+							<!-- FAQ Item 5 -->
+							<div
+								class="bg-gradient-to-br from-[#1f1f1f] to-[#151515] border border-white/10 rounded-xl p-6"
+							>
+								<h3
+									class="text-white font-semibold text-lg mb-3"
+								>
+									Do you provide nutrition guidance?
+								</h3>
+								<p class="text-white/70 leading-relaxed">
+									Yes! All our services include basic
+									nutrition guidance. For comprehensive meal
+									planning and detailed nutritional support,
+									we offer dedicated nutrition coaching
+									packages that can complement any fitness
+									program.
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
 
-        <!-- Final CTA Section -->
-        <section
-          class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden"
-        >
-          <div class="absolute inset-0 opacity-20">
-            <div
-              class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"
-            ></div>
-            <div
-              class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"
-            ></div>
-          </div>
-          <div class="max-w-4xl mx-auto text-center relative z-10">
-            <h2
-              class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight"
-            >
-              Ready to Transform Your Life?
-            </h2>
-            <p class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed">
-              Join the pack of satisfied clients who have achieved their dream
-              bodies. Your transformation starts with a single step.
-            </p>
+				<!-- Final CTA Section -->
+				<section
+					class="py-20 md:py-24 px-6 bg-gradient-to-br from-[#ff1400] via-[#ff3d00] to-[#b80b00] relative overflow-hidden"
+				>
+					<div class="absolute inset-0 opacity-20">
+						<div
+							class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"
+						></div>
+						<div
+							class="absolute bottom-10 right-10 w-40 h-40 bg-white rounded-full blur-3xl"
+						></div>
+					</div>
+					<div class="max-w-4xl mx-auto text-center relative z-10">
+						<h2
+							class="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight"
+						>
+							Ready to Transform Your Life?
+						</h2>
+						<p
+							class="text-white/90 text-lg md:text-xl mb-8 leading-relaxed"
+						>
+							Join the pack of satisfied clients who have achieved
+							their dream bodies. Your transformation starts with
+							a single step.
+						</p>
 
-            <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-            >
-              <a
-                href="./contact.html"
-                class="border-2 border-white bg-white text-[#f13300] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f13300] hover:text-white"
-              >
-                Book Free Consultation
-              </a>
-              <a
-                href="tel:+94752358494"
-                class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
-              >
-                Call Now: (+94) 75 235 8494
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
+						<div
+							class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+						>
+							<a
+								href="./contact.html"
+								class="border-2 border-white bg-white text-[#f13300] font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#f13300] hover:text-white"
+							>
+								Book Free Consultation
+							</a>
+							<a
+								href="tel:+94752358494"
+								class="border-2 border-white hover:bg-white hover:text-[#ff1400] text-white font-bold px-8 py-4 rounded-lg transition-all duration-300"
+							>
+								Call Now: (+94) 75 235 8494
+							</a>
+						</div>
+					</div>
+				</section>
+			</main>
 
-      <footer class="mt-12 border-t border-white/10 py-10">
-        <div class="max-w-6xl mx-auto text-center px-6">
-          <div class="flex justify-center gap-6 mb-6">
-            <a
-              href="https://www.instagram.com/d.fitnessbysenura"
-              class="text-white/70 hover:text-white"
-              target="_blank"
-              >Instagram</a
-            >
-            <a
-              href="https://www.tiktok.com/@dreamfitnessbysenura"
-              class="text-white/70 hover:text-white"
-              target="_blank"
-              >TikTok</a
-            >
-            <a
-              href="https://www.facebook.com/dreamfitnessbysenura"
-              class="text-white/70 hover:text-white"
-              target="_blank"
-              >Facebook</a
-            >
-          </div>
-          <p class="text-white/50">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            DreamFitness | Created by
-            <a href="https://psychdevs.site/" class="underline" target="_blank"
-              >PsychDevs</a
-            >
-          </p>
-        </div>
-      </footer>
-    </div>
-  </body>
+			<footer class="mt-12 border-t border-white/10 py-10">
+				<div class="max-w-6xl mx-auto text-center px-6">
+					<div class="flex justify-center gap-6 mb-6">
+						<a
+							href="https://www.instagram.com/d.fitnessbysenura"
+							class="text-white/70 hover:text-white"
+							target="_blank"
+							>Instagram</a
+						>
+						<a
+							href="https://www.tiktok.com/@dreamfitnessbysenura"
+							class="text-white/70 hover:text-white"
+							target="_blank"
+							>TikTok</a
+						>
+						<a
+							href="https://www.facebook.com/dreamfitnessbysenura"
+							class="text-white/70 hover:text-white"
+							target="_blank"
+							>Facebook</a
+						>
+					</div>
+					<p class="text-white/50">
+						&copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						DreamFitness | Created by
+						<a
+							href="https://lasith.site/"
+							class="underline"
+							target="_blank"
+							>Lasith
+						</a>
+					</p>
+				</div>
+			</footer>
+		</div>
+	</body>
 </html>
